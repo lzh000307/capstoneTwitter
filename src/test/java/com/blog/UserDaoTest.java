@@ -23,14 +23,19 @@ class UserDaoTest {
         testUser.setNickname("test2");
         testUser.setAvatar("test2");
         testUser.setStatus(1);
+        testUser.setPhoneNumber("20086");
 
 //        userDao.insert(testUser);
         System.out.println(userDao.getById(1L));
         //update
-        userDao.addUser(testUser);
-        System.out.println(userDao.getById(2L));
+//        userDao.addUser(testUser);
+        testUser.setId(4L);
+        System.out.println(userDao.getById(4L));
         testUser.setUsername("test2-set");
-        System.out.println(userDao.getById(2L));
+        testUser.setPhoneNumber("20087");
+        testUser.setStatus(2);
+        userDao.updateUser(testUser);
+        System.out.println(userDao.getById(4L));
     }
 
 }

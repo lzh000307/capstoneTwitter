@@ -1760,3 +1760,102 @@ Caused by: java.lang.IllegalArgumentException: Mapped Statements collection alre
 2022-05-16 17:55:31.630  INFO 9788 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
 2022-05-16 17:55:31.631  INFO 9788 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2022-05-16 17:55:31.633  INFO 9788 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-05-16 19:29:22.314  INFO 15315 --- [main] com.blog.UserDaoTest                     : Starting UserDaoTest on ElvisdeMacBook-Pro.local with PID 15315 (started by elvislin in /Users/elvislin/Documents/IDEA_PROJECT/capstoneTwitter)
+2022-05-16 19:29:22.315 DEBUG 15315 --- [main] com.blog.UserDaoTest                     : Running with Spring Boot v2.2.5.RELEASE, Spring v5.2.4.RELEASE
+2022-05-16 19:29:22.315  INFO 15315 --- [main] com.blog.UserDaoTest                     : The following profiles are active: dev
+2022-05-16 19:29:23.560  INFO 15315 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-05-16 19:29:23.637  INFO 15315 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-05-16 19:29:23.861  INFO 15315 --- [main] com.blog.UserDaoTest                     : Started UserDaoTest in 1.821 seconds (JVM running for 2.341)
+2022-05-16 19:29:23.993  INFO 15315 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-05-16 19:29:24.261  INFO 15315 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-05-16 19:29:24.270 DEBUG 15315 --- [main] com.blog.dao.UserDao.getById             : ==>  Preparing: select * from user where id = ? 
+2022-05-16 19:29:24.288 DEBUG 15315 --- [main] com.blog.dao.UserDao.getById             : ==> Parameters: 1(Long)
+2022-05-16 19:29:24.311 DEBUG 15315 --- [main] com.blog.dao.UserDao.getById             : <==      Total: 1
+2022-05-16 19:29:24.315 DEBUG 15315 --- [main] com.blog.dao.UserDao.getById             : ==>  Preparing: select * from user where id = ? 
+2022-05-16 19:29:24.315 DEBUG 15315 --- [main] com.blog.dao.UserDao.getById             : ==> Parameters: 1(Long)
+2022-05-16 19:29:24.316 DEBUG 15315 --- [main] com.blog.dao.UserDao.getById             : <==      Total: 1
+2022-05-16 19:29:24.316 DEBUG 15315 --- [main] com.blog.dao.UserDao.addUser             : ==>  Preparing: insert into blog.t_user(username, password, email, phone_number, nickname, avatar, status, create_time, update_time) values(?, ?, ?, ?, ?, ?,?, ?, ?); 
+2022-05-16 19:29:24.317 DEBUG 15315 --- [main] com.blog.dao.UserDao.addUser             : ==> Parameters: test2(String), 20086(String), test2@test2.com(String), null, test2(String), test2(String), 1(Integer), null, null
+2022-05-16 19:29:24.365  INFO 15315 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-05-16 19:29:24.366  INFO 15315 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-05-16 19:29:24.370  INFO 15315 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-05-16 19:30:12.561  INFO 15381 --- [main] com.blog.UserDaoTest                     : Starting UserDaoTest on ElvisdeMacBook-Pro.local with PID 15381 (started by elvislin in /Users/elvislin/Documents/IDEA_PROJECT/capstoneTwitter)
+2022-05-16 19:30:12.562 DEBUG 15381 --- [main] com.blog.UserDaoTest                     : Running with Spring Boot v2.2.5.RELEASE, Spring v5.2.4.RELEASE
+2022-05-16 19:30:12.562  INFO 15381 --- [main] com.blog.UserDaoTest                     : The following profiles are active: dev
+2022-05-16 19:30:13.766  INFO 15381 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-05-16 19:30:13.853  INFO 15381 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-05-16 19:30:14.060  INFO 15381 --- [main] com.blog.UserDaoTest                     : Started UserDaoTest in 1.691 seconds (JVM running for 2.204)
+2022-05-16 19:30:14.192  INFO 15381 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-05-16 19:30:14.451  INFO 15381 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-05-16 19:30:14.455 DEBUG 15381 --- [main] com.blog.dao.UserDao.getById             : ==>  Preparing: select * from user where id = ? 
+2022-05-16 19:30:14.475 DEBUG 15381 --- [main] com.blog.dao.UserDao.getById             : ==> Parameters: 1(Long)
+2022-05-16 19:30:14.488 DEBUG 15381 --- [main] com.blog.dao.UserDao.getById             : <==      Total: 1
+2022-05-16 19:30:14.491 DEBUG 15381 --- [main] com.blog.dao.UserDao.getById             : ==>  Preparing: select * from user where id = ? 
+2022-05-16 19:30:14.492 DEBUG 15381 --- [main] com.blog.dao.UserDao.getById             : ==> Parameters: 1(Long)
+2022-05-16 19:30:14.493 DEBUG 15381 --- [main] com.blog.dao.UserDao.getById             : <==      Total: 1
+2022-05-16 19:30:14.493 DEBUG 15381 --- [main] com.blog.dao.UserDao.addUser             : ==>  Preparing: insert into user(username, password, email, phone_number, nickname, avatar, status, create_time, update_time) values(?, ?, ?, ?, ?, ?,?, ?, ?); 
+2022-05-16 19:30:14.494 DEBUG 15381 --- [main] com.blog.dao.UserDao.addUser             : ==> Parameters: test2(String), 20086(String), test2@test2.com(String), null, test2(String), test2(String), 1(Integer), null, null
+2022-05-16 19:30:14.496 DEBUG 15381 --- [main] com.blog.dao.UserDao.addUser             : <==    Updates: 1
+2022-05-16 19:30:14.496 DEBUG 15381 --- [main] com.blog.dao.UserDao.getById             : ==>  Preparing: select * from user where id = ? 
+2022-05-16 19:30:14.497 DEBUG 15381 --- [main] com.blog.dao.UserDao.getById             : ==> Parameters: 3(Long)
+2022-05-16 19:30:14.499 DEBUG 15381 --- [main] com.blog.dao.UserDao.getById             : <==      Total: 1
+2022-05-16 19:30:14.499 DEBUG 15381 --- [main] com.blog.dao.UserDao.updateUser          : ==>  Preparing: update user set username = ?, password = ?, email = ?, phone_number = ? nickname = ?, avatar = ?, status = ?, update_time = ? where id = ?; 
+2022-05-16 19:30:14.499 DEBUG 15381 --- [main] com.blog.dao.UserDao.updateUser          : ==> Parameters: test2-set(String), 20086(String), test2@test2.com(String), 20087(String), test2(String), test2(String), 2(Integer), null, null
+2022-05-16 19:30:14.548  INFO 15381 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-05-16 19:30:14.548  INFO 15381 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-05-16 19:30:14.550  INFO 15381 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-05-16 19:31:29.223  INFO 15466 --- [main] com.blog.UserDaoTest                     : Starting UserDaoTest on ElvisdeMacBook-Pro.local with PID 15466 (started by elvislin in /Users/elvislin/Documents/IDEA_PROJECT/capstoneTwitter)
+2022-05-16 19:31:29.224 DEBUG 15466 --- [main] com.blog.UserDaoTest                     : Running with Spring Boot v2.2.5.RELEASE, Spring v5.2.4.RELEASE
+2022-05-16 19:31:29.224  INFO 15466 --- [main] com.blog.UserDaoTest                     : The following profiles are active: dev
+2022-05-16 19:31:30.410  INFO 15466 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-05-16 19:31:30.490  INFO 15466 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-05-16 19:31:30.730  INFO 15466 --- [main] com.blog.UserDaoTest                     : Started UserDaoTest in 1.716 seconds (JVM running for 2.205)
+2022-05-16 19:31:30.858  INFO 15466 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-05-16 19:31:31.100  INFO 15466 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-05-16 19:31:31.104 DEBUG 15466 --- [main] com.blog.dao.UserDao.getById             : ==>  Preparing: select * from user where id = ? 
+2022-05-16 19:31:31.117 DEBUG 15466 --- [main] com.blog.dao.UserDao.getById             : ==> Parameters: 1(Long)
+2022-05-16 19:31:31.140 DEBUG 15466 --- [main] com.blog.dao.UserDao.getById             : <==      Total: 1
+2022-05-16 19:31:31.144 DEBUG 15466 --- [main] com.blog.dao.UserDao.getById             : ==>  Preparing: select * from user where id = ? 
+2022-05-16 19:31:31.144 DEBUG 15466 --- [main] com.blog.dao.UserDao.getById             : ==> Parameters: 1(Long)
+2022-05-16 19:31:31.145 DEBUG 15466 --- [main] com.blog.dao.UserDao.getById             : <==      Total: 1
+2022-05-16 19:31:31.145 DEBUG 15466 --- [main] com.blog.dao.UserDao.addUser             : ==>  Preparing: insert into user(username, password, email, phone_number, nickname, avatar, status, create_time, update_time) values(?, ?, ?, ?, ?, ?,?, ?, ?); 
+2022-05-16 19:31:31.146 DEBUG 15466 --- [main] com.blog.dao.UserDao.addUser             : ==> Parameters: test2(String), test2(String), test2@test2.com(String), 20086(String), test2(String), test2(String), 1(Integer), null, null
+2022-05-16 19:31:31.148 DEBUG 15466 --- [main] com.blog.dao.UserDao.addUser             : <==    Updates: 1
+2022-05-16 19:31:31.148 DEBUG 15466 --- [main] com.blog.dao.UserDao.getById             : ==>  Preparing: select * from user where id = ? 
+2022-05-16 19:31:31.149 DEBUG 15466 --- [main] com.blog.dao.UserDao.getById             : ==> Parameters: 4(Long)
+2022-05-16 19:31:31.151 DEBUG 15466 --- [main] com.blog.dao.UserDao.getById             : <==      Total: 1
+2022-05-16 19:31:31.151 DEBUG 15466 --- [main] com.blog.dao.UserDao.updateUser          : ==>  Preparing: update user set username = ?, password = ?, email = ?, phone_number = ?, nickname = ?, avatar = ?, status = ?, update_time = ? where id = ?; 
+2022-05-16 19:31:31.152 DEBUG 15466 --- [main] com.blog.dao.UserDao.updateUser          : ==> Parameters: test2-set(String), test2(String), test2@test2.com(String), 20087(String), test2(String), test2(String), 2(Integer), null, null
+2022-05-16 19:31:31.152 DEBUG 15466 --- [main] com.blog.dao.UserDao.updateUser          : <==    Updates: 0
+2022-05-16 19:31:31.153 DEBUG 15466 --- [main] com.blog.dao.UserDao.getById             : ==>  Preparing: select * from user where id = ? 
+2022-05-16 19:31:31.153 DEBUG 15466 --- [main] com.blog.dao.UserDao.getById             : ==> Parameters: 4(Long)
+2022-05-16 19:31:31.154 DEBUG 15466 --- [main] com.blog.dao.UserDao.getById             : <==      Total: 1
+2022-05-16 19:31:31.165  INFO 15466 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-05-16 19:31:31.165  INFO 15466 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-05-16 19:31:31.168  INFO 15466 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-05-16 19:33:38.060  INFO 15574 --- [main] com.blog.UserDaoTest                     : Starting UserDaoTest on ElvisdeMacBook-Pro.local with PID 15574 (started by elvislin in /Users/elvislin/Documents/IDEA_PROJECT/capstoneTwitter)
+2022-05-16 19:33:38.061 DEBUG 15574 --- [main] com.blog.UserDaoTest                     : Running with Spring Boot v2.2.5.RELEASE, Spring v5.2.4.RELEASE
+2022-05-16 19:33:38.061  INFO 15574 --- [main] com.blog.UserDaoTest                     : The following profiles are active: dev
+2022-05-16 19:33:39.302  INFO 15574 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-05-16 19:33:39.378  INFO 15574 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-05-16 19:33:39.597  INFO 15574 --- [main] com.blog.UserDaoTest                     : Started UserDaoTest in 1.855 seconds (JVM running for 2.354)
+2022-05-16 19:33:39.723  INFO 15574 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-05-16 19:33:39.964  INFO 15574 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-05-16 19:33:39.969 DEBUG 15574 --- [main] com.blog.dao.UserDao.getById             : ==>  Preparing: select * from user where id = ? 
+2022-05-16 19:33:39.983 DEBUG 15574 --- [main] com.blog.dao.UserDao.getById             : ==> Parameters: 1(Long)
+2022-05-16 19:33:40.009 DEBUG 15574 --- [main] com.blog.dao.UserDao.getById             : <==      Total: 1
+2022-05-16 19:33:40.013 DEBUG 15574 --- [main] com.blog.dao.UserDao.getById             : ==>  Preparing: select * from user where id = ? 
+2022-05-16 19:33:40.013 DEBUG 15574 --- [main] com.blog.dao.UserDao.getById             : ==> Parameters: 1(Long)
+2022-05-16 19:33:40.015 DEBUG 15574 --- [main] com.blog.dao.UserDao.getById             : <==      Total: 1
+2022-05-16 19:33:40.016 DEBUG 15574 --- [main] com.blog.dao.UserDao.getById             : ==>  Preparing: select * from user where id = ? 
+2022-05-16 19:33:40.016 DEBUG 15574 --- [main] com.blog.dao.UserDao.getById             : ==> Parameters: 4(Long)
+2022-05-16 19:33:40.020 DEBUG 15574 --- [main] com.blog.dao.UserDao.getById             : <==      Total: 1
+2022-05-16 19:33:40.020 DEBUG 15574 --- [main] com.blog.dao.UserDao.updateUser          : ==>  Preparing: update user set username = ?, password = ?, email = ?, phone_number = ?, nickname = ?, avatar = ?, status = ?, update_time = ? where id = ?; 
+2022-05-16 19:33:40.021 DEBUG 15574 --- [main] com.blog.dao.UserDao.updateUser          : ==> Parameters: test2-set(String), test2(String), test2@test2.com(String), 20087(String), test2(String), test2(String), 2(Integer), null, 4(Long)
+2022-05-16 19:33:40.023 DEBUG 15574 --- [main] com.blog.dao.UserDao.updateUser          : <==    Updates: 1
+2022-05-16 19:33:40.023 DEBUG 15574 --- [main] com.blog.dao.UserDao.getById             : ==>  Preparing: select * from user where id = ? 
+2022-05-16 19:33:40.023 DEBUG 15574 --- [main] com.blog.dao.UserDao.getById             : ==> Parameters: 4(Long)
+2022-05-16 19:33:40.024 DEBUG 15574 --- [main] com.blog.dao.UserDao.getById             : <==      Total: 1
+2022-05-16 19:33:40.035  INFO 15574 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-05-16 19:33:40.036  INFO 15574 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-05-16 19:33:40.038  INFO 15574 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
