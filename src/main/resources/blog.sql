@@ -170,4 +170,44 @@ CREATE TABLE `t_user`  (
 -- ----------------------------
 INSERT INTO `t_user` VALUES (1, '朱一鸣', '朱一鸣', 'e10adc3949ba59abbe56e057f20f883e', '691639910@qq.com', 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1584367404804&di=070c78aac95428c480b480a87b534e96&imgtype=0&src=http%3A%2F%2Fbbs.cnlinfo.net%2Fup%2Ftou%2F150611164743.jpg', 1, '2020-03-08 18:25:26', NULL);
 
+DROP TABLE IF EXISTS `censorship`;
+create table censorship
+(
+    id      int auto_increment primary key,
+    word    varchar(50)             /* censor words */
+);
+DROP TABLE IF EXISTS `tweet`;
+CREATE TABLE `tweet`  (
+                          `id` bigint(20) NOT NULL AUTO_INCREMENT,                                                      /* Tweet's ID */
+                          `first_picture` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,    /* Picture's URL in the brief */
+                          `status` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,           /* 禁止恶意发推 */
+                          `views` int(11) NULL DEFAULT NULL,                                                            /* 观看人数 */
+                          `likes` int(11) NOT NULL DEFAULT 0,                                                            /* 点赞数量 */
+                          `commentable` int(11) NOT NULL DEFAULT 0,                                                    /* comment ability */
+                          `published` int(11) NOT NULL DEFAULT 0,                                                       /* is published */
+                          `recommend` int(11) NOT NULL DEFAULT 0,
+                          `create_time` datetime NULL DEFAULT NULL,
+                          `update_time` datetime NULL DEFAULT NULL,
+                          `type_id` bigint(20) NULL DEFAULT NULL,                                                       /* type */
+                          `user_id` bigint(20) NULL DEFAULT NULL,
+                          `content` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,                           /* content, up to 300 words */
+                          `tag_ids` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,          /* tag */
+                          PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user`  (
+                         `id` bigint(20) NOT NULL AUTO_INCREMENT,
+                         `nickname` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+                         `username` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+                         `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
+                         `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+                         `phone_number` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+                         `avatar` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+                         `status` int(10) NULL DEFAULT NULL,               /* 用户权限，禁止登录、推文不可见 */
+                         `create_time` datetime NULL DEFAULT NULL,
+                         `update_time` datetime NULL DEFAULT NULL,
+                         PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
 SET FOREIGN_KEY_CHECKS = 1;
+
