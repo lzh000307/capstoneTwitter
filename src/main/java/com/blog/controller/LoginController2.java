@@ -31,7 +31,7 @@ public class LoginController2 {
         if(user != null){
             user.setPassword(null);
             session.setAttribute("user", user);
-            return "redirect:/index";
+            return "redirect:/";
         }else {
             attributes.addFlashAttribute("msg", "用户名或密码错误");
             return "redirect:/login";
