@@ -35,7 +35,10 @@
           </div>
         </form>
       </div>
-      <!--<a href="#" th:href="@{/login}" class="m-item red item m-mobile-hide" th:classappend="${n==6}?'active'"><i class=" info icon"></i>登录</a>-->
+      <tag th:if="${session.user==null}">
+      <a href="#" th:href="@{/login}" class="m-item red item m-mobile-hide" th:classappend="${n==6}?'active'"><i class=" info icon"></i>登录</a>
+        </tag>
+      <tag th:if="${session.user!=null}">
       <div class="right m-item m-mobile-hide menu">
         <div class="ui dropdown item">
           <div class="text">
@@ -48,6 +51,7 @@
           </div>
         </div>
       </div>
+      </tag>
     </div>
   </div>
   <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
