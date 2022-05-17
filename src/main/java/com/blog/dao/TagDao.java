@@ -18,7 +18,7 @@ public interface TagDao {
 
     List<Tag> getAllTag();
 
-    List<Tag> getBlogTag();  //首页展示博客标签
+//    List<Tag> getBlogTag();  //首页展示博客标签
 
     int updateTag(Tag tag);
 

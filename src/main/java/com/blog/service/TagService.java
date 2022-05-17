@@ -14,7 +14,7 @@ public interface TagService {
 
     List<Tag> getAllTag();
 
-    List<Tag> getBlogTag();  //首页展示博客标签
+//    List<Tag> getBlogTag();  //首页展示博客标签
 
     List<Tag> getTagByString(String text);   //从字符串中获取tag集合
 

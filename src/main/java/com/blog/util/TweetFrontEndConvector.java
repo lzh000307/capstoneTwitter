@@ -1,7 +1,6 @@
 package com.blog.util;
 
 import com.blog.controller.entity.TweetFrontEnd;
-import com.blog.dao.UserDao;
 import com.blog.pojo.Tweet;
 import com.blog.service.TagService;
 import com.blog.service.TrendService;
@@ -23,7 +22,7 @@ public class TweetFrontEndConvector {
         tweetFrontEnd.setTweet(tweet);
         tweetFrontEnd.setUser(userService.findById(tweet.getUserId()));
         //寻找tagList
-        trendService.getByTweetId(tweet.getId());
+        trendService.getTagByTweetId(tweet.getId());
         return tweetFrontEnd;
     }
 }

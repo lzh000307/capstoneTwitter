@@ -37,7 +37,7 @@ public class TrendServiceImpl implements TrendService {
     }
 
     @Override
-    public List<Tag> getByTweetId(Long tweetId) {
+    public List<Tag> getTagByTweetId(Long tweetId) {
         List<Trend> tagStr = trendDao.getByTweetId(tweetId);
         //转换为Tag
         List<Tag> tags = new ArrayList<>();
@@ -45,6 +45,25 @@ public class TrendServiceImpl implements TrendService {
             tags.add(tagService.getTag(trend.getTagId()));
         }
         return tags;
+    }
+
+    @Override
+    public List<Long> getTweetIdByTagId(Long tagId) {
+        List<Long> tweetIds = new ArrayList<>();
+        List<Trend> trends = trendDao.getByTagId(tagId);
+        for (Trend trend : trends) {
+            tweetIds.add(trend.getTweetId());
+        }
+        return tweetIds;
+    }
+
+    @Override
+    public int countTweetNumByTagId(Long tagId) {
+        List<Trend> trends = trendDao.getByTagId(tagId);
+        if(trends==null){
+            return 0; //没有tweet
+        }
+        return trends.size();
     }
 
 

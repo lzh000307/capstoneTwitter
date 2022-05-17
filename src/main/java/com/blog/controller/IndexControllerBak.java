@@ -36,7 +36,7 @@ public class IndexControllerBak {
         PageHelper.startPage(pagenum, 8);
         List<Blog> allBlog = blogService.getIndexBlog();
         List<Type> allType = typeService.getBlogType();  //获取博客的类型(联表查询)
-        List<Tag> allTag = tagService.getBlogTag();  //获取博客的标签(联表查询)
+        List<Tag> allTag = tagService.getAllTag();  //获取博客的标签(联表查询)
         List<Blog> recommendBlog =blogService.getAllRecommendBlog();  //获取推荐博客
 
         //得到分页结果对象

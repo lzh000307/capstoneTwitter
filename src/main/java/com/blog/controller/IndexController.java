@@ -23,8 +23,8 @@ import java.util.List;
 @Controller
 public class IndexController {
 
-    @Autowired
-    private BlogService blogService;
+//    @Autowired
+//    private BlogService blogService;
     @Autowired
     private TweetService tweetService;
     @Autowired
@@ -43,7 +43,7 @@ public class IndexController {
         PageHelper.startPage(pagenum, 8);
         List<Tweet> indexTweet = tweetService.getIndex();
 //        List<Type> allType = typeService.getBlogType();  //获取博客的类型(联表查询)
-        List<Tag> allTag = tagService.getBlogTag();  //获取博客的标签(联表查询)
+        List<Tag> allTag = tagService.getAllTag();  //获取博客的标签(联表查询)
 //        List<Blog> recommendBlog =blogService.getAllRecommendBlog();  //获取推荐博客
         //TODO: 点赞
 

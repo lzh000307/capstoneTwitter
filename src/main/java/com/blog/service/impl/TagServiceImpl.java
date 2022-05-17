@@ -3,6 +3,7 @@ package com.blog.service.impl;
 import com.blog.dao.TagDao;
 import com.blog.pojo.Tag;
 import com.blog.service.TagService;
+import com.blog.service.TrendService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,8 @@ public class TagServiceImpl implements TagService {
 
     @Autowired
     TagDao tagDao;
+    @Autowired
+    TrendService trendService;
 
     @Override
     public int saveTag(Tag tag) {
@@ -32,13 +35,17 @@ public class TagServiceImpl implements TagService {
 
     @Override
     public List<Tag> getAllTag() {
-        return tagDao.getAllTag();
+        List<Tag> tags = tagDao.getAllTag();
+        for(Tag tag : tags){
+            tag.setBlogNum(trendService.countTweetNumByTagId(tag.getId()));
+        }
+        return tags;
     }
 
-    @Override
-    public List<Tag> getBlogTag() {
-        return tagDao.getBlogTag();
-    }
+//    @Override
+//    public List<Tag> getBlogTag() {
+//        return tagDao.getBlogTag();
+//    }
 
     @Override
     public List<Tag> getTagByString(String text) {    //从tagIds字符串中获取id，根据id获取tag集合

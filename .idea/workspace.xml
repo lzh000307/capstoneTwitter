@@ -4,15 +4,30 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08ebf5d0-8ae2-4bb1-9acc-7568cc9c269a" name="Default Changelist" comment="新增推特详情页">
+    <list default="true" id="08ebf5d0-8ae2-4bb1-9acc-7568cc9c269a" name="Default Changelist" comment="新增搜索功能，解决了Tweet前端评论的小bug">
+      <change afterPath="$PROJECT_DIR$/log/blog-dev.log.2022-05-17.0.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/TagShowControllerBak.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/blog/dao/TopicDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/blog/pojo/Topic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/blog/service/TopicService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/blog/service/impl/TopicServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/TopicDao.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log/blog-dev.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/blog-dev.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/controller/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/IndexController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/controller/IndexControllerBak.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/IndexControllerBak.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/controller/TagShowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/TagShowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/dao/TagDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/dao/TagDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/pojo/Tag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/pojo/Tag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/service/TagService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/service/TagService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/service/TrendService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/service/TrendService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/service/impl/TagServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/service/impl/TagServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/service/impl/TrendServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/service/impl/TrendServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/util/TweetFrontEndConvector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/util/TweetFrontEndConvector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/blog.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/blog.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/TagDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/TagDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/TweetDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/TweetDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/_fragments.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/_fragments.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/tweet.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/tweet.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/tags.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/tags.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,11 +143,11 @@
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.blog.service" />
+      <recent name="com.blog.service.impl" />
       <recent name="com.blog.controller" />
       <recent name="com.blog.controller.entity" />
       <recent name="com.blog.dao" />
-      <recent name="com.blog.pojo" />
-      <recent name="com.blog.service" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.BlogApplication">
@@ -391,7 +406,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652797441288</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="新增搜索功能，解决了Tweet前端评论的小bug">
+      <created>1652802745347</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1652802745347</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -456,6 +478,22 @@
     <MESSAGE value="完善了注册功能" />
     <MESSAGE value="重构首页" />
     <MESSAGE value="新增推特详情页" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增推特详情页" />
+    <MESSAGE value="新增搜索功能，解决了Tweet前端评论的小bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增搜索功能，解决了Tweet前端评论的小bug" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="com.blog.exception.NotFoundException" package="com.blog.exception" />
+          <option name="timeStamp" value="12" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="java.lang.Long" memberName="value" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>
