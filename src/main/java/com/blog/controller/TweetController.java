@@ -97,7 +97,7 @@ public class TweetController {
 //        tweet.setTypeId(tweet.getType().getId());
         //给blog中的List<Tag>赋值
 //        tweet.setTags(tagService.getTagByString(tweet.getTagIds()));
-
+        //TODO: Tag未完成
 
         if (tweet.getId() == null) {   //id为空，则为新增
             tweetService.saveTweet(tweet);

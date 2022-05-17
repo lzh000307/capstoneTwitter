@@ -49,4 +49,9 @@ public class UserServiceImpl implements UserService {
         }else
             return false; //用户名不存在
     }
+
+    @Override
+    public User findById(Long id) {
+        return userDao.findById(id);
+    }
 }

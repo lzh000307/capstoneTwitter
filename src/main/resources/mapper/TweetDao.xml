@@ -19,6 +19,13 @@
         <result property="typeId" column="type_id" jdbcType="INTEGER"/>
         <result property="userId" column="user_id" jdbcType="INTEGER"/>
         <result property="tagIds" column="tag_ids" jdbcType="VARCHAR"/>
+        <association property="user" javaType="User">
+            <id property="id" column="uid"/>
+            <result property="nickname" column="nickname"/>
+            <result property="username" column="username"/>
+            <result property="email" column="email"/>
+            <result property="avatar" column="avatar"/>
+        </association>
     </resultMap>
 
     <!--查询单个-->
@@ -167,6 +174,15 @@
                 and b.content like #{pattern}   /*根据博客title模糊查询*/
             </if>
         </where>
+    </select>
+
+
+    <select id="getByDesc" resultMap="BaseResultMap">  /*主页博客展示*/
+    select b.id, b.title, b.first_picture, b.views, b.update_time, b.content,
+           u.nickname, u.avatar
+    from tweet b, user u
+    where u.id = b.user_id
+    order by b.update_time desc
     </select>
 
 </mapper>

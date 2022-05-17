@@ -28,6 +28,11 @@ public class TweetServiceImpl implements TweetService {
     }
 
     @Override
+    public List<Tweet> getIndex() {
+        return tweetDao.getByDesc();
+    }
+
+    @Override
     public List<Tweet> getAllTweet() {
         return tweetDao.getAllTweet();
     }

@@ -34,29 +34,6 @@ public class Tweet implements Serializable {
     
     private boolean published;
 
-    public boolean isCommentable() {
-        return commentable;
-    }
-
-    public void setCommentable(boolean commentable) {
-        this.commentable = commentable;
-    }
-
-    public boolean isPublished() {
-        return published;
-    }
-
-    public void setPublished(boolean published) {
-        this.published = published;
-    }
-
-    public boolean isLike() {
-        return like;
-    }
-
-    public void setLike(boolean like) {
-        this.like = like;
-    }
 
     private boolean like;
     
@@ -80,6 +57,38 @@ public class Tweet implements Serializable {
         this.user = user;
     }
 
+
+    public boolean isCommentable() {
+        return commentable;
+    }
+
+    public void setCommentable(boolean commentable) {
+        this.commentable = commentable;
+    }
+
+    public Integer getRecommend() {
+        return recommend;
+    }
+
+    public void setRecommend(Integer recommend) {
+        this.recommend = recommend;
+    }
+
+    public boolean isPublished() {
+        return published;
+    }
+
+    public void setPublished(boolean published) {
+        this.published = published;
+    }
+
+    public boolean isLike() {
+        return like;
+    }
+
+    public void setLike(boolean like) {
+        this.like = like;
+    }
     @Override
     public String toString() {
         return "Tweet{" +

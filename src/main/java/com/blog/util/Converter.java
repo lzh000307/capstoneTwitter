@@ -1,5 +1,6 @@
 package com.blog.util;
 
+import com.blog.pojo.Tag;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -16,5 +17,24 @@ public class Converter {
             }
         }
         return list;
+    }
+
+    //将tags集合转换为tagIds字符串形式：“1,2,3”,用于编辑博客时显示博客的tag
+    public static String tagsToIds(List<Tag> tags){
+        if(!tags.isEmpty()){
+            StringBuffer ids = new StringBuffer();
+            boolean flag = false;
+            for(Tag tag: tags){
+                if(flag){
+                    ids.append(",");
+                }else {
+                    flag = true;
+                }
+                ids.append(tag.getId());
+            }
+            return ids.toString();
+        }else {
+            return new String();
+        }
     }
 }

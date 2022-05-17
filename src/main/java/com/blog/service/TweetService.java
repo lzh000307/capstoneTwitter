@@ -17,4 +17,6 @@ public interface TweetService {
     Tweet getTweet(Long id);
 
     List<Tweet> searchAllTweet(Tweet tweet);
+
+    List<Tweet> getIndex();
 }
