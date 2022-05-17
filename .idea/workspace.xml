@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="08ebf5d0-8ae2-4bb1-9acc-7568cc9c269a" name="Default Changelist" comment="新增发推功能">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/SignUpController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b080f570-718c-47cc-ab68-3278c5e94b2f/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b080f570-718c-47cc-ab68-3278c5e94b2f/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b080f570-718c-47cc-ab68-3278c5e94b2f/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log/blog-dev.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/blog-dev.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/controller/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/SignUpController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/sign-up.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/sign-up.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
