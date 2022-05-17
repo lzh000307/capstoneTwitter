@@ -1,6 +1,7 @@
 package com.blog.service.impl;
 
 import com.blog.dao.TweetDao;
+import com.blog.exception.NotFoundException;
 import com.blog.pojo.Blog;
 import com.blog.pojo.BlogAndTag;
 import com.blog.pojo.Tag;
@@ -19,7 +20,11 @@ public class TweetServiceImpl implements TweetService {
 
     @Override
     public Tweet getTweet(Long id) {
-        return tweetDao.queryById(id);
+        Tweet tweet = tweetDao.queryById(id);
+        if(tweet==null){
+            throw new NotFoundException("该推文不存在");
+        }
+        return tweet;
     }
 
     @Override

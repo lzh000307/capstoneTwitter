@@ -32,8 +32,8 @@ public class TweetFrontEnd {
 //    private Long userId;
 
 
-    private User user;
-    private Tweet tweet;
+    private User user = new User();
+    private Tweet tweet = new Tweet();
     private String tagIds;
     //获取多个标签的id
     private List<Tweet> tweets = new ArrayList<>();

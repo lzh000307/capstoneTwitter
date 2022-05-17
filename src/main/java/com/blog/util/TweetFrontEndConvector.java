@@ -7,7 +7,9 @@ import com.blog.service.TagService;
 import com.blog.service.TrendService;
 import com.blog.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class TweetFrontEndConvector {
     @Autowired
     TagService tagService;

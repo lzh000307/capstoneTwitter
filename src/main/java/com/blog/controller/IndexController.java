@@ -1,10 +1,12 @@
 package com.blog.controller;
 
+import com.blog.controller.entity.TweetFrontEnd;
 import com.blog.pojo.Blog;
 import com.blog.pojo.Tag;
 import com.blog.pojo.Tweet;
 import com.blog.pojo.Type;
 import com.blog.service.*;
+import com.blog.util.TweetFrontEndConvector;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,9 +31,10 @@ public class IndexController {
 
     @Autowired
     private TypeService typeService;
-
     @Autowired
     private TagService tagService;
+    @Autowired
+    private TweetFrontEndConvector tweetFrontEndConvector;
 
     @GetMapping("/")
     public String toIndex(@RequestParam(required = false,defaultValue = "1",value = "pagenum")int pagenum, Model model){
@@ -65,10 +68,12 @@ public class IndexController {
         return "search";
     }
 
-    @GetMapping("/blog/{id}")
-    public String toLogin(@PathVariable Long id, Model model){
-        Blog blog = blogService.getDetailedBlog(id);
-        model.addAttribute("blog", blog);
-        return "blog";
+    @GetMapping("/tweet/{id}")
+    public String surfTweet(@PathVariable Long id, Model model){
+//        Blog blog = blogService.getDetailedBlog(id);
+        Tweet tweet = tweetService.getTweet(id);
+        TweetFrontEnd tweetFE = tweetFrontEndConvector.convertToTweetFrontEnd(tweet);
+        model.addAttribute("tweetfe", tweetFE);
+        return "tweet";
     }
 }
