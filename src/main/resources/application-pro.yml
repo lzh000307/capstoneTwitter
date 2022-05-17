@@ -14,6 +14,8 @@ pagehelper:                #分页插件
 mybatis:
   type-aliases-package: com.blog.pojo   #设置别名
   mapper-locations: classpath:mapper/*.xml   #ָ指定myBatis的核心配置文件与Mapper映射文件
+  configuration:
+    map-underscore-to-camel-case: true
 
 logging:  #日志级别
   level:

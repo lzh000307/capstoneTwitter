@@ -179,6 +179,8 @@ create table censorship
 DROP TABLE IF EXISTS `tweet`;
 CREATE TABLE `tweet`  (
                           `id` bigint(20) NOT NULL AUTO_INCREMENT,                                                      /* Tweet's ID */
+                          `title`   varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+                          `content` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,                           /* content, up to 300 words */
                           `first_picture` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,    /* Picture's URL in the brief */
                           `status` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,           /* 禁止恶意发推 */
                           `views` int(11) NULL DEFAULT NULL,                                                            /* 观看人数 */
@@ -190,7 +192,6 @@ CREATE TABLE `tweet`  (
                           `update_time` datetime NULL DEFAULT NULL,
                           `type_id` bigint(20) NULL DEFAULT NULL,                                                       /* type */
                           `user_id` bigint(20) NULL DEFAULT NULL,
-                          `content` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,                           /* content, up to 300 words */
                           `tag_ids` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,          /* tag */
                           PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;

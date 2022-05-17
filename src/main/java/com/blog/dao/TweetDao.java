@@ -1,45 +1,76 @@
 package com.blog.dao;
 
 import com.blog.pojo.Tweet;
-import com.blog.pojo.BlogAndTag;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * (Tweet)表数据库访问层
+ *
+ * @author makejava
+ * @since 2022-05-17 12:20:39
+ */
 @Mapper
 @Repository
 public interface TweetDao {
 
-    Tweet getTweet(Long id);  //后台展示博客
 
-    Tweet getDetailedTweet(@Param("id") Long id);  //博客详情
 
+
+    /**
+     * 通过ID查询单条数据
+     *
+     * @param id 主键
+     * @return 实例对象
+     */
+    Tweet queryById(Long id);
+
+    /**
+     * 查询指定行数据
+     *
+     * @param offset 查询起始位置
+     * @param limit 查询条数
+     * @return 对象列表
+     */
+    List<Tweet> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit);
+
+
+    /**
+     * 通过实体作为筛选条件查询
+     *
+     * @param tweet 实例对象
+     * @return 对象列表
+     */
+    List<Tweet> queryAll(Tweet tweet);
+
+    /**
+     * 新增数据
+     *
+     * @param tweet 实例对象
+     * @return 影响行数
+     */
+    int insert(Tweet tweet);
+
+    /**
+     * 修改数据
+     *
+     * @param tweet 实例对象
+     * @return 影响行数
+     */
+    int update(Tweet tweet);
+
+    /**
+     * 通过主键删除数据
+     *
+     * @param id 主键
+     * @return 影响行数
+     */
+    int deleteById(Long id);
+
+    @Select("select * from tweet")
     List<Tweet> getAllTweet();
-
-    List<Tweet> getByTypeId(Long typeId);  //根据类型id获取博客
-
-    List<Tweet> getByTagId(Long tagId);  //根据标签id获取博客
-
-    List<Tweet> getIndexTweet();  //主页博客展示
-
-    List<Tweet> getAllRecommendTweet();  //推荐博客展示
-
-    List<Tweet> getSearchTweet(String query);  //全局搜索博客
-
-    List<Tweet> searchAllTweet(Tweet tweet);  //后台根据标题、分类、推荐搜索博客
-
-    List<String> findGroupYear();  //查询所有年份，返回一个集合
-
-    List<Tweet> findByYear(@Param("year") String year);  //按年份查询博客
-
-    int saveTweet(Tweet tweet);
-
-    int saveTweetAndTag(BlogAndTag tweetAndTag);
-
-    int updateTweet(Tweet tweet);
-
-    int deleteTweet(Long id);
-
 }

@@ -1,73 +1,63 @@
 package com.blog.pojo;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-public class Tweet {
-
+/**
+ * (Tweet)实体类
+ *
+ * @author makejava
+ * @since 2022-05-17 12:17:02
+ */
+public class Tweet implements Serializable {
+//    private static final long serialVersionUID = -82226788634159097L;
+    
     private Long id;
+    
+    private String title;
+    
     private String content;
+    
     private String firstPicture;
+    
     private String status;
+    
     private Integer views;
+    
     private Integer likes;
+    
     private Integer commentable;
+    
     private Integer published;
+    
     private Integer recommend;
+    
     private Date createTime;
+    
     private Date updateTime;
-
-    //这个属性用来在mybatis中进行连接查询的
+    
     private Long typeId;
+    
     private Long userId;
-
-    //获取多个标签的id
+    
     private String tagIds;
-    private String description;
-
-    private Type type;
 
     private User user;
 
-    private List<Tag> tags = new ArrayList<>();
-
-    private List<Comment> comments = new ArrayList<>();
-
-    public void init(){
-        this.tagIds = tagsToIds(this.getTags());
+    public User getUser() {
+        return user;
     }
 
-    //将tags集合转换为tagIds字符串形式：“1,2,3”,用于编辑博客时显示博客的tag
-    private String tagsToIds(List<Tag> tags){
-        if(!tags.isEmpty()){
-            StringBuffer ids = new StringBuffer();
-            boolean flag = false;
-            for(Tag tag: tags){
-                if(flag){
-                    ids.append(",");
-                }else {
-                    flag = true;
-                }
-                ids.append(tag.getId());
-            }
-            return ids.toString();
-        }else {
-            return tagIds;
-        }
+    public void setUser(User user) {
+        this.user = user;
     }
+
 
     @Override
     public String toString() {
         return "Tweet{" +
                 "id=" + id +
+                ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
                 ", firstPicture='" + firstPicture + '\'' +
                 ", status='" + status + '\'' +
@@ -81,11 +71,6 @@ public class Tweet {
                 ", typeId=" + typeId +
                 ", userId=" + userId +
                 ", tagIds='" + tagIds + '\'' +
-                ", description='" + description + '\'' +
-                ", type=" + type +
-                ", user=" + user +
-                ", tags=" + tags +
-                ", comments=" + comments +
                 '}';
     }
 
@@ -95,6 +80,14 @@ public class Tweet {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getContent() {
@@ -201,43 +194,4 @@ public class Tweet {
         this.tagIds = tagIds;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Type getType() {
-        return type;
-    }
-
-    public void setType(Type type) {
-        this.type = type;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public List<Tag> getTags() {
-        return tags;
-    }
-
-    public void setTags(List<Tag> tags) {
-        this.tags = tags;
-    }
-
-    public List<Comment> getComments() {
-        return comments;
-    }
-
-    public void setComments(List<Comment> comments) {
-        this.comments = comments;
-    }
 }
