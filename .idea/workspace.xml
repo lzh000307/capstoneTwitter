@@ -4,28 +4,14 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08ebf5d0-8ae2-4bb1-9acc-7568cc9c269a" name="Default Changelist" comment="更新了很多东西">
-      <change afterPath="$PROJECT_DIR$/log/blog-dev.log.2022-05-16.0.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/TweetController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/blog/dao/TweetDao2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/blog/service/TweetService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/blog/service/impl/TweetServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/index_bk.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/send-tweet.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/blog/TweetApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+    <list default="true" id="08ebf5d0-8ae2-4bb1-9acc-7568cc9c269a" name="Default Changelist" comment="新增发推功能">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/SignUpController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b080f570-718c-47cc-ab68-3278c5e94b2f/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b080f570-718c-47cc-ab68-3278c5e94b2f/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b080f570-718c-47cc-ab68-3278c5e94b2f/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log/blog-dev.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/blog-dev.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/dao/TweetDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/dao/TweetDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/pojo/Tweet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/pojo/Tweet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-pro.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-pro.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/blog.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/blog.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/TweetDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/TweetDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/_fragments.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/_fragments.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/_fragments.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/_fragments.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/sign-up.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/sign-up.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,11 +54,17 @@
         <option value="HTML File" />
         <option value="FxmlFile" />
         <option value="Interface" />
+        <option value="Kotlin Class" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -98,30 +90,31 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/elvislin/Documents/IDEA_PROJECT/capstoneTwitter/src/main/resources/templates",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "spring.configuration.checksum": "6cc4b1e97a4186012ae1beb7b57c8b01",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/elvislin/Documents/IDEA_PROJECT/capstoneTwitter/src/main/resources/templates&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;6cc4b1e97a4186012ae1beb7b57c8b01&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/templates" />
@@ -141,7 +134,7 @@
       <recent name="com.blog.util" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TweetApplicationTests">
+  <component name="RunManager" selected="Spring Boot.BlogApplication">
     <configuration name="BlogApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CapstoneTwitter" />
       <extension name="coverage">
@@ -240,11 +233,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.BlogApplicationTests.contextLoads" />
+        <item itemvalue="JUnit.UserDaoTest.testGetById" />
+        <item itemvalue="JUnit.TweetApplicationTests.test" />
         <item itemvalue="JUnit.TweetApplicationTests" />
         <item itemvalue="JUnit.UserDaoTest" />
-        <item itemvalue="JUnit.TweetApplicationTests.test" />
-        <item itemvalue="JUnit.UserDaoTest.testGetById" />
-        <item itemvalue="JUnit.BlogApplicationTests.contextLoads" />
       </list>
     </recent_temporary>
   </component>
@@ -317,7 +310,8 @@
       <workItem from="1652698393259" duration="11000" />
       <workItem from="1652699079850" duration="495000" />
       <workItem from="1652760501906" duration="23000" />
-      <workItem from="1652760535044" duration="2860000" />
+      <workItem from="1652760535044" duration="14043000" />
+      <workItem from="1652781015816" duration="313000" />
     </task>
     <task id="LOCAL-00001" summary="update md5">
       <created>1584841437407</created>
@@ -354,7 +348,21 @@
       <option name="project" value="LOCAL" />
       <updated>1652709220476</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="更改了Tweet表结构，加回了Title&#10;重构了TweetDao，和一部分Service and Controller">
+      <created>1652763476360</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1652763476360</updated>
+    </task>
+    <task id="LOCAL-00007" summary="新增发推功能">
+      <created>1652778912713</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1652778912713</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -365,7 +373,39 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+              <option name="TEXT_FILTER_SETTINGS">
+                <TextFilterSettings>
+                  <option name="MATCH_CASE" value="true" />
+                </TextFilterSettings>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/master" />
+                </option>
+              </RecentGroup>
+            </list>
           </value>
         </entry>
       </map>
@@ -381,6 +421,8 @@
     <MESSAGE value="更新了sql" />
     <MESSAGE value="更新了fragment" />
     <MESSAGE value="更新了很多东西" />
-    <option name="LAST_COMMIT_MESSAGE" value="更新了很多东西" />
+    <MESSAGE value="更改了Tweet表结构，加回了Title&#10;重构了TweetDao，和一部分Service and Controller" />
+    <MESSAGE value="新增发推功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增发推功能" />
   </component>
 </project>
