@@ -1,170 +1,155 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper
-        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.blog.dao.TweetDao">
 
-    <resultMap id="tweet" type="Tweet">
-<!--        <id property="id" column="id"/>-->
-<!--        <result property="content" column="content"/>-->
-<!--        <result property="status" column="status"/>-->
-<!--        <result property="views" column="views"/>-->
-<!--        <result property="likes" column="likes"/>-->
-<!--        <result property="typeId" column="type_id"/>-->
-<!--        <result property="firstPicture" column="first_picture"/>-->
-<!--        <result property="shareStatement" column="share_statement"/>-->
-<!--        <result property="published" column="published"/>-->
-<!--        <result property="appreciation" column="appreciation"/>-->
-<!--        <result property="commentabled" column="commentabled"/>-->
-<!--        <result property="recommend" column="recommend"/>-->
-<!--        <result property="createTime" column="create_time"/>-->
-<!--        <result property="typeId" column="type_id"/>-->
-<!--        <result property="userId" column="user_id"/>-->
-<!--        <result property="tagIds" column="tag_ids"/>-->
-        <association property="type" javaType="Type">
-            <id property="id" column="type_id"/>
-            <result property="name" column="typename"/>
-        </association>
-        <association property="user" javaType="User">
-            <id property="id" column="uid"/>
-            <result property="nickname" column="nickname"/>
-            <result property="username" column="username"/>
-            <result property="email" column="email"/>
-            <result property="avatar" column="avatar"/>
-        </association>
-        <collection property="tags" ofType="Tag">
-            <id property="id" column="tagid"/>
-            <result property="name" column="tagname"/>
-        </collection>
+    <resultMap id="BaseResultMap" type="Tweet">
+        <!--@Table tweet-->
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="title" column="title" jdbcType="VARCHAR"/>
+        <result property="content" column="content" jdbcType="VARCHAR"/>
+        <result property="firstPicture" column="first_picture" jdbcType="VARCHAR"/>
+        <result property="status" column="status" jdbcType="VARCHAR"/>
+        <result property="views" column="views" jdbcType="INTEGER"/>
+        <result property="likes" column="likes" jdbcType="INTEGER"/>
+        <result property="commentable" column="commentable" jdbcType="INTEGER"/>
+        <result property="published" column="published" jdbcType="INTEGER"/>
+        <result property="recommend" column="recommend" jdbcType="INTEGER"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+        <result property="typeId" column="type_id" jdbcType="INTEGER"/>
+        <result property="userId" column="user_id" jdbcType="INTEGER"/>
+        <result property="tagIds" column="tag_ids" jdbcType="VARCHAR"/>
     </resultMap>
 
-    <delete id="deleteTweet">
-        delete from tweet where id = #{id}
-    </delete>
-
-    <select id="getIndexTweet" resultMap="tweet">  /*主页博客展示*/
-        select b.id, b.content, b.first_picture, b.views, b.update_time,
-        t.name typename, t.id typeid,
-        u.nickname, u.avatar
-        from tweet b, t_type t, t_user u
-        where b.type_id = t.id and  u.id = b.user_id order by b.update_time desc
+    <!--查询单个-->
+    <select id="queryById" resultMap="BaseResultMap">
+        select
+          id, title, content, first_picture, status, views, likes, commentable, published, recommend, create_time, update_time, type_id, user_id, tag_ids
+        from blog_mb.tweet
+        where id = #{id}
     </select>
 
-    <select id="getAllTweet" resultMap="tweet">  /*后台博客展示*/
-        select b.id, b.content, b.update_time, b.recommend, b.type_id, b.published,
-               t.id typeid, t.name typename
-        from tweet b, t_type t
-        where b.type_id = t.id    /*博客类型id=类型id*/
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="BaseResultMap">
+        select
+          id, title, content, first_picture, status, views, likes, commentable, published, recommend, create_time, update_time, type_id, user_id, tag_ids
+        from blog_mb.tweet
+        limit #{offset}, #{limit}
     </select>
 
-    <select id="getByTypeId" resultMap="tweet">
-        select b.id, b.content, b.first_picture, b.views, b.update_time,
-        t.name typename, t.id typeid,
-        u.nickname, u.avatar
-        from tweet b, t_type t, t_user u
-        where b.type_id = t.id and u.id = b.user_id and b.type_id = #{typeId} order by b.update_time desc
-    </select>
-
-    <select id="getByTagId" resultMap="tweet">
-        select b.id, b.content, b.first_picture, b.views, b.update_time,
-        t.name typename, t.id typeid,
-        t1.name tagname, t1.id tagid,
-        u.nickname, u.avatar
-        from tweet b, t_type t, t_user u, tweet_tags tb, t_tag t1
-        where b.type_id = t.id and u.id = b.user_id and tb.blog_id = b.id and tb.tag_id = t1.id and t1.id = #{tagId}
-        order by b.update_time desc
-    </select>
-
-    <select id="getAllRecommendTweet" resultMap="tweet">
-        select id, content, recommend from tweet order by update_time desc;
-    </select>
-
-    <select id="getTweet" resultMap="tweet"> /*后台展示博客*/
-        select b.id, b.published, b.status, b.content, b.type_id,
-         b.tag_ids, b.first_picture, b.recommend,
-         b.likes, b.commentable
-        from tweet b  where  b.id = #{id};
-    </select>
-
-    <select id="getDetailedTweet" resultMap="tweet">  /*博客详情*/
-        select b.id, b.first_picture, b.status, b.content, b.views,
-        b.update_time,b.commentable, b.likes,
-        u.nickname, u.avatar,
-        tag.id tagid, tag.name tagname
-        from tweet b, t_user u, t_tag tag, tweet_tags tb
-        where b.user_id = u.id and tb.blog_id = b.id and tb.tag_id = tag.id and  b.id = #{id}
-    </select>
-
-    <select id="getSearchTweet" resultMap="tweet">
-        <bind name="pattern" value="'%' + query + '%'" />
-        select b.id, b.content, b.first_picture, b.views, b.update_time,
-        t.name typename,
-        u.nickname, u.avatar
-        from tweet b, t_type t, t_user u
-        where b.type_id = t.id and  u.id = b.user_id and (b.content like #{pattern} or b.content like  #{pattern})
-        order by b.update_time desc
-    </select>
-
-    <select id="searchAllTweet" parameterType="Tweet" resultMap="tweet">
-        <bind name="pattern" value="'%' + content + '%'" />    /*模糊查询*/
-        select b.id, b.content, b.update_time, b.recommend, b.published, b.type_id, t.id, t.name
-        from tweet b ,t_type t
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="BaseResultMap">
+        select
+          id, title, content, first_picture, status, views, likes, commentable, published, recommend, create_time, update_time, type_id, user_id, tag_ids
+        from blog_mb.tweet
         <where>
-            <if test="1 == 1">
-                b.type_id = t.id    /*博客类型id=类型id*/
+            <if test="id != null">
+                and id = #{id}
             </if>
-            <if test="typeId != null">
-                and b.type_id = #{typeId}       /*根据博客类型查询*/
+            <if test="title != null and title != ''">
+                and title = #{title}
+            </if>
+            <if test="content != null and content != ''">
+                and content = #{content}
+            </if>
+            <if test="firstPicture != null and firstPicture != ''">
+                and first_picture = #{firstPicture}
+            </if>
+            <if test="status != null and status != ''">
+                and status = #{status}
+            </if>
+            <if test="views != null">
+                and views = #{views}
+            </if>
+            <if test="likes != null">
+                and likes = #{likes}
+            </if>
+            <if test="commentable != null">
+                and commentable = #{commentable}
+            </if>
+            <if test="published != null">
+                and published = #{published}
             </if>
             <if test="recommend != null">
-                and b.recommend = #{recommend}   /*根据博客推荐查询*/
+                and recommend = #{recommend}
             </if>
-            <if test="content != null">
-                and b.content like #{pattern}   /*根据博客content模糊查询*/
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="typeId != null">
+                and type_id = #{typeId}
+            </if>
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
+            <if test="tagIds != null and tagIds != ''">
+                and tag_ids = #{tagIds}
             </if>
         </where>
     </select>
 
-    <update id="updateTweet" parameterType="Tweet">
-        update tweet set published = #{published},status = #{status} ,
-        content = #{content}, type_id = #{typeId}, tag_ids = #{tagIds},
-        first_picture = #{firstPicture}, recommend = #{recommend} ,
-        likes = #{likes},commentable = #{commentable} ,
-        update_time = #{updateTime} where id = #{id};
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into blog_mb.tweet(title, content, first_picture, status, views, likes, commentable, published, recommend, create_time, update_time, type_id, user_id, tag_ids)
+        values (#{title}, #{content}, #{firstPicture}, #{status}, #{views}, #{likes}, #{commentable}, #{published}, #{recommend}, #{createTime}, #{updateTime}, #{typeId}, #{userId}, #{tagIds})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update blog_mb.tweet
+        <set>
+            <if test="title != null and title != ''">
+                title = #{title},
+            </if>
+            <if test="content != null and content != ''">
+                content = #{content},
+            </if>
+            <if test="firstPicture != null and firstPicture != ''">
+                first_picture = #{firstPicture},
+            </if>
+            <if test="status != null and status != ''">
+                status = #{status},
+            </if>
+            <if test="views != null">
+                views = #{views},
+            </if>
+            <if test="likes != null">
+                likes = #{likes},
+            </if>
+            <if test="commentable != null">
+                commentable = #{commentable},
+            </if>
+            <if test="published != null">
+                published = #{published},
+            </if>
+            <if test="recommend != null">
+                recommend = #{recommend},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+            <if test="typeId != null">
+                type_id = #{typeId},
+            </if>
+            <if test="userId != null">
+                user_id = #{userId},
+            </if>
+            <if test="tagIds != null and tagIds != ''">
+                tag_ids = #{tagIds},
+            </if>
+        </set>
+        where id = #{id}
     </update>
 
-    <!--useGeneratedKeys="true"；使用自增主键获取主键值策略
-        keyProperty；指定对应的主键属性，也就是mybatis获取到主键值以后，将这个值封装给javaBean的哪个属性
-    -->
-    <insert id="saveTweet" parameterType="Tweet" useGeneratedKeys="true" keyProperty="id">
-        insert into tweet (content, first_picture, status,
-        views, likes, commentable, published,
-        recommend, create_time, update_time, type_id, tag_ids, user_id)
-        values (#{content}, #{firstPicture}, #{status}, #{views}, #{likes},
-        #{commentable}, #{published}, #{recommend}, #{createTime},
-        #{updateTime}, #{typeId}, #{tagIds}, #{userId});
-    </insert>
-
-    <insert id="saveBlogAndTag" parameterType="BlogAndTag">
-        insert into blog_tags (tag_id, blog_id) values (#{tagId},#{blogId});
-    </insert>
-
-
-    <select id="findGroupYear" resultType="String">
-        select DATE_FORMAT(b.update_time, '%Y') from tweet b order by b.update_time desc
-    </select>
-
-    <select id="findByYear" resultMap="tweet">
-        select b.content, b.update_time, b.id, b.status
-        from tweet b
-        where DATE_FORMAT(b.update_time, "%Y") = #{year}
-    </select>
-
-
-
-
-
-
-
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from blog_mb.tweet where id = #{id}
+    </delete>
 
 </mapper>
