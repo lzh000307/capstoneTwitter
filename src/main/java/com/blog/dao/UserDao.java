@@ -15,7 +15,7 @@ public interface UserDao {
     User queryByUsernameAndPassword(@Param("username") String username, @Param("password") String password);
 
     @Select("select * from user where username = #{username}")
-    List<User> queryByUsername(String username);
+    User queryByUsername(String username);
 
     @Select("select * from user where id = #{id}")
     User findById(Long id);

@@ -33,14 +33,15 @@ public class SignUpController {
     public String signUp(User user,
                         HttpSession session,
                         RedirectAttributes attributes){
-        userService.signUp(user);
-        if(user != null){
+        if(user.getUsername()==null || userService.existUsername(user.getUsername())){
+            attributes.addFlashAttribute("msg","用户名已存在");
+            return "redirect:/signup";
+        }else {
+            userService.signUp(user);
+            //删掉密码
             user.setPassword(null);
             session.setAttribute("user", user);
             return "redirect:/";
-        }else {
-            attributes.addFlashAttribute("msg", "用户名或密码错误");
-            return "redirect:/login";
         }
     }
 }

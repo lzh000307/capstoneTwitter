@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08ebf5d0-8ae2-4bb1-9acc-7568cc9c269a" name="Default Changelist" comment="新增发推功能">
+    <list default="true" id="08ebf5d0-8ae2-4bb1-9acc-7568cc9c269a" name="Default Changelist" comment="新增注册功能，还不完善">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log/blog-dev.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/blog-dev.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/controller/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/SignUpController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/dao/UserDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/UserDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/UserDao.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/sign-up.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/sign-up.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -362,7 +363,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652778912713</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="新增注册功能，还不完善">
+      <created>1652783930261</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1652783930261</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -423,6 +431,7 @@
     <MESSAGE value="更新了很多东西" />
     <MESSAGE value="更改了Tweet表结构，加回了Title&#10;重构了TweetDao，和一部分Service and Controller" />
     <MESSAGE value="新增发推功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增发推功能" />
+    <MESSAGE value="新增注册功能，还不完善" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增注册功能，还不完善" />
   </component>
 </project>

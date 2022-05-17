@@ -7,4 +7,6 @@ public interface UserService {
     public User checkUser(String username, String password);
 
     void signUp(User user);
+
+    boolean existUsername(String username);
 }
