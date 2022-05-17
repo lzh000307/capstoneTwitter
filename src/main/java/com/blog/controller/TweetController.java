@@ -20,8 +20,6 @@ import java.util.List;
 @RequestMapping("/tweet")
 public class TweetController {
 
-//    @Autowired
-//    private BlogService blogService;
     @Autowired
     private TweetService tweetService;
 
@@ -43,7 +41,6 @@ public class TweetController {
     @GetMapping("/list")  //后台显示博客列表
     public String showTweetList(@RequestParam(required = false,defaultValue = "1",value = "pagenum")int pagenum, Model model){
         PageHelper.startPage(pagenum, 5);
-//        List<Blog> allBlog = blogService.getAllBlog();
         List<Tweet> tweets = tweetService.getAllTweet();
         //得到分页结果对象
         PageInfo pageInfo = new PageInfo(tweets);

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -61,8 +62,16 @@ public class IndexController {
                          @RequestParam String query, Model model){
 
         PageHelper.startPage(pagenum, 5);
-        List<Blog> searchBlog = blogService.getSearchBlog(query);
-        PageInfo pageInfo = new PageInfo(searchBlog);
+//        List<Blog> searchBlog = blogService.getSearchBlog(query);
+        Tweet temp = new Tweet();
+        temp.setContent(query);
+        temp.setTitle(query);
+        List<Tweet> searchTweet = tweetService.searchAllTweet(temp);
+        List<TweetFrontEnd> tweets = new ArrayList<>();
+        for(Tweet tweet:searchTweet){
+            tweets.add(tweetFrontEndConvector.convertToTweetFrontEnd(tweet));
+        }
+        PageInfo pageInfo = new PageInfo(tweets);
         model.addAttribute("pageInfo", pageInfo);
         model.addAttribute("query", query);
         return "search";
