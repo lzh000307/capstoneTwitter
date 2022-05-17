@@ -73,4 +73,6 @@ public interface TweetDao {
 
     @Select("select * from tweet")
     List<Tweet> getAllTweet();
+
+    List<Tweet> searchAllTweet(Tweet tweet);
 }

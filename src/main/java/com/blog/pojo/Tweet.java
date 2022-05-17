@@ -1,7 +1,9 @@
 package com.blog.pojo;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * (Tweet)实体类
@@ -22,15 +24,41 @@ public class Tweet implements Serializable {
     
     private String status;
     
-    private Integer views;
+    private Integer views=0;
     
-    private Integer likes;
+    private Integer likes=0;
     
-    private Integer commentable;
+    private boolean commentable;
+
+    private Integer recommend=0;
     
-    private Integer published;
-    
-    private Integer recommend;
+    private boolean published;
+
+    public boolean isCommentable() {
+        return commentable;
+    }
+
+    public void setCommentable(boolean commentable) {
+        this.commentable = commentable;
+    }
+
+    public boolean isPublished() {
+        return published;
+    }
+
+    public void setPublished(boolean published) {
+        this.published = published;
+    }
+
+    public boolean isLike() {
+        return like;
+    }
+
+    public void setLike(boolean like) {
+        this.like = like;
+    }
+
+    private boolean like;
     
     private Date createTime;
     
@@ -52,7 +80,6 @@ public class Tweet implements Serializable {
         this.user = user;
     }
 
-
     @Override
     public String toString() {
         return "Tweet{" +
@@ -65,7 +92,6 @@ public class Tweet implements Serializable {
                 ", likes=" + likes +
                 ", commentable=" + commentable +
                 ", published=" + published +
-                ", recommend=" + recommend +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
                 ", typeId=" + typeId +
@@ -128,30 +154,6 @@ public class Tweet implements Serializable {
 
     public void setLikes(Integer likes) {
         this.likes = likes;
-    }
-
-    public Integer getCommentable() {
-        return commentable;
-    }
-
-    public void setCommentable(Integer commentable) {
-        this.commentable = commentable;
-    }
-
-    public Integer getPublished() {
-        return published;
-    }
-
-    public void setPublished(Integer published) {
-        this.published = published;
-    }
-
-    public Integer getRecommend() {
-        return recommend;
-    }
-
-    public void setRecommend(Integer recommend) {
-        this.recommend = recommend;
     }
 
     public Date getCreateTime() {

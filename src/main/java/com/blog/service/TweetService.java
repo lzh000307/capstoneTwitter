@@ -1,5 +1,6 @@
 package com.blog.service;
 
+import com.blog.pojo.Blog;
 import com.blog.pojo.Tweet;
 
 import java.util.List;
@@ -14,4 +15,6 @@ public interface TweetService {
     void deleteTweet(Long id);
 
     Tweet getTweet(Long id);
+
+    List<Tweet> searchAllTweet(Tweet tweet);
 }

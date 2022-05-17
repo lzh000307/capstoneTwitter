@@ -152,4 +152,21 @@
         delete from blog_mb.tweet where id = #{id}
     </delete>
 
+    <select id="searchAllTweet" parameterType="Tweet" resultMap="BaseResultMap">
+        <bind name="pattern" value="'%' + title + '%'" />    /*模糊查询*/
+        select b.id, b.title, b.update_time, b.recommend, b.published, b.type_id, b.content
+        from tweet b
+        <where>
+            <if test="recommend != null">
+                and b.recommend = #{recommend}   /*根据博客推荐查询*/
+            </if>
+            <if test="title != null">
+                and b.title like #{pattern}   /*根据博客title模糊查询*/
+            </if>
+            <if test="content != null">
+                and b.content like #{pattern}   /*根据博客title模糊查询*/
+            </if>
+        </where>
+    </select>
+
 </mapper>

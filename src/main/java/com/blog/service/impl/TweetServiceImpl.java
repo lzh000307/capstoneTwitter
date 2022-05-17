@@ -1,11 +1,15 @@
 package com.blog.service.impl;
 
 import com.blog.dao.TweetDao;
+import com.blog.pojo.Blog;
+import com.blog.pojo.BlogAndTag;
+import com.blog.pojo.Tag;
 import com.blog.pojo.Tweet;
 import com.blog.service.TweetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 @Service
 public class TweetServiceImpl implements TweetService {
@@ -17,6 +21,12 @@ public class TweetServiceImpl implements TweetService {
     public Tweet getTweet(Long id) {
         return tweetDao.queryById(id);
     }
+
+    @Override
+    public List<Tweet> searchAllTweet(Tweet tweet) {
+        return tweetDao.searchAllTweet(tweet);
+    }
+
     @Override
     public List<Tweet> getAllTweet() {
         return tweetDao.getAllTweet();
@@ -24,6 +34,10 @@ public class TweetServiceImpl implements TweetService {
 
     @Override
     public void saveTweet(Tweet tweet) {
+        tweet.setCreateTime(new Date());
+        tweet.setUpdateTime(new Date());
+        tweet.setViews(0);
+        //保存博客
         tweetDao.insert(tweet);
     }
 
