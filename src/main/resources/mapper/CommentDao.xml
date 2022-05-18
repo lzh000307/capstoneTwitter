@@ -1,47 +1,106 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper
-        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.blog.dao.CommentDao">
 
-
-    <resultMap id="comment" type="Comment">
-        <id property="id" column="cid"/>
-        <result property="nickname" column="nickname"/>
-        <result property="email" column="email"/>
-        <result property="content" column="content"/>
-        <result property="adminComment" column="admincomment"/>
-        <result property="avatar" column="avatar"/>
-        <result property="createTime" column="create_time"/>
-        <result property="blogId" column="blog_id"/>
-        <result property="parentCommentId" column="parent_comment_id"/>
-        <association property="blog" javaType="Blog">
-            <id property="id" column="id"/>
-        </association>
+    <resultMap id="BaseResultMap" type="com.blog.pojo.Comment">
+        <!--@Table comment-->
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="content" column="content" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="tweetId" column="tweet_id" jdbcType="INTEGER"/>
+        <result property="userId" column="user_id" jdbcType="INTEGER"/>
+        <result property="parentCommentId" column="parent_comment_id" jdbcType="INTEGER"/>
+        <result property="replyUserId" column="reply_user_id" jdbcType="INTEGER"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
     </resultMap>
 
-    <select id="findByBlogIdAndParentCommentNull" resultMap="comment">
-        select c.id cid,c.nickname,c.email,c.content,c.avatar,
-        c.create_time,c.blog_id,c.parent_comment_id
-        from t_comment c, t_blog b
-        where c.blog_id = b.id and c.blog_id = #{blogId} and c.parent_comment_id = #{blogParentId}
-        order by c.create_time desc
+    <!--查询单个-->
+    <select id="queryById" resultMap="BaseResultMap">
+        select
+          id, content, create_time, tweet_id, user_id, parent_comment_id, reply_user_id, status
+        from blog_mb.comment
+        where id = #{id}
     </select>
 
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="BaseResultMap">
+        select
+          id, content, create_time, tweet_id, user_id, parent_comment_id, reply_user_id, status
+        from blog_mb.comment
+        limit #{offset}, #{limit}
+    </select>
 
-    <insert id="saveComment" parameterType="Comment">
-        insert into blog.t_comment (nickname,email,content,avatar,
-        create_time,blog_id,parent_comment_id, admincomment)
-        values (#{nickname},#{email},#{content},#{avatar},
-        #{createTime},#{blogId},#{parentCommentId}, #{adminComment});
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="BaseResultMap">
+        select
+          id, content, create_time, tweet_id, user_id, parent_comment_id, reply_user_id, status
+        from blog_mb.comment
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="content != null and content != ''">
+                and content = #{content}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="tweetId != null">
+                and tweet_id = #{tweetId}
+            </if>
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
+            <if test="parentCommentId != null">
+                and parent_comment_id = #{parentCommentId}
+            </if>
+            <if test="replyUserId != null">
+                and reply_user_id = #{replyUserId}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into blog_mb.comment(content, create_time, tweet_id, user_id, parent_comment_id, reply_user_id, status)
+        values (#{content}, #{createTime}, #{tweetId}, #{userId}, #{parentCommentId}, #{replyUserId}, #{status})
     </insert>
 
+    <!--通过主键修改数据-->
+    <update id="update">
+        update blog_mb.comment
+        <set>
+            <if test="content != null and content != ''">
+                content = #{content},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="tweetId != null">
+                tweet_id = #{tweetId},
+            </if>
+            <if test="userId != null">
+                user_id = #{userId},
+            </if>
+            <if test="parentCommentId != null">
+                parent_comment_id = #{parentCommentId},
+            </if>
+            <if test="replyUserId != null">
+                reply_user_id = #{replyUserId},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
 
-    <select id="findByParentCommentId" resultMap="comment">
-        select c.id cid, c.nickname, c.email, c.content, c.avatar,
-        c.create_time, c.blog_id, c.parent_comment_id
-        from t_comment c
-        where c.parent_comment_id = #{parentCommentId}
-    </select>
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from blog_mb.comment where id = #{id}
+    </delete>
 
 </mapper>

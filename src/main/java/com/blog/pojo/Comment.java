@@ -5,31 +5,99 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.io.Serializable;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-public class Comment {
+/**
+ * (Comment)实体类
+ *
+ * @author makejava
+ * @since 2022-05-18 15:54:14
+ */
+//@Data
+//@AllArgsConstructor
+//@NoArgsConstructor
+public class Comment implements Serializable {
+//    private static final long serialVersionUID = 570847144409095842L;
+//
     private Long id;
-    private String nickname;
-    private String email;
+    
     private String content;
-    private boolean adminComment;  //是否为管理员评论
-
-    //头像
-    private String avatar;
+    
     private Date createTime;
+    
+    private Long tweetId;
+    
+    private Long userId;
+    
+    private Long parentCommentId;
+    
+    private Long replyUserId;
+    
+    private Integer status;
 
-    private Long blogId;
-    private Long parentCommentId;  //父评论id
-    private String parentNickname;
 
-    //回复评论
-    //private List<Comment> replyComments = new ArrayList<>();
+    public Long getId() {
+        return id;
+    }
 
-    //父评论
-    private Comment parentComment;
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    private Blog blog;
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Long getTweetId() {
+        return tweetId;
+    }
+
+    public void setTweetId(Long tweetId) {
+        this.tweetId = tweetId;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public Long getParentCommentId() {
+        return parentCommentId;
+    }
+
+    public void setParentCommentId(Long parentCommentId) {
+        this.parentCommentId = parentCommentId;
+    }
+
+    public Long getReplyUserId() {
+        return replyUserId;
+    }
+
+    public void setReplyUserId(Long replyUserId) {
+        this.replyUserId = replyUserId;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
 
 }

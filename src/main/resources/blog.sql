@@ -228,14 +228,16 @@ CREATE TABLE `trend`(
       `tag_id` bigint(20) NULL DEFAULT NULL
 ) ENGINE = InnoDB ROW_FORMAT = Compact;
 
-
+DROP TABLE IF EXISTS `comment`;
 CREATE TABLE `comment`  (
-                            `id` bigint(20) NOT NULL AUTO_INCREMENT,
-                            `content` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-                            `create_time` datetime NULL DEFAULT NULL,
-                            `tweet_id` bigint(20) NULL DEFAULT NULL,
-                            `parent_comment_id` bigint(20) NULL DEFAULT NULL,
-                            `status` int(11) NULL DEFAULT NULL,
+                            `id` bigint(20) NOT NULL AUTO_INCREMENT,                    /* 评论id */
+                            `content` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,    /* 评论内容 */
+                            `create_time` datetime NULL DEFAULT NULL,                   /* 评论时间 */
+                            `tweet_id` bigint(20) NULL DEFAULT NULL,                    /* 所属推文id */
+                            `user_id` bigint(20) NULL DEFAULT NULL,                     /* 评论者id */
+                            `parent_comment_id` bigint(20) NULL DEFAULT NULL,           /* 父评论id */
+                            `reply_user_id` bigint(20) NULL DEFAULT NULL,               /* 回复评论者id,不针对评论 */
+                            `status` int(11) NULL DEFAULT NULL,                         /* 评论状态，屏蔽，超管回复 or 大V标签 */
                             PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 

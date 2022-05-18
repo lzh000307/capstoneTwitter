@@ -92,53 +92,55 @@
         <div  class="ui bottom attached segment" th:if="${tweetfe.tweet.commentable}">
             <!--留言区域列表-->
             <div id="comment-container"  class="ui teal segment">
+<!--                设置区域片段-->
                 <div th:fragment="commentList">
                     <div class="ui threaded comments" style="max-width: 100%;">
                         <h3 class="ui dividing header">评论</h3>
-                        <div class="comment" th:each="comment : ${comments}">
+                        <div class="comment" th:each="commentfe : ${comments}">
                             <a class="avatar">
-                                <img src="https://unsplash.it/100/100?image=1005" th:src="@{${comment.avatar}}">
+                                <img src="https://unsplash.it/100/100?image=1005" th:src="@{${commentfe.user.avatar}}">
                             </a>
                             <div class="content">
                                 <a class="author" >
-                                    <span th:text="${comment.nickname}">Matt</span>
-                                    <div class="ui mini basic teal left pointing label m-padded-mini" th:if="${comment.adminComment}">博主</div>
+                                    <span th:text="${commentfe.user.nickname}">Matt</span>
+                                    <div class="ui mini basic teal left pointing label m-padded-mini" th:if="${commentfe.user.status==100}">博主</div>
                                 </a>
                                 <div class="metadata">
-                                    <span class="date" th:text="${#dates.format(comment.createTime,'yyyy-MM-dd HH:mm')}">Today at 5:42PM</span>
+                                    <span class="date" th:text="${#dates.format(commentfe.comment.createTime,'yyyy-MM-dd HH:mm')}">Today at 5:42PM</span>
                                 </div>
-                                <div class="text" th:text="${comment.content}">
+                                <div class="text" th:text="${commentfe.comment.content}">
                                     How artistic!
                                 </div>
                                 <div class="actions">
-                                    <a class="reply" data-commentid="1" data-commentnickname="Matt" th:attr="data-commentid=${comment.id},data-commentnickname=${comment.nickname}" onclick="reply(this)">回复</a>
+                                    <a class="reply" data-commentid="1" data-commentnickname="Matt" th:attr="data-commentid=${commentfe.comment.id},data-commentnickname=${commentfe.user.nickname}" onclick="reply(this)">回复</a>
                                 </div>
                             </div>
 
-                            <!--回复功能，未完成，设计为两个表实现-->
-                            <!--<div class="comments" th:if="${#arrays.length(comment.replyComments)}>0">
-                                <div class="comment" th:each="reply : ${comment.replyComments}">
+                            <!--回复功能-->
+                            <div class="comments" th:if="${#arrays.length(commentfe.replyComments)}>0">
+                                <div class="comment" th:each="reply : ${commentfe.replyComments}">
                                     <a class="avatar">
-                                        <img src="https://unsplash.it/100/100?image=1005" th:src="@{${reply.avatar}}">
+                                        <img src="https://unsplash.it/100/100?image=1005" th:src="@{${reply.user.avatar}}">
                                     </a>
                                     <div class="content">
-                                        <a class="author" >
-                                            <span th:text="${reply.nickname}">小红</span>
-                                            <div class="ui mini basic teal left pointing label m-padded-mini" th:if="${reply.adminComment}">博主</div>
-                                            &nbsp;<span th:text="|@ ${reply.parentComment.nickname}|" class="m-teal">@ 小白</span>
+                                        <span class="author" >
+<!--                                            回复的用户-->
+                                            <span th:text="${reply.user.nickname}">小红</span>
+                                            <div class="ui mini basic teal left pointing label m-padded-mini" th:if="${reply.user.status==100}">博主</div>
+                                            &nbsp;<span>回复了</span></span><span th:text="| @ ${reply.replyUsername}|" class="m-teal">@ 小白</span>
                                         </a>
                                         <div class="metadata">
-                                            <span class="date" th:text="${#dates.format(reply.createTime,'yyyy-MM-dd HH:mm')}">Today at 5:42PM</span>
+                                            <span class="date" th:text="${#dates.format(reply.comment.createTime,'yyyy-MM-dd HH:mm')}">Today at 5:42PM</span>
                                         </div>
-                                        <div class="text" th:text="${reply.content}">
+                                        <div class="text" th:text="${reply.comment.content}">
                                             How artistic!
                                         </div>
                                         <div class="actions">
-                                            <a class="reply" data-commentid="1" data-commentnickname="Matt" th:attr="data-commentid=${reply.id},data-commentnickname=${reply.nickname}" onclick="reply(this)">回复</a>
+                                            <a class="reply" data-commentid="1" data-commentnickname="Matt" th:attr="data-commentid=${reply.comment.id},data-commentnickname=${reply.user.nickname}" onclick="reply(this)">回复</a>
                                         </div>
                                     </div>
                                 </div>
-                            </div>-->
+                            </div>
 
                         </div>
 
@@ -148,27 +150,27 @@
 
             <!--提交留言表单-->
            
-            <div id="comment-form" class="ui form">
-                <input type="hidden" name="blog.id" th:value="${tweetfe.tweet.id}">
-                <input type="hidden" name="parentComment.id" value="-1">
+            <div id="comment-form" class="ui form" th:if="${session.user!=null}">
+                <input type="hidden" name="tweetId" th:value="${tweetfe.tweet.id}">
+                <input type="hidden" name="parentCommentId" value="-1">
                 <div class="field">
                     <textarea name="content" placeholder="请输入评论信息..."></textarea>
                 </div>
                 <div class="fields">
-                    <div class="field m-mobile-wide m-margin-bottom-small">
-                        <div class="ui left icon input">
-                            <i class="user icon"></i>
-                            <input type="text" name="nickname" placeholder="姓名" th:value="${session.user}!=null ? ${session.user.nickname}">
-                        </div>
-                    </div>
-                    <div class="field m-mobile-wide m-margin-bottom-small">
-                        <div class="ui left icon input">
-                            <i class="mail icon"></i>
-                            <input type="text" name="email" placeholder="邮箱" th:value="${session.user}!=null ? ${session.user.email}">
-                        </div>
-                    </div>
+<!--                    <div class="field m-mobile-wide m-margin-bottom-small">-->
+<!--                        <div class="ui left icon input">-->
+<!--                            <i class="user icon"></i>-->
+<!--                            <input type="text" name="nickname" placeholder="姓名" th:value="${session.user}!=null ? ${session.user.nickname}">-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="field m-mobile-wide m-margin-bottom-small">-->
+<!--                        <div class="ui left icon input">-->
+<!--                            <i class="mail icon"></i>-->
+<!--                            <input type="text" name="email" placeholder="邮箱" th:value="${session.user}!=null ? ${session.user.email}">-->
+<!--                        </div>-->
+<!--                    </div>-->
                     <div class="field  m-margin-bottom-small m-mobile-wide">
-                        <button id="commentpost-btn" type="button" class="ui teal button m-mobile-wide"><i class="edit icon"></i>发布</button>
+                        <button type="button" id="commentpost-btn" class="ui teal button m-mobile-wide"><i class="edit icon"></i>发布</button>
                     </div>
                 </div>
             </div>
@@ -193,9 +195,9 @@
     </ol>
 </div>
 
-<div id="qrcode" class="ui wechat-qr flowing popup transition hidden "style="width: 130px !important;">
-    <img src="./static/images/wechat.jpg"  th:src="@{/images/wechat.jpg}" alt=""  class="ui rounded image" style="width: 120px !important;">
-</div>
+<!--<div id="qrcode" class="ui wechat-qr flowing popup transition hidden "style="width: 130px !important;">-->
+<!--    <img src="./static/images/wechat.jpg"  th:src="@{/images/wechat.jpg}" alt=""  class="ui rounded image" style="width: 120px !important;">-->
+<!--</div>-->
 
 
 
@@ -214,6 +216,92 @@
 
 
 <script th:inline="javascript">
+
+
+    //评论表单验证
+    $('.ui.form').form({
+        fields: {
+            title: {
+                identifier: 'content',
+                rules: [{
+                    type: 'empty',
+                    prompt: '请输入评论内容'
+                }
+                ]
+            },
+            content: {
+                identifier: 'nickname',
+                rules: [{
+                    type: 'empty',
+                    prompt: '请输入你的大名'
+                }]
+            },
+            type: {
+                identifier: 'email',
+                rules: [{
+                    type: 'email',
+                    prompt: '请填写正确的邮箱地址'
+                }]
+            }
+        }
+    });
+
+    $(function () {
+        $("#comment-container").load(/*[[@{/comments/{id}(id=${tweetfe.tweet.id})}]]*/"comments/6");
+    });
+
+
+    //校验
+    $('#commentpost-btn').click(function () {
+        var boo = $('.ui.form').form('validate form');
+        if (boo) {
+            console.log('校验成功');
+            postData();
+        } else {
+            console.log('校验失败');
+        }
+
+    });
+
+    //     function postData() {
+    //         $("#comment-container").load(/*[[@{/comments}]]*/"",{
+    //             "parentComment.id" : $("[name='parentComment.id']").val(),
+    //             "blog.id" : $("[name='blog.id']").val(),
+    //             "nickname": $("[name='nickname']").val(),
+    //             "email"   : $("[name='email']").val(),
+    //             "content" : $("[name='content']").val()
+    //         },function (responseTxt, statusTxt, xhr) {
+    // //        $(window).scrollTo($('#comment-container'),500);
+    //             clearContent();
+    //         });
+    //     }
+    function postData() {
+        $("#comment-container").load(/*[[@{/comments}]]*/"",{
+            "parentCommentId" : $("[name='parentCommentId']").val(),
+            "tweetId" : $("[name='tweetId']").val(),
+            "content" : $("[name='content']").val()
+        },function (responseTxt, statusTxt, xhr) {
+//        $(window).scrollTo($('#comment-container'),500);
+            clearContent();
+        });
+    }
+
+    function clearContent() {
+        $("[name='content']").val('');
+        $("[name='parentCommentId']").val(-1);
+        $("[name='content']").attr("placeholder", "请输入评论信息...");
+    }
+
+
+    function reply(obj) {
+        var commentId = $(obj).data('commentid');
+        var commentNickname = $(obj).data('commentnickname');
+        $("[name='content']").attr("placeholder", "@"+commentNickname).focus();
+        $("[name='parentCommentId']").val(commentId);
+        $(window).scrollTo($('#comment-form'),500);
+    }
+
+
 
     $('.menu.toggle').click(function () {
         $('.m-item').toggleClass('m-mobile-hide');
@@ -273,79 +361,6 @@
         }
     })
 
-
-    //评论表单验证
-    $('.ui.form').form({
-        fields: {
-            title: {
-                identifier: 'content',
-                rules: [{
-                    type: 'empty',
-                    prompt: '请输入评论内容'
-                }
-                ]
-            },
-            content: {
-                identifier: 'nickname',
-                rules: [{
-                    type: 'empty',
-                    prompt: '请输入你的大名'
-                }]
-            },
-            type: {
-                identifier: 'email',
-                rules: [{
-                    type: 'email',
-                    prompt: '请填写正确的邮箱地址'
-                }]
-            }
-        }
-    });
-
-    // $(function () {
-    //     $("#comment-container").load(/*[[@{/comments/{id}(id=${tweetfe.tweet.id})}]]*/"comments/6");
-    // });
-
-
-    //校验
-    $('#commentpost-btn').click(function () {
-        var boo = $('.ui.form').form('validate form');
-        if (boo) {
-            console.log('校验成功');
-            postData();
-        } else {
-            console.log('校验失败');
-        }
-
-    });
-
-    function postData() {
-        $("#comment-container").load(/*[[@{/comments}]]*/"",{
-            "parentComment.id" : $("[name='parentComment.id']").val(),
-            "blog.id" : $("[name='blog.id']").val(),
-            "nickname": $("[name='nickname']").val(),
-            "email"   : $("[name='email']").val(),
-            "content" : $("[name='content']").val()
-        },function (responseTxt, statusTxt, xhr) {
-//        $(window).scrollTo($('#comment-container'),500);
-            clearContent();
-        });
-    }
-
-    function clearContent() {
-        $("[name='content']").val('');
-        $("[name='parentComment.id']").val(-1);
-        $("[name='content']").attr("placeholder", "请输入评论信息...");
-    }
-
-
-    function reply(obj) {
-        var commentId = $(obj).data('commentid');
-        var commentNickname = $(obj).data('commentnickname');
-        $("[name='content']").attr("placeholder", "@"+commentNickname).focus();
-        $("[name='parentComment.id']").val(commentId);
-        $(window).scrollTo($('#comment-form'),500);
-    }
 
 
 </script>

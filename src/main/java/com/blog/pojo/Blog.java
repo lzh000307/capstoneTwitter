@@ -41,7 +41,7 @@ public class Blog {
 
     private List<Tag> tags = new ArrayList<>();
 
-    private List<Comment> comments = new ArrayList<>();
+    private List<CommentLe> comments = new ArrayList<>();
 
     public void init(){
         this.tagIds = tagsToIds(this.getTags());

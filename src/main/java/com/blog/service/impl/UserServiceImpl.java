@@ -52,6 +52,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findById(Long id) {
-        return userDao.findById(id);
+        User user = userDao.findById(id);
+        //密码扔掉
+        user.setPassword(null);
+        return user;
     }
 }

@@ -5,8 +5,9 @@ import com.blog.pojo.Comment;
 import java.util.List;
 
 public interface CommentService {
+    public List<Comment> getMainComment(Long tweetId);
+    public int saveComment(Comment comment);
+    public List<Comment> getSubComment(Long commentId);
 
-    List<Comment> getCommentByBlogId(Long blogId);
-
-    int saveComment(Comment comment);
+    Comment findById(Long commentId);
 }

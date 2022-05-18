@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import static com.blog.util.Converter.tagsToIds;
@@ -38,7 +37,7 @@ public class TweetFrontEnd {
     //获取多个标签的id
     private List<Tweet> tweets = new ArrayList<>();
     private List<Tag> tags = new ArrayList<>();
-    private List<Comment> comments = new ArrayList<>();
+    private List<CommentLe> comments = new ArrayList<>();
 
     public void init(){
         this.tagIds = tagsToIds(this.getTags());
@@ -85,11 +84,11 @@ public class TweetFrontEnd {
         this.tags = tags;
     }
 
-    public List<Comment> getComments() {
+    public List<CommentLe> getComments() {
         return comments;
     }
 
-    public void setComments(List<Comment> comments) {
+    public void setComments(List<CommentLe> comments) {
         this.comments = comments;
     }
 }
