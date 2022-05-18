@@ -44,10 +44,6 @@ public class IndexController {
         List<Tweet> indexTweet = tweetService.getIndex();
 //        List<Type> allType = typeService.getBlogType();  //获取博客的类型(联表查询)
         List<Tag> allTag = tagService.getAllTag();  //获取博客的标签(联表查询)
-//        List<Blog> recommendBlog =blogService.getAllRecommendBlog();  //获取推荐博客
-        //TODO: 点赞
-
-        System.out.println(indexTweet);
         //得到分页结果对象
         PageInfo pageInfo = new PageInfo(indexTweet);
         model.addAttribute("pageInfo", pageInfo);
@@ -75,15 +71,5 @@ public class IndexController {
         model.addAttribute("pageInfo", pageInfo);
         model.addAttribute("query", query);
         return "search";
-    }
-
-    @GetMapping("/tweet/{id}")
-    public String surfTweet(@PathVariable Long id, Model model){
-//        Blog blog = blogService.getDetailedBlog(id);
-        Tweet tweet = tweetService.getTweet(id);
-        tweetService.viewPlusOne(tweet);
-        TweetFrontEnd tweetFE = tweetFrontEndConvector.convertToTweetFrontEnd(tweet);
-        model.addAttribute("tweetfe", tweetFE);
-        return "tweet";
     }
 }

@@ -1,10 +1,12 @@
 package com.blog.controller;
 
+import com.blog.controller.entity.TweetFrontEnd;
 import com.blog.pojo.Blog;
 import com.blog.pojo.Tweet;
 import com.blog.pojo.User;
 import com.blog.service.*;
 import com.blog.util.Converter;
+import com.blog.util.TweetFrontEndConvector;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,9 +31,14 @@ public class TweetController {
     private TrendService trendService;
     @Autowired
     private TypeService typeService;
-
+    @Autowired
+    private LikeService likeService;
     @Autowired
     private TagService tagService;
+    @Autowired
+    private UserCollectionService userCollectionService;
+    @Autowired
+    private TweetFrontEndConvector tweetFrontEndConvector;
 
     public void setTypeAndTag(Model model) {
         model.addAttribute("types", typeService.getAllType());
@@ -76,7 +83,7 @@ public class TweetController {
 //        tweet.init();   //将tags集合转换为tagIds字符串
         model.addAttribute("tweet", tweet);     //返回一个tweet对象给前端th:object
         setTypeAndTag(model);
-        return "tweets";
+        return "send-tweet";
     }
 
     @PostMapping("/") //新增、编辑博客
@@ -117,7 +124,63 @@ public class TweetController {
         tweetService.deleteTweet(id);
         trendService.deleteByTweetId(id);
         attributes.addFlashAttribute("msg", "删除成功");
-        return "redirect:/";
+        return "redirect:/usercenter/tweets";
 //        return "redirect:/admin/blogs";
     }
+
+    @GetMapping("/likes/{id}")
+    public String likes(@PathVariable Long id, HttpSession session){
+        User user = (User) session.getAttribute("user");
+        if (user == null) {
+            return "redirect:/login";
+        }
+        Tweet tweet = tweetService.getTweet(id);
+        //如果已经点赞，则取消点赞
+        if(likeService.isLike(user.getId(), id)){
+            tweet.setLikes(tweet.getLikes() - 1);
+            likeService.deleteLike(user.getId(), id);
+        }else {
+            tweet.setLikes(tweet.getLikes() + 1);
+            likeService.addLike(user.getId(), id);
+        }
+        tweetService.updateTweet(tweet);
+        return "redirect:/tweet/" + id;
+    }
+
+    @GetMapping("/collections/{id}")
+    public String collection(@PathVariable Long id, HttpSession session){
+        User user = (User) session.getAttribute("user");
+        if (user == null) {
+            return "redirect:/login";
+        }
+        Tweet tweet = tweetService.getTweet(id);
+        //如果已经点赞，则取消点赞
+        if(userCollectionService.isUserCollection(user.getId(), id)){
+            userCollectionService.deleteUserCollection(user.getId(), id);
+        }else {
+            userCollectionService.addUserCollection(user.getId(), id);
+        }
+        tweetService.updateTweet(tweet);
+        return "redirect:/tweet/" + id;
+    }
+
+    @GetMapping("/{id}")
+    public String surfTweet(@PathVariable Long id, Model model, HttpSession session){
+        boolean isCollection = false; //是否收藏
+        boolean isLike = false;
+//        Blog blog = blogService.getDetailedBlog(id);
+        Tweet tweet = tweetService.getTweet(id);
+        tweetService.viewPlusOne(tweet);
+        TweetFrontEnd tweetFE = tweetFrontEndConvector.convertToTweetFrontEnd(tweet);
+        if(session.getAttribute("user") != null){
+            isCollection = userCollectionService.isUserCollection(((User)session.getAttribute("user")).getId(), id);
+            isLike = likeService.isLike(((User)session.getAttribute("user")).getId(), id);
+        }
+        model.addAttribute("tweetfe", tweetFE);
+        model.addAttribute("isCollection", isCollection);
+        model.addAttribute("isLike", isLike);
+        return "tweet";
+    }
+
+
 }

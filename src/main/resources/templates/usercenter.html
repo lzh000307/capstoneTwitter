@@ -7,70 +7,88 @@
 
 <body>
 <!--头部导航-->
-<nav  th:replace="_fragments :: menu(1)" ></nav>
+<nav  th:replace="_fragments :: menu(7)" ></nav>
 
 <!--中间内容-->
-<div id="user-center-container" class="container view">
-    <div class="container-left">
-        <ul>
-            <li class="router-link-exact-active router-link-active">
-                <a href="#" th:href="@{/user/center}" class="m-item item blue m-mobile-hide"><i class="user icon"></i>个人资料</a>
-            </li>
-            <li >
-                <a href="#" th:href="@{/collections}" class="m-item orange item m-mobile-hide"><i clas="star icon"></i>我的收藏</a>
-            </li>
-        </ul>
-    </div>
-
-    <div class="container-right">
-        <div class="container-profile">
-            <div class="general-info">
-                <div>
-                    <img class="ui avatar image" src="https://unsplash.it/100/100?image=1005" th:src="@{${session.user.avatar}}">
-                </div>
-                <div>
-                    <span th:text="${session.user.nickname}">nickname</span>
-                </div>
+<div class="m-container m-padded-tb-big animated fadeIn">
+    <div class="ui grid">
+        <div class="four wide column">
+            <div class="ui vertical pointing menu">
+                <a class="item active" href="#" th:href="@{/templates/usercenter/center}"><i class=" home icon"></i>个人资料</a>
+                <a class="item" href="#" th:href="@{/usercollections}" ><i class="star icon"></i>我的收藏</a>
+                <a class="item" href="#" th:href="@{/userchangepassword}"><i class="lock icon"></i>更改密码</a>
             </div>
+        </div>
 
-            <div class="base-info">
-                <div class="base-info-head">基本信息</div>
-                <div class="base-info-content">
-                    <form method="post" th:object="${user}" action="#" th:action="@{/savechange}">
-                        <div class="required field">
-                            <div class="ui left labeled input">
-                                <label class="ui teal basic label">用户昵称</label>
+        <div class="ten wide column">
+            <div class="ui segment">
+                <div >
+                    <div >
+                        <img class="ui avatar image" src="https://unsplash.it/100/100?image=1005" th:src="@{${session.user.avatar}}">
+                        <span th:text="${session.user.nickname}" class="ui header">nickname</span>
+                    </div>
+                </div>
+                <br>
+                <form class="ui form" method="post" th:object="${user}" action="#" th:action="@{/savechange}">
+                <h2 class="ui dividing header">基本信息</h2>
+                    <div class="field">
+                        <div class="two fields">
+                            <div class="field">
+                                <label>用户名</label>
+                                <input type="text" readonly="" name="username"  placeholder="#" th:placeholder="${user.username}" th:value="*{username}">
+                            </div>
+                            <div class="field">
+                                <label>昵称</label>
                                 <input type="text" name="nickname"  placeholder="#" th:placeholder="${user.nickname}" th:value="*{nickname}">
                             </div>
-                            <div>
-                                <label class="ui teal basic label">用户名称</label>
-                                <input type="text" name="username"  placeholder="#" th:placeholder="${user.username}" th:value="*{username}">
-                            </div>
-                            <div>
-                                <label class="ui teal basic label">邮箱</label>
+                        </div>
+                        <div class="two fields">
+                            <div class="field">
+                                <label>邮箱</label>
                                 <input type="text" name="email"  placeholder="#" th:placeholder="${user.email}" th:value="*{email}">
                             </div>
-                            <div>
-                                <label class="ui teal basic label">电话</label>
-                                <input type="text" name="phoneNumber"  placeholder="#" th:placeholder="${user.phoneNumber}" th:value="*{phoneNumber}">
+                            <div class="field">
+                                <label>手机号码</label>
+                                <input type="text" name="shipping[last-name]" placeholder="Last Name">
                             </div>
-                            <div>
-                                <label class="ui teal basic label">头像</label>
-                                <input type="text" name="avatar"  placeholder="#" th:placeholder="${user.avatar}" th:value="*{avatar}">
-                            </div>
-
                         </div>
-
-                        <div class="ui right aligned container">
-                            <button type="button" id="save-btn" class="ui secondary submit button">保存更改</button>
+                    </div>
+                    <div class="field">
+                        <label>头像地址</label>
+                        <input type="text" name="avatar"  placeholder="#" th:placeholder="${user.avatar}" th:value="*{avatar}">
+                    </div>
+                    <div class="five fields">
+                        <div class="field"></div>
+                        <div class="field"></div>
+                        <div class="field">
+                            <button class="ui submit button" id="save-btn">保存更改</button>
                         </div>
-                    </form>
-                </div>
+                        <div class="field"></div>
+                        <div class="field"></div>
+                    </div>
+                    <!--提示用户名不为空-->
+                    <div class="ui error mini message"></div>
+                </form>
             </div>
-
         </div>
     </div>
 </div>
+
+
+<script>
+    $('.ui.form').form({
+        fields : {
+            username : {
+                identifier: 'nickname',
+                rules: [{
+                    type : 'empty',
+                    prompt: '请输入昵称'
+                }]
+            }
+        }
+    });
+</script>
+
 
 </body>
 </html>

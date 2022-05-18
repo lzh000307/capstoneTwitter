@@ -251,3 +251,14 @@ CREATE TABLE `topic`  (
 
 SET FOREIGN_KEY_CHECKS = 1;
 
+DROP TABLE IF EXISTS `like`;       /* 点赞用户-推文的关系 */
+CREATE TABLE `like`(
+                       `user_id` bigint(20) NULL DEFAULT NULL,
+                       `tweet_id` bigint(20) NULL DEFAULT NULL
+) ENGINE = InnoDB ROW_FORMAT = Compact;
+
+DROP TABLE IF EXISTS `user_collection`;       /* 点赞用户-推文的关系 */
+CREATE TABLE `user_collection`(
+                       `user_id` bigint(20) NULL DEFAULT NULL,
+                       `tweet_id` bigint(20) NULL DEFAULT NULL
+) ENGINE = InnoDB ROW_FORMAT = Compact;

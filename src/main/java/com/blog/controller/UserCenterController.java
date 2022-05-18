@@ -23,6 +23,6 @@ public class UserCenterController {
         }
         //传回前端
         model.addAttribute("user", user);
-        return "/usercenter";
+        return "usercenter";
     }
 }
