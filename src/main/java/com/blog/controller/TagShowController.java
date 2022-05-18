@@ -1,5 +1,6 @@
 package com.blog.controller;
 
+import com.blog.controller.entity.TweetFrontEnd;
 import com.blog.pojo.Blog;
 import com.blog.pojo.Tag;
 import com.blog.pojo.Tweet;
@@ -7,6 +8,7 @@ import com.blog.service.BlogService;
 import com.blog.service.TagService;
 import com.blog.service.TrendService;
 import com.blog.service.TweetService;
+import com.blog.util.TweetFrontEndConvector;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +31,8 @@ public class TagShowController {
 //    @Autowired
 //    private BlogService blogService;
     @Autowired
+    TweetFrontEndConvector tweetFrontEndConvector;
+    @Autowired
     private TweetService tweetService;
 
     @GetMapping("/tags/{id}")
@@ -46,10 +50,12 @@ public class TagShowController {
         for(Long trend : trends){
             tweets.add(tweetService.getTweet(trend));
         }
+        List<TweetFrontEnd> tweetfe = new ArrayList<>();
         for (Tweet tweet : tweets) {
             System.out.println(tweets);
+            tweetfe.add(tweetFrontEndConvector.convertToTweetFrontEnd(tweet));
         }
-        PageInfo<Tweet> pageInfo = new PageInfo<>(tweets);
+        PageInfo<TweetFrontEnd> pageInfo = new PageInfo<>(tweetfe);
         model.addAttribute("tags", tags);
         model.addAttribute("pageInfo", pageInfo);
         model.addAttribute("activeTagId", id);
