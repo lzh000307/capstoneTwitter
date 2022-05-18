@@ -19,4 +19,6 @@ public interface TweetService {
     List<Tweet> searchAllTweet(Tweet tweet);
 
     List<Tweet> getIndex();
+
+    void viewPlusOne(Tweet tweet);
 }

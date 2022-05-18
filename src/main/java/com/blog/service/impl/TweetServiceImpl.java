@@ -38,6 +38,12 @@ public class TweetServiceImpl implements TweetService {
     }
 
     @Override
+    public void viewPlusOne(Tweet tweet) {
+        tweet.setViews(tweet.getViews()+1);
+        tweetDao.update(tweet);
+    }
+
+    @Override
     public List<Tweet> getAllTweet() {
         return tweetDao.getAllTweet();
     }

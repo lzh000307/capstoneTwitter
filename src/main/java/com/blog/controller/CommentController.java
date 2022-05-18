@@ -42,6 +42,13 @@ public class CommentController {
         return "tweet :: commentList";
     }
 
+    /**
+     * 评论功能，巨 难 写
+     * @param comment
+     * @param session
+     * @return
+     * @Author：林钲皓
+     */
     @PostMapping("/comments")   //提交留言
     public String post(Comment comment, HttpSession session){
         Long tweetId = comment.getTweetId();

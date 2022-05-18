@@ -17,6 +17,11 @@ public class CommentFrontEndService {
     @Autowired
     UserService userService;
 
+    /**
+     * 转换为可以直接传到前端的类型
+     * @param TweetId
+     * @return
+     */
     public List<CommentFrontEnd> passToFront(Long TweetId){
         //获取主评论
         List<Comment> comments = commentService.getMainComment(TweetId);
@@ -27,6 +32,12 @@ public class CommentFrontEndService {
         return commentFrontEnds;
     }
 
+    /**
+     * converter
+     * @param comment
+     * @return
+     * @author: 林钲皓
+     */
     public CommentFrontEnd ConvertCommentToFrontEnd(Comment comment){
         CommentFrontEnd commentFrontEnd = new CommentFrontEnd();
         commentFrontEnd.setComment(comment);
@@ -45,6 +56,12 @@ public class CommentFrontEndService {
         return commentFrontEnd;
     }
 
+    /**
+     * converter
+     * @param comments
+     * @return
+     * @author: 林钲皓
+     */
     public List<CommentFrontEnd> ConvertCommentToFrontEnd(List<Comment> comments){
         List<CommentFrontEnd> commentFrontEnds = new ArrayList<>();
         for(Comment comment : comments){
@@ -57,6 +74,7 @@ public class CommentFrontEndService {
      * 填充主列表中的reply
      * @param commentFrontEnds
      * @return
+     * @author: 林钲皓
      */
     public List<CommentFrontEnd> fillReplies(List<CommentFrontEnd> commentFrontEnds){
         for(CommentFrontEnd commentFrontEnd : commentFrontEnds){

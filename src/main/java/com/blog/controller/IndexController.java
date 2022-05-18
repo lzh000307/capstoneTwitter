@@ -81,6 +81,7 @@ public class IndexController {
     public String surfTweet(@PathVariable Long id, Model model){
 //        Blog blog = blogService.getDetailedBlog(id);
         Tweet tweet = tweetService.getTweet(id);
+        tweetService.viewPlusOne(tweet);
         TweetFrontEnd tweetFE = tweetFrontEndConvector.convertToTweetFrontEnd(tweet);
         model.addAttribute("tweetfe", tweetFE);
         return "tweet";
