@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08ebf5d0-8ae2-4bb1-9acc-7568cc9c269a" name="Default Changelist" comment="重构了tag">
+    <list default="true" id="08ebf5d0-8ae2-4bb1-9acc-7568cc9c269a" name="Default Changelist" comment="tag现可正常使用">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/UserCenterController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/usercenter.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log/blog-dev.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/blog-dev.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/controller/TagShowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/TagShowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/tags.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/tags.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/_fragments.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/_fragments.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -310,7 +311,7 @@
       <workItem from="1652760535044" duration="14043000" />
       <workItem from="1652781015816" duration="313000" />
       <workItem from="1652845651662" duration="54000" />
-      <workItem from="1652845715368" duration="1218000" />
+      <workItem from="1652845715368" duration="3868000" />
     </task>
     <task id="LOCAL-00001" summary="update md5">
       <created>1584841437407</created>
@@ -403,7 +404,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652806643268</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="tag现可正常使用">
+      <created>1652847003676</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1652847003677</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -470,7 +478,8 @@
     <MESSAGE value="新增推特详情页" />
     <MESSAGE value="新增搜索功能，解决了Tweet前端评论的小bug" />
     <MESSAGE value="重构了tag" />
-    <option name="LAST_COMMIT_MESSAGE" value="重构了tag" />
+    <MESSAGE value="tag现可正常使用" />
+    <option name="LAST_COMMIT_MESSAGE" value="tag现可正常使用" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

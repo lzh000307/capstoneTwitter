@@ -4251,3 +4251,998 @@ Caused by: java.lang.NumberFormatException: For input string: "testtag"
 2022-05-18 12:09:26.711  INFO 3182 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
 2022-05-18 12:09:26.712  INFO 3182 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2022-05-18 12:09:26.719  INFO 3182 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-05-18 12:10:14.667  INFO 3326 --- [restartedMain] com.blog.BlogApplication                 : Starting BlogApplication on ElvisdeMacBook-Pro.local with PID 3326 (/Users/elvislin/Documents/IDEA_PROJECT/capstoneTwitter/target/classes started by elvislin in /Users/elvislin/Documents/IDEA_PROJECT/capstoneTwitter)
+2022-05-18 12:10:14.668 DEBUG 3326 --- [restartedMain] com.blog.BlogApplication                 : Running with Spring Boot v2.2.5.RELEASE, Spring v5.2.4.RELEASE
+2022-05-18 12:10:14.668  INFO 3326 --- [restartedMain] com.blog.BlogApplication                 : The following profiles are active: dev
+2022-05-18 12:10:14.699  INFO 3326 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-05-18 12:10:14.699  INFO 3326 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-05-18 12:10:15.329  INFO 3326 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-05-18 12:10:15.332  INFO 3326 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-05-18 12:10:15.332  INFO 3326 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2022-05-18 12:10:15.355  INFO 3326 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-05-18 12:10:15.356  INFO 3326 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 656 ms
+2022-05-18 12:10:15.698  INFO 3326 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-05-18 12:10:15.741  INFO 3326 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-05-18 12:10:15.881  INFO 3326 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-05-18 12:10:15.907  INFO 3326 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-05-18 12:10:15.909  INFO 3326 --- [restartedMain] com.blog.BlogApplication                 : Started BlogApplication in 1.46 seconds (JVM running for 1.899)
+2022-05-18 12:10:16.438  INFO 3326 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-05-18 12:10:16.438  INFO 3326 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-05-18 12:10:16.444  INFO 3326 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2022-05-18 12:10:16.465  INFO 3326 --- [http-nio-8080-exec-1] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/tags/3, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.TagShowController.types, args=[3, 1, {}])
+2022-05-18 12:10:16.488  INFO 3326 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-05-18 12:10:16.671  INFO 3326 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-05-18 12:10:16.675 DEBUG 3326 --- [http-nio-8080-exec-1] com.blog.dao.TagDao.getAllTag_COUNT      : ==>  Preparing: SELECT count(0) FROM t_tag 
+2022-05-18 12:10:16.687 DEBUG 3326 --- [http-nio-8080-exec-1] com.blog.dao.TagDao.getAllTag_COUNT      : ==> Parameters: 
+2022-05-18 12:10:16.696 DEBUG 3326 --- [http-nio-8080-exec-1] com.blog.dao.TagDao.getAllTag_COUNT      : <==      Total: 1
+2022-05-18 12:10:16.699 DEBUG 3326 --- [http-nio-8080-exec-1] com.blog.dao.TagDao.getAllTag            : ==>  Preparing: select * from t_tag LIMIT ? 
+2022-05-18 12:10:16.699 DEBUG 3326 --- [http-nio-8080-exec-1] com.blog.dao.TagDao.getAllTag            : ==> Parameters: 100(Integer)
+2022-05-18 12:10:16.700 DEBUG 3326 --- [http-nio-8080-exec-1] com.blog.dao.TagDao.getAllTag            : <==      Total: 6
+2022-05-18 12:10:16.701 DEBUG 3326 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 12:10:16.702 DEBUG 3326 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 3(Long)
+2022-05-18 12:10:16.702 DEBUG 3326 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 12:10:16.702 DEBUG 3326 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 12:10:16.703 DEBUG 3326 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 4(Long)
+2022-05-18 12:10:16.703 DEBUG 3326 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 12:10:16.703 DEBUG 3326 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 12:10:16.703 DEBUG 3326 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 5(Long)
+2022-05-18 12:10:16.704 DEBUG 3326 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 12:10:16.704 DEBUG 3326 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 12:10:16.704 DEBUG 3326 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 6(Long)
+2022-05-18 12:10:16.704 DEBUG 3326 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 12:10:16.704 DEBUG 3326 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 12:10:16.705 DEBUG 3326 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 7(Long)
+2022-05-18 12:10:16.705 DEBUG 3326 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 12:10:16.705 DEBUG 3326 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 12:10:16.705 DEBUG 3326 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 8(Long)
+2022-05-18 12:10:16.706 DEBUG 3326 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 12:10:16.706 DEBUG 3326 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 12:10:16.706 DEBUG 3326 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 3(Long)
+2022-05-18 12:10:16.706 DEBUG 3326 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 12:10:16.707 DEBUG 3326 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.queryById          : ==>  Preparing: select id, title, content, first_picture, status, views, likes, commentable, published, recommend, create_time, update_time, type_id, user_id, tag_ids from blog_mb.tweet where id = ? 
+2022-05-18 12:10:16.707 DEBUG 3326 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.queryById          : ==> Parameters: 23(Long)
+2022-05-18 12:10:16.709 DEBUG 3326 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.queryById          : <==      Total: 1
+2022-05-18 12:10:16.709 DEBUG 3326 --- [http-nio-8080-exec-1] com.blog.dao.UserDao.findById            : ==>  Preparing: select * from user where id = ? 
+2022-05-18 12:10:16.709 DEBUG 3326 --- [http-nio-8080-exec-1] com.blog.dao.UserDao.findById            : ==> Parameters: 1(Long)
+2022-05-18 12:10:16.710 DEBUG 3326 --- [http-nio-8080-exec-1] com.blog.dao.UserDao.findById            : <==      Total: 1
+2022-05-18 12:10:16.710 DEBUG 3326 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTweetId       : ==>  Preparing: select * from trend where tweet_Id = ? 
+2022-05-18 12:10:16.711 DEBUG 3326 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTweetId       : ==> Parameters: 23(Long)
+2022-05-18 12:10:16.711 DEBUG 3326 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTweetId       : <==      Total: 3
+2022-05-18 12:10:16.711 DEBUG 3326 --- [http-nio-8080-exec-1] com.blog.dao.TagDao.getTag               : ==>  Preparing: select id,name from t_tag where id = ? 
+2022-05-18 12:10:16.711 DEBUG 3326 --- [http-nio-8080-exec-1] com.blog.dao.TagDao.getTag               : ==> Parameters: 3(Long)
+2022-05-18 12:10:16.712 DEBUG 3326 --- [http-nio-8080-exec-1] com.blog.dao.TagDao.getTag               : <==      Total: 1
+2022-05-18 12:10:16.712 DEBUG 3326 --- [http-nio-8080-exec-1] com.blog.dao.TagDao.getTag               : ==>  Preparing: select id,name from t_tag where id = ? 
+2022-05-18 12:10:16.712 DEBUG 3326 --- [http-nio-8080-exec-1] com.blog.dao.TagDao.getTag               : ==> Parameters: 6(Long)
+2022-05-18 12:10:16.713 DEBUG 3326 --- [http-nio-8080-exec-1] com.blog.dao.TagDao.getTag               : <==      Total: 1
+2022-05-18 12:10:16.714 DEBUG 3326 --- [http-nio-8080-exec-1] com.blog.dao.TagDao.getTag               : ==>  Preparing: select id,name from t_tag where id = ? 
+2022-05-18 12:10:16.714 DEBUG 3326 --- [http-nio-8080-exec-1] com.blog.dao.TagDao.getTag               : ==> Parameters: 7(Long)
+2022-05-18 12:10:16.716 DEBUG 3326 --- [http-nio-8080-exec-1] com.blog.dao.TagDao.getTag               : <==      Total: 1
+2022-05-18 12:10:16.719  INFO 3326 --- [http-nio-8080-exec-1] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-18 12:10:16.719  INFO 3326 --- [http-nio-8080-exec-1] com.blog.aspect.LogAspect                : Result: tags
+2022-05-18 12:10:16.990 ERROR 3326 --- [http-nio-8080-exec-3] c.b.handler.ControllerExceptionHandler   : Request url: /tags/test%20tag, Exception: {}
+
+org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "testtag"
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:133) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:121) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:167) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:134) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:879) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1639) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_332]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_332]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.lang.Thread.run(Thread.java:750) [na:1.8.0_332]
+Caused by: java.lang.NumberFormatException: For input string: "testtag"
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65) ~[na:1.8.0_332]
+	at java.lang.Long.parseLong(Long.java:589) ~[na:1.8.0_332]
+	at java.lang.Long.valueOf(Long.java:803) ~[na:1.8.0_332]
+	at org.springframework.util.NumberUtils.parseNumber(NumberUtils.java:214) ~[spring-core-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.propertyeditors.CustomNumberEditor.setAsText(CustomNumberEditor.java:115) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.TypeConverterDelegate.doConvertTextValue(TypeConverterDelegate.java:429) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.TypeConverterDelegate.doConvertValue(TypeConverterDelegate.java:402) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.TypeConverterDelegate.convertIfNecessary(TypeConverterDelegate.java:155) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.TypeConverterSupport.convertIfNecessary(TypeConverterSupport.java:73) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.TypeConverterSupport.convertIfNecessary(TypeConverterSupport.java:53) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.validation.DataBinder.convertIfNecessary(DataBinder.java:693) ~[spring-context-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:125) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	... 47 common frames omitted
+
+2022-05-18 12:10:16.991  WARN 3326 --- [http-nio-8080-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "testtag"]
+2022-05-18 12:10:20.522  INFO 3326 --- [http-nio-8080-exec-8] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/tags/4, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.TagShowController.types, args=[4, 1, {}])
+2022-05-18 12:10:20.523 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TagDao.getAllTag_COUNT      : ==>  Preparing: SELECT count(0) FROM t_tag 
+2022-05-18 12:10:20.524 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TagDao.getAllTag_COUNT      : ==> Parameters: 
+2022-05-18 12:10:20.527 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TagDao.getAllTag_COUNT      : <==      Total: 1
+2022-05-18 12:10:20.528 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TagDao.getAllTag            : ==>  Preparing: select * from t_tag LIMIT ? 
+2022-05-18 12:10:20.528 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TagDao.getAllTag            : ==> Parameters: 100(Integer)
+2022-05-18 12:10:20.530 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TagDao.getAllTag            : <==      Total: 6
+2022-05-18 12:10:20.531 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 12:10:20.531 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 3(Long)
+2022-05-18 12:10:20.532 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 12:10:20.533 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 12:10:20.533 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 4(Long)
+2022-05-18 12:10:20.534 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 12:10:20.534 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 12:10:20.535 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 5(Long)
+2022-05-18 12:10:20.536 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 12:10:20.536 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 12:10:20.536 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 6(Long)
+2022-05-18 12:10:20.538 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 12:10:20.538 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 12:10:20.539 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 7(Long)
+2022-05-18 12:10:20.540 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 12:10:20.541 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 12:10:20.542 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 8(Long)
+2022-05-18 12:10:20.542 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 12:10:20.543 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 12:10:20.543 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 4(Long)
+2022-05-18 12:10:20.544 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 12:10:20.544  INFO 3326 --- [http-nio-8080-exec-8] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-18 12:10:20.544  INFO 3326 --- [http-nio-8080-exec-8] com.blog.aspect.LogAspect                : Result: tags
+2022-05-18 12:10:28.906  INFO 3326 --- [http-nio-8080-exec-7] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.IndexController.toIndex, args=[1, {}])
+2022-05-18 12:10:28.925 DEBUG 3326 --- [http-nio-8080-exec-7] com.blog.dao.TweetDao.getByDesc_COUNT    : ==>  Preparing: SELECT count(0) FROM tweet b, user u WHERE u.id = b.user_id 
+2022-05-18 12:10:28.926 DEBUG 3326 --- [http-nio-8080-exec-7] com.blog.dao.TweetDao.getByDesc_COUNT    : ==> Parameters: 
+2022-05-18 12:10:28.927 DEBUG 3326 --- [http-nio-8080-exec-7] com.blog.dao.TweetDao.getByDesc_COUNT    : <==      Total: 1
+2022-05-18 12:10:28.928 DEBUG 3326 --- [http-nio-8080-exec-7] com.blog.dao.TweetDao.getByDesc          : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.content, u.nickname, u.avatar from tweet b, user u where u.id = b.user_id order by b.update_time desc LIMIT ? 
+2022-05-18 12:10:28.928 DEBUG 3326 --- [http-nio-8080-exec-7] com.blog.dao.TweetDao.getByDesc          : ==> Parameters: 8(Integer)
+2022-05-18 12:10:28.934 DEBUG 3326 --- [http-nio-8080-exec-7] com.blog.dao.TweetDao.getByDesc          : <==      Total: 8
+2022-05-18 12:10:28.935 DEBUG 3326 --- [http-nio-8080-exec-7] com.blog.dao.TagDao.getAllTag            : ==>  Preparing: select * from t_tag 
+2022-05-18 12:10:28.936 DEBUG 3326 --- [http-nio-8080-exec-7] com.blog.dao.TagDao.getAllTag            : ==> Parameters: 
+2022-05-18 12:10:28.938 DEBUG 3326 --- [http-nio-8080-exec-7] com.blog.dao.TagDao.getAllTag            : <==      Total: 6
+2022-05-18 12:10:28.938 DEBUG 3326 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 12:10:28.938 DEBUG 3326 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 3(Long)
+2022-05-18 12:10:28.939 DEBUG 3326 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 12:10:28.940 DEBUG 3326 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 12:10:28.940 DEBUG 3326 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 4(Long)
+2022-05-18 12:10:28.941 DEBUG 3326 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 12:10:28.941 DEBUG 3326 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 12:10:28.942 DEBUG 3326 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 5(Long)
+2022-05-18 12:10:28.942 DEBUG 3326 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 12:10:28.943 DEBUG 3326 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 12:10:28.943 DEBUG 3326 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 6(Long)
+2022-05-18 12:10:28.944 DEBUG 3326 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 12:10:28.944 DEBUG 3326 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 12:10:28.945 DEBUG 3326 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 7(Long)
+2022-05-18 12:10:28.946 DEBUG 3326 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 12:10:28.946 DEBUG 3326 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 12:10:28.946 DEBUG 3326 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 8(Long)
+2022-05-18 12:10:28.947 DEBUG 3326 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 12:10:28.948  INFO 3326 --- [http-nio-8080-exec-7] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-18 12:10:28.948  INFO 3326 --- [http-nio-8080-exec-7] com.blog.aspect.LogAspect                : Result: index
+2022-05-18 12:19:09.531  INFO 3326 --- [http-nio-8080-exec-2] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.IndexController.toIndex, args=[1, {}])
+2022-05-18 12:19:09.533 DEBUG 3326 --- [http-nio-8080-exec-2] com.blog.dao.TweetDao.getByDesc_COUNT    : ==>  Preparing: SELECT count(0) FROM tweet b, user u WHERE u.id = b.user_id 
+2022-05-18 12:19:09.533 DEBUG 3326 --- [http-nio-8080-exec-2] com.blog.dao.TweetDao.getByDesc_COUNT    : ==> Parameters: 
+2022-05-18 12:19:09.535 DEBUG 3326 --- [http-nio-8080-exec-2] com.blog.dao.TweetDao.getByDesc_COUNT    : <==      Total: 1
+2022-05-18 12:19:09.535 DEBUG 3326 --- [http-nio-8080-exec-2] com.blog.dao.TweetDao.getByDesc          : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.content, u.nickname, u.avatar from tweet b, user u where u.id = b.user_id order by b.update_time desc LIMIT ? 
+2022-05-18 12:19:09.535 DEBUG 3326 --- [http-nio-8080-exec-2] com.blog.dao.TweetDao.getByDesc          : ==> Parameters: 8(Integer)
+2022-05-18 12:19:09.540 DEBUG 3326 --- [http-nio-8080-exec-2] com.blog.dao.TweetDao.getByDesc          : <==      Total: 8
+2022-05-18 12:19:09.544 DEBUG 3326 --- [http-nio-8080-exec-2] com.blog.dao.TagDao.getAllTag            : ==>  Preparing: select * from t_tag 
+2022-05-18 12:19:09.544 DEBUG 3326 --- [http-nio-8080-exec-2] com.blog.dao.TagDao.getAllTag            : ==> Parameters: 
+2022-05-18 12:19:09.546 DEBUG 3326 --- [http-nio-8080-exec-2] com.blog.dao.TagDao.getAllTag            : <==      Total: 6
+2022-05-18 12:19:09.546 DEBUG 3326 --- [http-nio-8080-exec-2] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 12:19:09.547 DEBUG 3326 --- [http-nio-8080-exec-2] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 3(Long)
+2022-05-18 12:19:09.548 DEBUG 3326 --- [http-nio-8080-exec-2] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 12:19:09.548 DEBUG 3326 --- [http-nio-8080-exec-2] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 12:19:09.549 DEBUG 3326 --- [http-nio-8080-exec-2] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 4(Long)
+2022-05-18 12:19:09.552 DEBUG 3326 --- [http-nio-8080-exec-2] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 12:19:09.552 DEBUG 3326 --- [http-nio-8080-exec-2] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 12:19:09.552 DEBUG 3326 --- [http-nio-8080-exec-2] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 5(Long)
+2022-05-18 12:19:09.553 DEBUG 3326 --- [http-nio-8080-exec-2] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 12:19:09.554 DEBUG 3326 --- [http-nio-8080-exec-2] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 12:19:09.554 DEBUG 3326 --- [http-nio-8080-exec-2] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 6(Long)
+2022-05-18 12:19:09.556 DEBUG 3326 --- [http-nio-8080-exec-2] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 12:19:09.557 DEBUG 3326 --- [http-nio-8080-exec-2] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 12:19:09.557 DEBUG 3326 --- [http-nio-8080-exec-2] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 7(Long)
+2022-05-18 12:19:09.560 DEBUG 3326 --- [http-nio-8080-exec-2] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 12:19:09.561 DEBUG 3326 --- [http-nio-8080-exec-2] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 12:19:09.561 DEBUG 3326 --- [http-nio-8080-exec-2] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 8(Long)
+2022-05-18 12:19:09.562 DEBUG 3326 --- [http-nio-8080-exec-2] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 12:19:09.563  INFO 3326 --- [http-nio-8080-exec-2] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-18 12:19:09.563  INFO 3326 --- [http-nio-8080-exec-2] com.blog.aspect.LogAspect                : Result: index
+2022-05-18 12:19:44.308  INFO 3326 --- [http-nio-8080-exec-6] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/tweet/20, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.IndexController.surfTweet, args=[20, {}])
+2022-05-18 12:19:44.310 DEBUG 3326 --- [http-nio-8080-exec-6] com.blog.dao.TweetDao.queryById          : ==>  Preparing: select id, title, content, first_picture, status, views, likes, commentable, published, recommend, create_time, update_time, type_id, user_id, tag_ids from blog_mb.tweet where id = ? 
+2022-05-18 12:19:44.310 DEBUG 3326 --- [http-nio-8080-exec-6] com.blog.dao.TweetDao.queryById          : ==> Parameters: 20(Long)
+2022-05-18 12:19:44.313 DEBUG 3326 --- [http-nio-8080-exec-6] com.blog.dao.TweetDao.queryById          : <==      Total: 1
+2022-05-18 12:19:44.313 DEBUG 3326 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==>  Preparing: select * from user where id = ? 
+2022-05-18 12:19:44.314 DEBUG 3326 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==> Parameters: 1(Long)
+2022-05-18 12:19:44.315 DEBUG 3326 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : <==      Total: 1
+2022-05-18 12:19:44.316 DEBUG 3326 --- [http-nio-8080-exec-6] com.blog.dao.TrendDao.getByTweetId       : ==>  Preparing: select * from trend where tweet_Id = ? 
+2022-05-18 12:19:44.316 DEBUG 3326 --- [http-nio-8080-exec-6] com.blog.dao.TrendDao.getByTweetId       : ==> Parameters: 20(Long)
+2022-05-18 12:19:44.317 DEBUG 3326 --- [http-nio-8080-exec-6] com.blog.dao.TrendDao.getByTweetId       : <==      Total: 0
+2022-05-18 12:19:44.318  INFO 3326 --- [http-nio-8080-exec-6] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-18 12:19:44.318  INFO 3326 --- [http-nio-8080-exec-6] com.blog.aspect.LogAspect                : Result: tweet
+2022-05-18 12:19:50.629  INFO 3326 --- [http-nio-8080-exec-6] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/login, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.LoginController2.loginPage, args=[])
+2022-05-18 12:19:50.637  INFO 3326 --- [http-nio-8080-exec-6] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-18 12:19:50.638  INFO 3326 --- [http-nio-8080-exec-6] com.blog.aspect.LogAspect                : Result: login
+2022-05-18 12:19:52.610  INFO 3326 --- [http-nio-8080-exec-4] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/login, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.LoginController2.login, args=[test, test, org.apache.catalina.session.StandardSessionFacade@782a9a3e, {}])
+2022-05-18 12:19:52.611 DEBUG 3326 --- [http-nio-8080-exec-4] c.b.d.U.queryByUsernameAndPassword       : ==>  Preparing: select * from user where username = ? and password = ?; 
+2022-05-18 12:19:52.612 DEBUG 3326 --- [http-nio-8080-exec-4] c.b.d.U.queryByUsernameAndPassword       : ==> Parameters: test(String), 098f6bcd4621d373cade4e832627b4f6(String)
+2022-05-18 12:19:52.612 DEBUG 3326 --- [http-nio-8080-exec-4] c.b.d.U.queryByUsernameAndPassword       : <==      Total: 1
+2022-05-18 12:19:52.613  INFO 3326 --- [http-nio-8080-exec-4] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-18 12:19:52.613  INFO 3326 --- [http-nio-8080-exec-4] com.blog.aspect.LogAspect                : Result: redirect:/
+2022-05-18 12:19:52.625  INFO 3326 --- [http-nio-8080-exec-8] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.IndexController.toIndex, args=[1, {}])
+2022-05-18 12:19:52.626 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TweetDao.getByDesc_COUNT    : ==>  Preparing: SELECT count(0) FROM tweet b, user u WHERE u.id = b.user_id 
+2022-05-18 12:19:52.626 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TweetDao.getByDesc_COUNT    : ==> Parameters: 
+2022-05-18 12:19:52.627 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TweetDao.getByDesc_COUNT    : <==      Total: 1
+2022-05-18 12:19:52.627 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TweetDao.getByDesc          : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.content, u.nickname, u.avatar from tweet b, user u where u.id = b.user_id order by b.update_time desc LIMIT ? 
+2022-05-18 12:19:52.627 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TweetDao.getByDesc          : ==> Parameters: 8(Integer)
+2022-05-18 12:19:52.629 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TweetDao.getByDesc          : <==      Total: 8
+2022-05-18 12:19:52.629 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TagDao.getAllTag            : ==>  Preparing: select * from t_tag 
+2022-05-18 12:19:52.629 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TagDao.getAllTag            : ==> Parameters: 
+2022-05-18 12:19:52.630 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TagDao.getAllTag            : <==      Total: 6
+2022-05-18 12:19:52.630 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 12:19:52.630 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 3(Long)
+2022-05-18 12:19:52.630 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 12:19:52.631 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 12:19:52.631 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 4(Long)
+2022-05-18 12:19:52.631 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 12:19:52.631 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 12:19:52.631 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 5(Long)
+2022-05-18 12:19:52.632 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 12:19:52.632 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 12:19:52.632 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 6(Long)
+2022-05-18 12:19:52.632 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 12:19:52.633 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 12:19:52.633 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 7(Long)
+2022-05-18 12:19:52.633 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 12:19:52.633 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 12:19:52.633 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 8(Long)
+2022-05-18 12:19:52.634 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 12:19:52.634  INFO 3326 --- [http-nio-8080-exec-8] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-18 12:19:52.634  INFO 3326 --- [http-nio-8080-exec-8] com.blog.aspect.LogAspect                : Result: index
+2022-05-18 12:19:53.946  INFO 3326 --- [http-nio-8080-exec-8] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/tweet/send, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.TweetController.toAddTweet, args=[{}])
+2022-05-18 12:19:53.970 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TypeDao.getAllType          : ==>  Preparing: select * from t_type 
+2022-05-18 12:19:53.971 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TypeDao.getAllType          : ==> Parameters: 
+2022-05-18 12:19:53.972 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TypeDao.getAllType          : <==      Total: 5
+2022-05-18 12:19:53.974 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TagDao.getAllTag            : ==>  Preparing: select * from t_tag 
+2022-05-18 12:19:53.975 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TagDao.getAllTag            : ==> Parameters: 
+2022-05-18 12:19:53.976 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TagDao.getAllTag            : <==      Total: 6
+2022-05-18 12:19:53.977 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 12:19:53.977 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 3(Long)
+2022-05-18 12:19:53.978 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 12:19:53.979 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 12:19:53.979 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 4(Long)
+2022-05-18 12:19:53.979 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 12:19:53.980 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 12:19:53.980 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 5(Long)
+2022-05-18 12:19:53.980 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 12:19:53.981 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 12:19:53.981 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 6(Long)
+2022-05-18 12:19:53.982 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 12:19:53.982 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 12:19:53.982 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 7(Long)
+2022-05-18 12:19:53.983 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 12:19:53.984 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 12:19:53.984 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 8(Long)
+2022-05-18 12:19:53.985 DEBUG 3326 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 12:19:53.985  INFO 3326 --- [http-nio-8080-exec-8] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-18 12:19:53.985  INFO 3326 --- [http-nio-8080-exec-8] com.blog.aspect.LogAspect                : Result: send-tweet
+2022-05-18 12:20:26.920  INFO 3326 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-05-18 12:20:26.921  INFO 3326 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-05-18 12:20:26.924  INFO 3326 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-05-18 13:09:05.824  INFO 6481 --- [restartedMain] com.blog.BlogApplication                 : Starting BlogApplication on ElvisdeMacBook-Pro.local with PID 6481 (/Users/elvislin/Documents/IDEA_PROJECT/capstoneTwitter/target/classes started by elvislin in /Users/elvislin/Documents/IDEA_PROJECT/capstoneTwitter)
+2022-05-18 13:09:05.825 DEBUG 6481 --- [restartedMain] com.blog.BlogApplication                 : Running with Spring Boot v2.2.5.RELEASE, Spring v5.2.4.RELEASE
+2022-05-18 13:09:05.825  INFO 6481 --- [restartedMain] com.blog.BlogApplication                 : The following profiles are active: dev
+2022-05-18 13:09:05.851  INFO 6481 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-05-18 13:09:05.852  INFO 6481 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-05-18 13:09:06.452  INFO 6481 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-05-18 13:09:06.455  INFO 6481 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-05-18 13:09:06.455  INFO 6481 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2022-05-18 13:09:06.489  INFO 6481 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-05-18 13:09:06.489  INFO 6481 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 637 ms
+2022-05-18 13:09:06.856  INFO 6481 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-05-18 13:09:06.908  INFO 6481 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-05-18 13:09:07.074  INFO 6481 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-05-18 13:09:07.101  INFO 6481 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-05-18 13:09:07.103  INFO 6481 --- [restartedMain] com.blog.BlogApplication                 : Started BlogApplication in 1.526 seconds (JVM running for 1.877)
+2022-05-18 13:09:10.954  INFO 6481 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-05-18 13:09:10.956  INFO 6481 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-05-18 13:09:10.964  INFO 6481 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2022-05-18 13:09:10.980  INFO 6481 --- [http-nio-8080-exec-1] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.IndexController.toIndex, args=[1, {}])
+2022-05-18 13:09:11.005  INFO 6481 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-05-18 13:09:11.200  INFO 6481 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-05-18 13:09:11.204 DEBUG 6481 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getByDesc_COUNT    : ==>  Preparing: SELECT count(0) FROM tweet b, user u WHERE u.id = b.user_id 
+2022-05-18 13:09:11.216 DEBUG 6481 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getByDesc_COUNT    : ==> Parameters: 
+2022-05-18 13:09:11.226 DEBUG 6481 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getByDesc_COUNT    : <==      Total: 1
+2022-05-18 13:09:11.229 DEBUG 6481 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getByDesc          : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.content, u.nickname, u.avatar from tweet b, user u where u.id = b.user_id order by b.update_time desc LIMIT ? 
+2022-05-18 13:09:11.229 DEBUG 6481 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getByDesc          : ==> Parameters: 8(Integer)
+2022-05-18 13:09:11.233 DEBUG 6481 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getByDesc          : <==      Total: 8
+2022-05-18 13:09:11.234 DEBUG 6481 --- [http-nio-8080-exec-1] com.blog.dao.TagDao.getAllTag            : ==>  Preparing: select * from t_tag 
+2022-05-18 13:09:11.234 DEBUG 6481 --- [http-nio-8080-exec-1] com.blog.dao.TagDao.getAllTag            : ==> Parameters: 
+2022-05-18 13:09:11.235 DEBUG 6481 --- [http-nio-8080-exec-1] com.blog.dao.TagDao.getAllTag            : <==      Total: 6
+2022-05-18 13:09:11.236 DEBUG 6481 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:09:11.236 DEBUG 6481 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 3(Long)
+2022-05-18 13:09:11.237 DEBUG 6481 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 13:09:11.237 DEBUG 6481 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:09:11.237 DEBUG 6481 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 4(Long)
+2022-05-18 13:09:11.237 DEBUG 6481 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 13:09:11.237 DEBUG 6481 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:09:11.237 DEBUG 6481 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 5(Long)
+2022-05-18 13:09:11.238 DEBUG 6481 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 13:09:11.238 DEBUG 6481 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:09:11.238 DEBUG 6481 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 6(Long)
+2022-05-18 13:09:11.238 DEBUG 6481 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 13:09:11.239 DEBUG 6481 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:09:11.239 DEBUG 6481 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 7(Long)
+2022-05-18 13:09:11.239 DEBUG 6481 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 13:09:11.239 DEBUG 6481 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:09:11.239 DEBUG 6481 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 8(Long)
+2022-05-18 13:09:11.240 DEBUG 6481 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 13:09:11.240  INFO 6481 --- [http-nio-8080-exec-1] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-18 13:09:11.240  INFO 6481 --- [http-nio-8080-exec-1] com.blog.aspect.LogAspect                : Result: index
+2022-05-18 13:09:14.212  INFO 6481 --- [http-nio-8080-exec-1] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/login, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.LoginController2.loginPage, args=[])
+2022-05-18 13:09:14.216  INFO 6481 --- [http-nio-8080-exec-1] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-18 13:09:14.216  INFO 6481 --- [http-nio-8080-exec-1] com.blog.aspect.LogAspect                : Result: login
+2022-05-18 13:09:15.844  INFO 6481 --- [http-nio-8080-exec-10] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/login, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.LoginController2.login, args=[test, test, org.apache.catalina.session.StandardSessionFacade@64dead9e, {}])
+2022-05-18 13:09:15.846 DEBUG 6481 --- [http-nio-8080-exec-10] c.b.d.U.queryByUsernameAndPassword       : ==>  Preparing: select * from user where username = ? and password = ?; 
+2022-05-18 13:09:15.847 DEBUG 6481 --- [http-nio-8080-exec-10] c.b.d.U.queryByUsernameAndPassword       : ==> Parameters: test(String), 098f6bcd4621d373cade4e832627b4f6(String)
+2022-05-18 13:09:15.848 DEBUG 6481 --- [http-nio-8080-exec-10] c.b.d.U.queryByUsernameAndPassword       : <==      Total: 1
+2022-05-18 13:09:15.848  INFO 6481 --- [http-nio-8080-exec-10] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-18 13:09:15.848  INFO 6481 --- [http-nio-8080-exec-10] com.blog.aspect.LogAspect                : Result: redirect:/
+2022-05-18 13:09:15.861  INFO 6481 --- [http-nio-8080-exec-8] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.IndexController.toIndex, args=[1, {}])
+2022-05-18 13:09:15.862 DEBUG 6481 --- [http-nio-8080-exec-8] com.blog.dao.TweetDao.getByDesc_COUNT    : ==>  Preparing: SELECT count(0) FROM tweet b, user u WHERE u.id = b.user_id 
+2022-05-18 13:09:15.862 DEBUG 6481 --- [http-nio-8080-exec-8] com.blog.dao.TweetDao.getByDesc_COUNT    : ==> Parameters: 
+2022-05-18 13:09:15.863 DEBUG 6481 --- [http-nio-8080-exec-8] com.blog.dao.TweetDao.getByDesc_COUNT    : <==      Total: 1
+2022-05-18 13:09:15.864 DEBUG 6481 --- [http-nio-8080-exec-8] com.blog.dao.TweetDao.getByDesc          : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.content, u.nickname, u.avatar from tweet b, user u where u.id = b.user_id order by b.update_time desc LIMIT ? 
+2022-05-18 13:09:15.864 DEBUG 6481 --- [http-nio-8080-exec-8] com.blog.dao.TweetDao.getByDesc          : ==> Parameters: 8(Integer)
+2022-05-18 13:09:15.867 DEBUG 6481 --- [http-nio-8080-exec-8] com.blog.dao.TweetDao.getByDesc          : <==      Total: 8
+2022-05-18 13:09:15.867 DEBUG 6481 --- [http-nio-8080-exec-8] com.blog.dao.TagDao.getAllTag            : ==>  Preparing: select * from t_tag 
+2022-05-18 13:09:15.867 DEBUG 6481 --- [http-nio-8080-exec-8] com.blog.dao.TagDao.getAllTag            : ==> Parameters: 
+2022-05-18 13:09:15.868 DEBUG 6481 --- [http-nio-8080-exec-8] com.blog.dao.TagDao.getAllTag            : <==      Total: 6
+2022-05-18 13:09:15.868 DEBUG 6481 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:09:15.868 DEBUG 6481 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 3(Long)
+2022-05-18 13:09:15.869 DEBUG 6481 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 13:09:15.869 DEBUG 6481 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:09:15.869 DEBUG 6481 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 4(Long)
+2022-05-18 13:09:15.870 DEBUG 6481 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 13:09:15.870 DEBUG 6481 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:09:15.870 DEBUG 6481 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 5(Long)
+2022-05-18 13:09:15.871 DEBUG 6481 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 13:09:15.871 DEBUG 6481 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:09:15.871 DEBUG 6481 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 6(Long)
+2022-05-18 13:09:15.872 DEBUG 6481 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 13:09:15.872 DEBUG 6481 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:09:15.872 DEBUG 6481 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 7(Long)
+2022-05-18 13:09:15.873 DEBUG 6481 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 13:09:15.873 DEBUG 6481 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:09:15.873 DEBUG 6481 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 8(Long)
+2022-05-18 13:09:15.873 DEBUG 6481 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 13:09:15.874  INFO 6481 --- [http-nio-8080-exec-8] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-18 13:09:15.874  INFO 6481 --- [http-nio-8080-exec-8] com.blog.aspect.LogAspect                : Result: index
+2022-05-18 13:09:19.121  INFO 6481 --- [http-nio-8080-exec-6] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.IndexController.toIndex, args=[1, {}])
+2022-05-18 13:09:19.125 DEBUG 6481 --- [http-nio-8080-exec-6] com.blog.dao.TweetDao.getByDesc_COUNT    : ==>  Preparing: SELECT count(0) FROM tweet b, user u WHERE u.id = b.user_id 
+2022-05-18 13:09:19.125 DEBUG 6481 --- [http-nio-8080-exec-6] com.blog.dao.TweetDao.getByDesc_COUNT    : ==> Parameters: 
+2022-05-18 13:09:19.126 DEBUG 6481 --- [http-nio-8080-exec-6] com.blog.dao.TweetDao.getByDesc_COUNT    : <==      Total: 1
+2022-05-18 13:09:19.127 DEBUG 6481 --- [http-nio-8080-exec-6] com.blog.dao.TweetDao.getByDesc          : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.content, u.nickname, u.avatar from tweet b, user u where u.id = b.user_id order by b.update_time desc LIMIT ? 
+2022-05-18 13:09:19.127 DEBUG 6481 --- [http-nio-8080-exec-6] com.blog.dao.TweetDao.getByDesc          : ==> Parameters: 8(Integer)
+2022-05-18 13:09:19.131 DEBUG 6481 --- [http-nio-8080-exec-6] com.blog.dao.TweetDao.getByDesc          : <==      Total: 8
+2022-05-18 13:09:19.132 DEBUG 6481 --- [http-nio-8080-exec-6] com.blog.dao.TagDao.getAllTag            : ==>  Preparing: select * from t_tag 
+2022-05-18 13:09:19.132 DEBUG 6481 --- [http-nio-8080-exec-6] com.blog.dao.TagDao.getAllTag            : ==> Parameters: 
+2022-05-18 13:09:19.134 DEBUG 6481 --- [http-nio-8080-exec-6] com.blog.dao.TagDao.getAllTag            : <==      Total: 6
+2022-05-18 13:09:19.134 DEBUG 6481 --- [http-nio-8080-exec-6] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:09:19.135 DEBUG 6481 --- [http-nio-8080-exec-6] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 3(Long)
+2022-05-18 13:09:19.135 DEBUG 6481 --- [http-nio-8080-exec-6] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 13:09:19.136 DEBUG 6481 --- [http-nio-8080-exec-6] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:09:19.136 DEBUG 6481 --- [http-nio-8080-exec-6] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 4(Long)
+2022-05-18 13:09:19.137 DEBUG 6481 --- [http-nio-8080-exec-6] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 13:09:19.138 DEBUG 6481 --- [http-nio-8080-exec-6] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:09:19.138 DEBUG 6481 --- [http-nio-8080-exec-6] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 5(Long)
+2022-05-18 13:09:19.138 DEBUG 6481 --- [http-nio-8080-exec-6] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 13:09:19.139 DEBUG 6481 --- [http-nio-8080-exec-6] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:09:19.139 DEBUG 6481 --- [http-nio-8080-exec-6] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 6(Long)
+2022-05-18 13:09:19.140 DEBUG 6481 --- [http-nio-8080-exec-6] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 13:09:19.141 DEBUG 6481 --- [http-nio-8080-exec-6] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:09:19.142 DEBUG 6481 --- [http-nio-8080-exec-6] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 7(Long)
+2022-05-18 13:09:19.142 DEBUG 6481 --- [http-nio-8080-exec-6] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 13:09:19.143 DEBUG 6481 --- [http-nio-8080-exec-6] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:09:19.143 DEBUG 6481 --- [http-nio-8080-exec-6] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 8(Long)
+2022-05-18 13:09:19.144 DEBUG 6481 --- [http-nio-8080-exec-6] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 13:09:19.144  INFO 6481 --- [http-nio-8080-exec-6] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-18 13:09:19.144  INFO 6481 --- [http-nio-8080-exec-6] com.blog.aspect.LogAspect                : Result: index
+2022-05-18 13:09:21.212  INFO 6481 --- [http-nio-8080-exec-4] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.IndexController.toIndex, args=[1, {}])
+2022-05-18 13:09:21.216 DEBUG 6481 --- [http-nio-8080-exec-4] com.blog.dao.TweetDao.getByDesc_COUNT    : ==>  Preparing: SELECT count(0) FROM tweet b, user u WHERE u.id = b.user_id 
+2022-05-18 13:09:21.216 DEBUG 6481 --- [http-nio-8080-exec-4] com.blog.dao.TweetDao.getByDesc_COUNT    : ==> Parameters: 
+2022-05-18 13:09:21.217 DEBUG 6481 --- [http-nio-8080-exec-4] com.blog.dao.TweetDao.getByDesc_COUNT    : <==      Total: 1
+2022-05-18 13:09:21.218 DEBUG 6481 --- [http-nio-8080-exec-4] com.blog.dao.TweetDao.getByDesc          : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.content, u.nickname, u.avatar from tweet b, user u where u.id = b.user_id order by b.update_time desc LIMIT ? 
+2022-05-18 13:09:21.219 DEBUG 6481 --- [http-nio-8080-exec-4] com.blog.dao.TweetDao.getByDesc          : ==> Parameters: 8(Integer)
+2022-05-18 13:09:21.222 DEBUG 6481 --- [http-nio-8080-exec-4] com.blog.dao.TweetDao.getByDesc          : <==      Total: 8
+2022-05-18 13:09:21.223 DEBUG 6481 --- [http-nio-8080-exec-4] com.blog.dao.TagDao.getAllTag            : ==>  Preparing: select * from t_tag 
+2022-05-18 13:09:21.223 DEBUG 6481 --- [http-nio-8080-exec-4] com.blog.dao.TagDao.getAllTag            : ==> Parameters: 
+2022-05-18 13:09:21.224 DEBUG 6481 --- [http-nio-8080-exec-4] com.blog.dao.TagDao.getAllTag            : <==      Total: 6
+2022-05-18 13:09:21.224 DEBUG 6481 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:09:21.225 DEBUG 6481 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 3(Long)
+2022-05-18 13:09:21.226 DEBUG 6481 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 13:09:21.227 DEBUG 6481 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:09:21.227 DEBUG 6481 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 4(Long)
+2022-05-18 13:09:21.228 DEBUG 6481 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 13:09:21.228 DEBUG 6481 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:09:21.228 DEBUG 6481 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 5(Long)
+2022-05-18 13:09:21.229 DEBUG 6481 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 13:09:21.230 DEBUG 6481 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:09:21.230 DEBUG 6481 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 6(Long)
+2022-05-18 13:09:21.231 DEBUG 6481 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 13:09:21.231 DEBUG 6481 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:09:21.231 DEBUG 6481 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 7(Long)
+2022-05-18 13:09:21.232 DEBUG 6481 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 13:09:21.233 DEBUG 6481 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:09:21.233 DEBUG 6481 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 8(Long)
+2022-05-18 13:09:21.233 DEBUG 6481 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 13:09:21.233  INFO 6481 --- [http-nio-8080-exec-4] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-18 13:09:21.233  INFO 6481 --- [http-nio-8080-exec-4] com.blog.aspect.LogAspect                : Result: index
+2022-05-18 13:09:25.662  INFO 6481 --- [http-nio-8080-exec-6] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/user/center, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.UserCenterController.userCenterPage, args=[{}, org.apache.catalina.session.StandardSessionFacade@64dead9e])
+2022-05-18 13:09:25.666  INFO 6481 --- [http-nio-8080-exec-6] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-18 13:09:25.666  INFO 6481 --- [http-nio-8080-exec-6] com.blog.aspect.LogAspect                : Result: /usercenter
+2022-05-18 13:09:25.685 ERROR 6481 --- [http-nio-8080-exec-6] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-6] Exception processing template "/usercenter": An error happened during template parsing (template: "class path resource [templates//usercenter.html]")
+
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates//usercenter.html]")
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098) [thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072) [thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362) [thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189) [thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1373) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1118) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1057) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1639) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_332]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_332]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.lang.Thread.run(Thread.java:750) [na:1.8.0_332]
+Caused by: org.attoparser.ParseException: Could not parse as expression: "/usercenter" (template: "/usercenter" - line 17, col 29)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	... 48 common frames omitted
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as expression: "/usercenter" (template: "/usercenter" - line 17, col 29)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:131) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:62) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:44) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.EngineEventUtils.parseAttributeExpression(EngineEventUtils.java:220) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.EngineEventUtils.computeAttributeExpression(EngineEventUtils.java:207) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:125) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	... 50 common frames omitted
+
+2022-05-18 13:09:25.687 ERROR 6481 --- [http-nio-8080-exec-6] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates//usercenter.html]")] with root cause
+
+org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as expression: "/usercenter" (template: "/usercenter" - line 17, col 29)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:131) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:62) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:44) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.EngineEventUtils.parseAttributeExpression(EngineEventUtils.java:220) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.EngineEventUtils.computeAttributeExpression(EngineEventUtils.java:207) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:125) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362) ~[thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189) ~[thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1373) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1118) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1057) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1639) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_332]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_332]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.lang.Thread.run(Thread.java:750) [na:1.8.0_332]
+
+2022-05-18 13:10:07.607  INFO 6481 --- [http-nio-8080-exec-2] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/user/center, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.UserCenterController.userCenterPage, args=[{}, org.apache.catalina.session.StandardSessionFacade@64dead9e])
+2022-05-18 13:10:07.608  INFO 6481 --- [http-nio-8080-exec-2] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-18 13:10:07.608  INFO 6481 --- [http-nio-8080-exec-2] com.blog.aspect.LogAspect                : Result: /usercenter
+2022-05-18 13:10:07.619 ERROR 6481 --- [http-nio-8080-exec-2] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-2] Exception processing template "/usercenter": An error happened during template parsing (template: "class path resource [templates//usercenter.html]")
+
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates//usercenter.html]")
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098) [thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072) [thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362) [thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189) [thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1373) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1118) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1057) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1639) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_332]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_332]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.lang.Thread.run(Thread.java:750) [na:1.8.0_332]
+Caused by: org.attoparser.ParseException: Could not parse as expression: "/user/center" (template: "/usercenter" - line 17, col 29)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	... 48 common frames omitted
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as expression: "/user/center" (template: "/usercenter" - line 17, col 29)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:131) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:62) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:44) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.EngineEventUtils.parseAttributeExpression(EngineEventUtils.java:220) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.EngineEventUtils.computeAttributeExpression(EngineEventUtils.java:207) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:125) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	... 50 common frames omitted
+
+2022-05-18 13:10:07.621 ERROR 6481 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates//usercenter.html]")] with root cause
+
+org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as expression: "/user/center" (template: "/usercenter" - line 17, col 29)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:131) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:62) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:44) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.EngineEventUtils.parseAttributeExpression(EngineEventUtils.java:220) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.EngineEventUtils.computeAttributeExpression(EngineEventUtils.java:207) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:125) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257) ~[attoparser-2.0.5.RELEASE.jar:2.0.5.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072) ~[thymeleaf-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362) ~[thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189) ~[thymeleaf-spring5-3.0.11.RELEASE.jar:3.0.11.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1373) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1118) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1057) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1639) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_332]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_332]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.lang.Thread.run(Thread.java:750) [na:1.8.0_332]
+
+2022-05-18 13:11:31.311  INFO 6481 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-05-18 13:11:31.312  INFO 6481 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-05-18 13:11:31.318  INFO 6481 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-05-18 13:11:34.165  INFO 6620 --- [restartedMain] com.blog.BlogApplication                 : Starting BlogApplication on ElvisdeMacBook-Pro.local with PID 6620 (/Users/elvislin/Documents/IDEA_PROJECT/capstoneTwitter/target/classes started by elvislin in /Users/elvislin/Documents/IDEA_PROJECT/capstoneTwitter)
+2022-05-18 13:11:34.167 DEBUG 6620 --- [restartedMain] com.blog.BlogApplication                 : Running with Spring Boot v2.2.5.RELEASE, Spring v5.2.4.RELEASE
+2022-05-18 13:11:34.167  INFO 6620 --- [restartedMain] com.blog.BlogApplication                 : The following profiles are active: dev
+2022-05-18 13:11:34.197  INFO 6620 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-05-18 13:11:34.197  INFO 6620 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-05-18 13:11:35.257  INFO 6620 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-05-18 13:11:35.261  INFO 6620 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-05-18 13:11:35.261  INFO 6620 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2022-05-18 13:11:35.296  INFO 6620 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-05-18 13:11:35.296  INFO 6620 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1099 ms
+2022-05-18 13:11:35.678  INFO 6620 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-05-18 13:11:35.724  INFO 6620 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-05-18 13:11:35.866  INFO 6620 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-05-18 13:11:35.891  INFO 6620 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-05-18 13:11:35.893  INFO 6620 --- [restartedMain] com.blog.BlogApplication                 : Started BlogApplication in 1.93 seconds (JVM running for 2.288)
+2022-05-18 13:11:37.539  INFO 6620 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-05-18 13:11:37.539  INFO 6620 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-05-18 13:11:37.547  INFO 6620 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2022-05-18 13:11:37.564  INFO 6620 --- [http-nio-8080-exec-1] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.IndexController.toIndex, args=[1, {}])
+2022-05-18 13:11:37.585  INFO 6620 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-05-18 13:11:37.756  INFO 6620 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-05-18 13:11:37.760 DEBUG 6620 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getByDesc_COUNT    : ==>  Preparing: SELECT count(0) FROM tweet b, user u WHERE u.id = b.user_id 
+2022-05-18 13:11:37.774 DEBUG 6620 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getByDesc_COUNT    : ==> Parameters: 
+2022-05-18 13:11:37.786 DEBUG 6620 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getByDesc_COUNT    : <==      Total: 1
+2022-05-18 13:11:37.789 DEBUG 6620 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getByDesc          : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.content, u.nickname, u.avatar from tweet b, user u where u.id = b.user_id order by b.update_time desc LIMIT ? 
+2022-05-18 13:11:37.790 DEBUG 6620 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getByDesc          : ==> Parameters: 8(Integer)
+2022-05-18 13:11:37.793 DEBUG 6620 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getByDesc          : <==      Total: 8
+2022-05-18 13:11:37.795 DEBUG 6620 --- [http-nio-8080-exec-1] com.blog.dao.TagDao.getAllTag            : ==>  Preparing: select * from t_tag 
+2022-05-18 13:11:37.795 DEBUG 6620 --- [http-nio-8080-exec-1] com.blog.dao.TagDao.getAllTag            : ==> Parameters: 
+2022-05-18 13:11:37.796 DEBUG 6620 --- [http-nio-8080-exec-1] com.blog.dao.TagDao.getAllTag            : <==      Total: 6
+2022-05-18 13:11:37.797 DEBUG 6620 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:11:37.798 DEBUG 6620 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 3(Long)
+2022-05-18 13:11:37.798 DEBUG 6620 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 13:11:37.799 DEBUG 6620 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:11:37.799 DEBUG 6620 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 4(Long)
+2022-05-18 13:11:37.799 DEBUG 6620 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 13:11:37.799 DEBUG 6620 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:11:37.799 DEBUG 6620 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 5(Long)
+2022-05-18 13:11:37.800 DEBUG 6620 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 13:11:37.800 DEBUG 6620 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:11:37.800 DEBUG 6620 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 6(Long)
+2022-05-18 13:11:37.800 DEBUG 6620 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 13:11:37.801 DEBUG 6620 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:11:37.801 DEBUG 6620 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 7(Long)
+2022-05-18 13:11:37.801 DEBUG 6620 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 13:11:37.801 DEBUG 6620 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:11:37.801 DEBUG 6620 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 8(Long)
+2022-05-18 13:11:37.802 DEBUG 6620 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 13:11:37.803  INFO 6620 --- [http-nio-8080-exec-1] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-18 13:11:37.803  INFO 6620 --- [http-nio-8080-exec-1] com.blog.aspect.LogAspect                : Result: index
+2022-05-18 13:11:39.688  INFO 6620 --- [http-nio-8080-exec-9] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/user/center, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.UserCenterController.userCenterPage, args=[{}, org.apache.catalina.session.StandardSessionFacade@13f583ef])
+2022-05-18 13:11:39.693  INFO 6620 --- [http-nio-8080-exec-9] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-18 13:11:39.693  INFO 6620 --- [http-nio-8080-exec-9] com.blog.aspect.LogAspect                : Result: redirect:/login
+2022-05-18 13:11:39.718  INFO 6620 --- [http-nio-8080-exec-10] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/login, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.LoginController2.loginPage, args=[])
+2022-05-18 13:11:39.721  INFO 6620 --- [http-nio-8080-exec-10] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-18 13:11:39.722  INFO 6620 --- [http-nio-8080-exec-10] com.blog.aspect.LogAspect                : Result: login
+2022-05-18 13:11:41.718  INFO 6620 --- [http-nio-8080-exec-10] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/login, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.LoginController2.login, args=[test, test, org.apache.catalina.session.StandardSessionFacade@13f583ef, {}])
+2022-05-18 13:11:41.721 DEBUG 6620 --- [http-nio-8080-exec-10] c.b.d.U.queryByUsernameAndPassword       : ==>  Preparing: select * from user where username = ? and password = ?; 
+2022-05-18 13:11:41.722 DEBUG 6620 --- [http-nio-8080-exec-10] c.b.d.U.queryByUsernameAndPassword       : ==> Parameters: test(String), 098f6bcd4621d373cade4e832627b4f6(String)
+2022-05-18 13:11:41.724 DEBUG 6620 --- [http-nio-8080-exec-10] c.b.d.U.queryByUsernameAndPassword       : <==      Total: 1
+2022-05-18 13:11:41.725  INFO 6620 --- [http-nio-8080-exec-10] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-18 13:11:41.725  INFO 6620 --- [http-nio-8080-exec-10] com.blog.aspect.LogAspect                : Result: redirect:/
+2022-05-18 13:11:41.734  INFO 6620 --- [http-nio-8080-exec-3] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.IndexController.toIndex, args=[1, {}])
+2022-05-18 13:11:41.737 DEBUG 6620 --- [http-nio-8080-exec-3] com.blog.dao.TweetDao.getByDesc_COUNT    : ==>  Preparing: SELECT count(0) FROM tweet b, user u WHERE u.id = b.user_id 
+2022-05-18 13:11:41.737 DEBUG 6620 --- [http-nio-8080-exec-3] com.blog.dao.TweetDao.getByDesc_COUNT    : ==> Parameters: 
+2022-05-18 13:11:41.739 DEBUG 6620 --- [http-nio-8080-exec-3] com.blog.dao.TweetDao.getByDesc_COUNT    : <==      Total: 1
+2022-05-18 13:11:41.740 DEBUG 6620 --- [http-nio-8080-exec-3] com.blog.dao.TweetDao.getByDesc          : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.content, u.nickname, u.avatar from tweet b, user u where u.id = b.user_id order by b.update_time desc LIMIT ? 
+2022-05-18 13:11:41.740 DEBUG 6620 --- [http-nio-8080-exec-3] com.blog.dao.TweetDao.getByDesc          : ==> Parameters: 8(Integer)
+2022-05-18 13:11:41.748 DEBUG 6620 --- [http-nio-8080-exec-3] com.blog.dao.TweetDao.getByDesc          : <==      Total: 8
+2022-05-18 13:11:41.749 DEBUG 6620 --- [http-nio-8080-exec-3] com.blog.dao.TagDao.getAllTag            : ==>  Preparing: select * from t_tag 
+2022-05-18 13:11:41.750 DEBUG 6620 --- [http-nio-8080-exec-3] com.blog.dao.TagDao.getAllTag            : ==> Parameters: 
+2022-05-18 13:11:41.752 DEBUG 6620 --- [http-nio-8080-exec-3] com.blog.dao.TagDao.getAllTag            : <==      Total: 6
+2022-05-18 13:11:41.753 DEBUG 6620 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:11:41.753 DEBUG 6620 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 3(Long)
+2022-05-18 13:11:41.755 DEBUG 6620 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 13:11:41.755 DEBUG 6620 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:11:41.755 DEBUG 6620 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 4(Long)
+2022-05-18 13:11:41.756 DEBUG 6620 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 13:11:41.756 DEBUG 6620 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:11:41.757 DEBUG 6620 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 5(Long)
+2022-05-18 13:11:41.758 DEBUG 6620 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 13:11:41.758 DEBUG 6620 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:11:41.758 DEBUG 6620 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 6(Long)
+2022-05-18 13:11:41.759 DEBUG 6620 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 13:11:41.759 DEBUG 6620 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:11:41.759 DEBUG 6620 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 7(Long)
+2022-05-18 13:11:41.760 DEBUG 6620 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 13:11:41.760 DEBUG 6620 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:11:41.760 DEBUG 6620 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 8(Long)
+2022-05-18 13:11:41.761 DEBUG 6620 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 13:11:41.761  INFO 6620 --- [http-nio-8080-exec-3] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-18 13:11:41.761  INFO 6620 --- [http-nio-8080-exec-3] com.blog.aspect.LogAspect                : Result: index
+2022-05-18 13:11:44.089  INFO 6620 --- [http-nio-8080-exec-9] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/user/center, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.UserCenterController.userCenterPage, args=[{}, org.apache.catalina.session.StandardSessionFacade@13f583ef])
+2022-05-18 13:11:44.089  INFO 6620 --- [http-nio-8080-exec-9] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-18 13:11:44.089  INFO 6620 --- [http-nio-8080-exec-9] com.blog.aspect.LogAspect                : Result: /usercenter
+2022-05-18 13:13:10.271  INFO 6620 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-05-18 13:13:10.272  INFO 6620 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-05-18 13:13:10.277  INFO 6620 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-05-18 13:13:27.759  INFO 6733 --- [restartedMain] com.blog.BlogApplication                 : Starting BlogApplication on ElvisdeMacBook-Pro.local with PID 6733 (/Users/elvislin/Documents/IDEA_PROJECT/capstoneTwitter/target/classes started by elvislin in /Users/elvislin/Documents/IDEA_PROJECT/capstoneTwitter)
+2022-05-18 13:13:27.760 DEBUG 6733 --- [restartedMain] com.blog.BlogApplication                 : Running with Spring Boot v2.2.5.RELEASE, Spring v5.2.4.RELEASE
+2022-05-18 13:13:27.760  INFO 6733 --- [restartedMain] com.blog.BlogApplication                 : The following profiles are active: dev
+2022-05-18 13:13:27.785  INFO 6733 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-05-18 13:13:27.786  INFO 6733 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-05-18 13:13:28.415  INFO 6733 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-05-18 13:13:28.419  INFO 6733 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-05-18 13:13:28.420  INFO 6733 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2022-05-18 13:13:28.452  INFO 6733 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-05-18 13:13:28.452  INFO 6733 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 666 ms
+2022-05-18 13:13:28.855  INFO 6733 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-05-18 13:13:28.925  INFO 6733 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-05-18 13:13:29.096  INFO 6733 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-05-18 13:13:29.122  INFO 6733 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-05-18 13:13:29.124  INFO 6733 --- [restartedMain] com.blog.BlogApplication                 : Started BlogApplication in 1.543 seconds (JVM running for 2.098)
+2022-05-18 13:13:29.669  INFO 6733 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-05-18 13:13:29.669  INFO 6733 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-05-18 13:13:29.677  INFO 6733 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2022-05-18 13:13:29.695  INFO 6733 --- [http-nio-8080-exec-1] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.IndexController.toIndex, args=[1, {}])
+2022-05-18 13:13:29.717  INFO 6733 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-05-18 13:13:29.946  INFO 6733 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-05-18 13:13:29.949 DEBUG 6733 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getByDesc_COUNT    : ==>  Preparing: SELECT count(0) FROM tweet b, user u WHERE u.id = b.user_id 
+2022-05-18 13:13:29.962 DEBUG 6733 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getByDesc_COUNT    : ==> Parameters: 
+2022-05-18 13:13:29.972 DEBUG 6733 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getByDesc_COUNT    : <==      Total: 1
+2022-05-18 13:13:29.974 DEBUG 6733 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getByDesc          : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.content, u.nickname, u.avatar from tweet b, user u where u.id = b.user_id order by b.update_time desc LIMIT ? 
+2022-05-18 13:13:29.975 DEBUG 6733 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getByDesc          : ==> Parameters: 8(Integer)
+2022-05-18 13:13:29.979 DEBUG 6733 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getByDesc          : <==      Total: 8
+2022-05-18 13:13:29.980 DEBUG 6733 --- [http-nio-8080-exec-1] com.blog.dao.TagDao.getAllTag            : ==>  Preparing: select * from t_tag 
+2022-05-18 13:13:29.980 DEBUG 6733 --- [http-nio-8080-exec-1] com.blog.dao.TagDao.getAllTag            : ==> Parameters: 
+2022-05-18 13:13:29.993 DEBUG 6733 --- [http-nio-8080-exec-1] com.blog.dao.TagDao.getAllTag            : <==      Total: 6
+2022-05-18 13:13:29.997 DEBUG 6733 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:13:29.997 DEBUG 6733 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 3(Long)
+2022-05-18 13:13:29.999 DEBUG 6733 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 13:13:29.999 DEBUG 6733 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:13:29.999 DEBUG 6733 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 4(Long)
+2022-05-18 13:13:30.000 DEBUG 6733 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 13:13:30.000 DEBUG 6733 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:13:30.000 DEBUG 6733 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 5(Long)
+2022-05-18 13:13:30.000 DEBUG 6733 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 13:13:30.001 DEBUG 6733 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:13:30.001 DEBUG 6733 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 6(Long)
+2022-05-18 13:13:30.001 DEBUG 6733 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 13:13:30.001 DEBUG 6733 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:13:30.001 DEBUG 6733 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 7(Long)
+2022-05-18 13:13:30.002 DEBUG 6733 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 13:13:30.002 DEBUG 6733 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:13:30.002 DEBUG 6733 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 8(Long)
+2022-05-18 13:13:30.003 DEBUG 6733 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 13:13:30.003  INFO 6733 --- [http-nio-8080-exec-1] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-18 13:13:30.004  INFO 6733 --- [http-nio-8080-exec-1] com.blog.aspect.LogAspect                : Result: index
+2022-05-18 13:13:31.594  INFO 6733 --- [http-nio-8080-exec-10] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/login, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.LoginController2.loginPage, args=[])
+2022-05-18 13:13:31.599  INFO 6733 --- [http-nio-8080-exec-10] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-18 13:13:31.599  INFO 6733 --- [http-nio-8080-exec-10] com.blog.aspect.LogAspect                : Result: login
+2022-05-18 13:13:33.303  INFO 6733 --- [http-nio-8080-exec-6] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/login, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.LoginController2.login, args=[test, test, org.apache.catalina.session.StandardSessionFacade@12f229c6, {}])
+2022-05-18 13:13:33.304 DEBUG 6733 --- [http-nio-8080-exec-6] c.b.d.U.queryByUsernameAndPassword       : ==>  Preparing: select * from user where username = ? and password = ?; 
+2022-05-18 13:13:33.304 DEBUG 6733 --- [http-nio-8080-exec-6] c.b.d.U.queryByUsernameAndPassword       : ==> Parameters: test(String), 098f6bcd4621d373cade4e832627b4f6(String)
+2022-05-18 13:13:33.305 DEBUG 6733 --- [http-nio-8080-exec-6] c.b.d.U.queryByUsernameAndPassword       : <==      Total: 1
+2022-05-18 13:13:33.306  INFO 6733 --- [http-nio-8080-exec-6] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-18 13:13:33.306  INFO 6733 --- [http-nio-8080-exec-6] com.blog.aspect.LogAspect                : Result: redirect:/
+2022-05-18 13:13:33.318  INFO 6733 --- [http-nio-8080-exec-10] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.IndexController.toIndex, args=[1, {}])
+2022-05-18 13:13:33.319 DEBUG 6733 --- [http-nio-8080-exec-10] com.blog.dao.TweetDao.getByDesc_COUNT    : ==>  Preparing: SELECT count(0) FROM tweet b, user u WHERE u.id = b.user_id 
+2022-05-18 13:13:33.319 DEBUG 6733 --- [http-nio-8080-exec-10] com.blog.dao.TweetDao.getByDesc_COUNT    : ==> Parameters: 
+2022-05-18 13:13:33.320 DEBUG 6733 --- [http-nio-8080-exec-10] com.blog.dao.TweetDao.getByDesc_COUNT    : <==      Total: 1
+2022-05-18 13:13:33.321 DEBUG 6733 --- [http-nio-8080-exec-10] com.blog.dao.TweetDao.getByDesc          : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.content, u.nickname, u.avatar from tweet b, user u where u.id = b.user_id order by b.update_time desc LIMIT ? 
+2022-05-18 13:13:33.321 DEBUG 6733 --- [http-nio-8080-exec-10] com.blog.dao.TweetDao.getByDesc          : ==> Parameters: 8(Integer)
+2022-05-18 13:13:33.325 DEBUG 6733 --- [http-nio-8080-exec-10] com.blog.dao.TweetDao.getByDesc          : <==      Total: 8
+2022-05-18 13:13:33.326 DEBUG 6733 --- [http-nio-8080-exec-10] com.blog.dao.TagDao.getAllTag            : ==>  Preparing: select * from t_tag 
+2022-05-18 13:13:33.326 DEBUG 6733 --- [http-nio-8080-exec-10] com.blog.dao.TagDao.getAllTag            : ==> Parameters: 
+2022-05-18 13:13:33.326 DEBUG 6733 --- [http-nio-8080-exec-10] com.blog.dao.TagDao.getAllTag            : <==      Total: 6
+2022-05-18 13:13:33.327 DEBUG 6733 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:13:33.327 DEBUG 6733 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 3(Long)
+2022-05-18 13:13:33.327 DEBUG 6733 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 13:13:33.328 DEBUG 6733 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:13:33.328 DEBUG 6733 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 4(Long)
+2022-05-18 13:13:33.328 DEBUG 6733 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 13:13:33.329 DEBUG 6733 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:13:33.329 DEBUG 6733 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 5(Long)
+2022-05-18 13:13:33.329 DEBUG 6733 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 13:13:33.330 DEBUG 6733 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:13:33.330 DEBUG 6733 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 6(Long)
+2022-05-18 13:13:33.331 DEBUG 6733 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 13:13:33.331 DEBUG 6733 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:13:33.331 DEBUG 6733 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 7(Long)
+2022-05-18 13:13:33.331 DEBUG 6733 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 13:13:33.332 DEBUG 6733 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:13:33.332 DEBUG 6733 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 8(Long)
+2022-05-18 13:13:33.332 DEBUG 6733 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 13:13:33.332  INFO 6733 --- [http-nio-8080-exec-10] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-18 13:13:33.333  INFO 6733 --- [http-nio-8080-exec-10] com.blog.aspect.LogAspect                : Result: index
+2022-05-18 13:13:34.562  INFO 6733 --- [http-nio-8080-exec-1] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/user/center, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.UserCenterController.userCenterPage, args=[{}, org.apache.catalina.session.StandardSessionFacade@12f229c6])
+2022-05-18 13:13:34.567  INFO 6733 --- [http-nio-8080-exec-1] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-18 13:13:34.567  INFO 6733 --- [http-nio-8080-exec-1] com.blog.aspect.LogAspect                : Result: /usercenter
+2022-05-18 13:13:41.853  INFO 6733 --- [http-nio-8080-exec-4] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.IndexController.toIndex, args=[1, {}])
+2022-05-18 13:13:41.857 DEBUG 6733 --- [http-nio-8080-exec-4] com.blog.dao.TweetDao.getByDesc_COUNT    : ==>  Preparing: SELECT count(0) FROM tweet b, user u WHERE u.id = b.user_id 
+2022-05-18 13:13:41.857 DEBUG 6733 --- [http-nio-8080-exec-4] com.blog.dao.TweetDao.getByDesc_COUNT    : ==> Parameters: 
+2022-05-18 13:13:41.860 DEBUG 6733 --- [http-nio-8080-exec-4] com.blog.dao.TweetDao.getByDesc_COUNT    : <==      Total: 1
+2022-05-18 13:13:41.861 DEBUG 6733 --- [http-nio-8080-exec-4] com.blog.dao.TweetDao.getByDesc          : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.content, u.nickname, u.avatar from tweet b, user u where u.id = b.user_id order by b.update_time desc LIMIT ? 
+2022-05-18 13:13:41.862 DEBUG 6733 --- [http-nio-8080-exec-4] com.blog.dao.TweetDao.getByDesc          : ==> Parameters: 8(Integer)
+2022-05-18 13:13:41.866 DEBUG 6733 --- [http-nio-8080-exec-4] com.blog.dao.TweetDao.getByDesc          : <==      Total: 8
+2022-05-18 13:13:41.867 DEBUG 6733 --- [http-nio-8080-exec-4] com.blog.dao.TagDao.getAllTag            : ==>  Preparing: select * from t_tag 
+2022-05-18 13:13:41.867 DEBUG 6733 --- [http-nio-8080-exec-4] com.blog.dao.TagDao.getAllTag            : ==> Parameters: 
+2022-05-18 13:13:41.870 DEBUG 6733 --- [http-nio-8080-exec-4] com.blog.dao.TagDao.getAllTag            : <==      Total: 6
+2022-05-18 13:13:41.871 DEBUG 6733 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:13:41.871 DEBUG 6733 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 3(Long)
+2022-05-18 13:13:41.872 DEBUG 6733 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 13:13:41.873 DEBUG 6733 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:13:41.873 DEBUG 6733 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 4(Long)
+2022-05-18 13:13:41.874 DEBUG 6733 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 13:13:41.875 DEBUG 6733 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:13:41.875 DEBUG 6733 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 5(Long)
+2022-05-18 13:13:41.876 DEBUG 6733 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 13:13:41.877 DEBUG 6733 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:13:41.877 DEBUG 6733 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 6(Long)
+2022-05-18 13:13:41.878 DEBUG 6733 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 13:13:41.879 DEBUG 6733 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:13:41.879 DEBUG 6733 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 7(Long)
+2022-05-18 13:13:41.880 DEBUG 6733 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-18 13:13:41.881 DEBUG 6733 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-18 13:13:41.881 DEBUG 6733 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 8(Long)
+2022-05-18 13:13:41.884 DEBUG 6733 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-18 13:13:41.885  INFO 6733 --- [http-nio-8080-exec-4] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-18 13:13:41.886  INFO 6733 --- [http-nio-8080-exec-4] com.blog.aspect.LogAspect                : Result: index
+2022-05-18 13:13:49.489  INFO 6733 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-05-18 13:13:49.489  INFO 6733 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-05-18 13:13:49.492  INFO 6733 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
