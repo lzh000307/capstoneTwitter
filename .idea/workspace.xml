@@ -5,25 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="08ebf5d0-8ae2-4bb1-9acc-7568cc9c269a" name="Default Changelist" comment="重构User表-DAO-Service; 重构index页面(解耦合); 完善推文管理逻辑">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/Constant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/admin/UserManageController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/error/ErrorController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/usermanage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/UserCollectionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/usercollections.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log/blog-dev.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/blog-dev.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/controller/LoginController2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/LoginController2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/controller/TweetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/TweetController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/controller/UserCenter/TweetsManageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/UserCenter/TweetsManageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/service/TweetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/service/TweetService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/service/UserCollectionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/service/UserCollectionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/service/impl/TweetServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/service/impl/TweetServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/service/impl/UserCollectionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/service/impl/UserCollectionServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/UserDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/UserDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/_fragments.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/_fragments.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/changepassword.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/changepassword.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/usercenter.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/usercenter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/usercenter/collections.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/usercenter/collections.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,32 +90,13 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "extract.method.default.visibility": "private",
-    "last_opened_file_path": "/Users/elvislin/Documents/IDEA_PROJECT/capstoneTwitter/src/main/resources/templates/usercenter",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "spring.configuration.checksum": "6cc4b1e97a4186012ae1beb7b57c8b01",
-    "vue.rearranger.settings.migration": "true"
-  },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
-    ]
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.blog.util" />
@@ -231,11 +200,11 @@
       </method>
     </configuration>
     <configuration name="BlogApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateResources" />
       <module name="CapstoneTwitter" />
-      <option name="SHORTEN_COMMAND_LINE" value="NONE" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.blog.BlogApplication" />
+      <option name="SHORTEN_COMMAND_LINE" value="NONE" />
       <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateResources" />
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateResources" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -522,6 +491,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
