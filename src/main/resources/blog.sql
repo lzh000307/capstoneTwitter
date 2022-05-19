@@ -290,3 +290,11 @@ CREATE TABLE `tweet` (
                          PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=COMPACT;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+DROP TABLE IF EXISTS `tweet_img`;       /* 推文图片URL */
+CREATE TABLE `tweet_img`(
+    `id` bigint NOT NULL AUTO_INCREMENT primary key ,      /*有可能有前后顺序的关系*/
+    `tweet_id` bigint(20) NULL DEFAULT NULL,
+    `img_url` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL
+) ENGINE = InnoDB ROW_FORMAT = Compact AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
+

@@ -22,9 +22,6 @@ import java.util.List;
 
 @Controller
 public class IndexController {
-
-//    @Autowired
-//    private BlogService blogService;
     @Autowired
     private TweetService tweetService;
     @Autowired

@@ -4,14 +4,54 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08ebf5d0-8ae2-4bb1-9acc-7568cc9c269a" name="Default Changelist" comment="重构User表-DAO-Service; 重构index页面(解耦合); 完善推文管理逻辑">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/UserCollectionController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/usercollections.html" afterDir="false" />
+    <list default="true" id="08ebf5d0-8ae2-4bb1-9acc-7568cc9c269a" name="Default Changelist" comment="新增用户收藏、用户封禁、用户管理功能">
+      <change afterPath="$PROJECT_DIR$/.idea/EasyCodeConfig/blog_mb-comment.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/EasyCodeConfig/blog_mb-topic.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/EasyCodeConfig/blog_mb-trend.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/EasyCodeConfig/blog_mb-tweet.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_carrotsearch_thirdparty_simple_xml_safe_2_7_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_findbugs_jsr305_3_0_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_errorprone_error_prone_annotations_2_3_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_failureaccess_1_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_29_0_jre.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_listenablefuture_9999_0_empty_to_avoid_conflict_with_guava.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_j2objc_j2objc_annotations_1_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_squareup_okhttp3_okhttp_3_14_7.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_squareup_okio_okio_1_17_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_minio_minio_8_0_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_checkerframework_checker_qual_2_11_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log/blog-dev.log.2022-05-19.0.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/blog/config/MinIoClientConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/InputController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/entity/ImageUnits.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/entity/TweetForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/io/MinioController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/blog/dao/TweetImgDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/blog/pojo/ObjectItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/blog/pojo/TweetImg.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/blog/service/TweetImgService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/blog/service/impl/TweetImgServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/blog/util/MinioUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/blog/util/MinioUtilS.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/TweetImgDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/send-tweet-bak.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/uploadform.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapstoneTwitter.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CapstoneTwitter.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log/blog-dev.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/blog-dev.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/controller/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/IndexController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/controller/LoginController2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/controller/TweetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/TweetController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/controller/admin/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/admin/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/dao/CensorshipDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/dao/CensorshipDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/blog.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/blog.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/changepassword.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/changepassword.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/usercenter.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/usercenter.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/send-tweet.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/send-tweet.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/tweet.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/tweet.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,22 +130,24 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RequestMappingsPanelOrder0" value="0" />
-    <property name="RequestMappingsPanelOrder1" value="1" />
-    <property name="RequestMappingsPanelWidth0" value="75" />
-    <property name="RequestMappingsPanelWidth1" value="75" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "last_opened_file_path": "/Users/elvislin/Documents/IDEA_PROJECT/capstoneTwitter/src/main/resources/templates"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.blog.util" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/templates" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates/usercenter" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates/error" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates/user" />
-      <recent name="$PROJECT_DIR$/src/main/resources/templates" />
       <recent name="$PROJECT_DIR$/src/main/resources/mapper" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -200,11 +242,11 @@
       </method>
     </configuration>
     <configuration name="BlogApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="CapstoneTwitter" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.blog.BlogApplication" />
-      <option name="SHORTEN_COMMAND_LINE" value="NONE" />
-      <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateResources" />
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateResources" />
+      <module name="CapstoneTwitter" />
+      <option name="SHORTEN_COMMAND_LINE" value="NONE" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.blog.BlogApplication" />
+      <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateResources" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -491,7 +533,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -539,5 +580,8 @@
         <watch expression="commentFrontEnds.get(9).replyComments.get(1)" />
       </configuration>
     </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/capstoneTwitter$BlogApplication.ic" NAME="BlogApplication Coverage Results" MODIFIED="1652971519276" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

@@ -12,7 +12,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.servlet.http.HttpSession;
 
 @Controller
-public class LoginController2 {
+public class LoginController {
 
     @Autowired
     private UserService userService;
@@ -34,7 +34,7 @@ public class LoginController2 {
         }
 //        if(user != null){
         if(user.getStatus().equals(Constant.BAN)){
-            attributes.addFlashAttribute("msg", "改用户已被封禁");
+            attributes.addFlashAttribute("msg", "该用户已被封禁");
             return "redirect:/login";
         }
         user.setPassword(null);

@@ -1,13 +1,12 @@
 package com.blog.dao;
 
 import com.blog.pojo.Censorship;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Mapper
+@Repository
 public interface CensorshipDao {
     @Insert("insert into user(word) values(#{word})")
     void addCensorship(String word);

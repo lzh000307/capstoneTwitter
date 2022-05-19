@@ -1,0 +1,27 @@
+{
+  "name" : "Trend",
+  "originTableName" : "trend",
+  "comment" : null,
+  "fullColumn" : [ {
+    "name" : "tweetId",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "ktShortType" : "Long",
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "tagId",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "ktShortType" : "Long",
+    "custom" : false,
+    "ext" : { }
+  } ],
+  "pkColumn" : null,
+  "otherColumn" : null,
+  "savePackageName" : "com.blog.pojo",
+  "savePath" : "./src/main/java/com/blog/pojo",
+  "saveModelName" : "CapstoneTwitter"
+}

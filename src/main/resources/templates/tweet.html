@@ -81,7 +81,29 @@
 <!--                    <div class="field"></div>-->
 <!--                </div>-->
 <!--            </form>-->
+<!--            <div class="five ui buttons">-->
+<!--                <div></div>-->
+<!--            <div class="ui labeled button" tabindex="0">-->
+<!--                <div class="ui red button">-->
+<!--                    <i class="heart icon"></i> Like-->
+<!--                </div>-->
+<!--                <a herf="#" th:href="@{/tweet/likes/{id}(id=${tweetfe.tweet.id})}" th:text="${tweetfe.tweet.likes}" class="ui basic red left pointing label">-->
+<!--                    1,048-->
+<!--                </a>-->
+<!--            </div>-->
+<!--                <div></div>-->
+<!--            <div class="ui labeled button" tabindex="0">-->
+<!--                <div class="ui basic blue button">-->
+<!--                    <i class="fork icon"></i> Forks-->
+<!--                </div>-->
+<!--                <a  class="ui basic left pointing blue label">-->
+<!--                    1,048-->
+<!--                </a>-->
+<!--            </div>-->
+<!--                <div></div>-->
+<!--                </div>-->
             <div class="two ui buttons">
+
                 <button id="like-btn" class="ui button">
                     <a herf="#" th:href="@{/tweet/likes/{id}(id=${tweetfe.tweet.id})}">
                         <i th:style="${isLike?'color:red':'color:black'}" style="color:black;" class="like icon"></i><span style="color:black;" th:text="${tweetfe.tweet.likes}">2342</span>
