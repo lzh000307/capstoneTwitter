@@ -4,31 +4,13 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08ebf5d0-8ae2-4bb1-9acc-7568cc9c269a" name="Default Changelist" comment="新增浏览次数功能">
-      <change afterPath="$PROJECT_DIR$/log/blog-dev.log.2022-05-18.0.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/UserCenter/TweetsManageController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/blog/dao/LikeDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/blog/dao/UserCollectionDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/blog/pojo/Like.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/blog/pojo/UserCollection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/blog/service/LikeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/blog/service/UserCollectionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/blog/service/impl/LikeServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/blog/service/impl/UserCollectionServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/usercenter/_fragments.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/usercenter/tweets.html" afterDir="false" />
+    <list default="true" id="08ebf5d0-8ae2-4bb1-9acc-7568cc9c269a" name="Default Changelist" comment="更新并优化了各种功能以及前端">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/changepassword.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log/blog-dev.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/blog-dev.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/controller/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/IndexController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/controller/TweetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/TweetController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/controller/UserCenterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/UserCenterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/controller/admin/BlogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/admin/BlogController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/blog.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/blog.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/me.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/me.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/_fragments.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/_fragments.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/send-tweet.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/send-tweet.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/tweet.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/tweet.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/usercenter.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/usercenter.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -123,6 +105,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "preferences.pluginManager",
     "spring.configuration.checksum": "6cc4b1e97a4186012ae1beb7b57c8b01",
     "vue.rearranger.settings.migration": "true"
@@ -334,7 +317,9 @@
       <workItem from="1652760535044" duration="14043000" />
       <workItem from="1652781015816" duration="313000" />
       <workItem from="1652845651662" duration="54000" />
-      <workItem from="1652845715368" duration="36304000" />
+      <workItem from="1652845715368" duration="36362000" />
+      <workItem from="1652935548312" duration="25000" />
+      <workItem from="1652935586596" duration="2004000" />
     </task>
     <task id="LOCAL-00001" summary="update md5">
       <created>1584841437407</created>
@@ -455,7 +440,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652873119891</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="更新并优化了各种功能以及前端">
+      <created>1652894234693</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1652894234693</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -526,7 +518,8 @@
     <MESSAGE value="新增用户中心" />
     <MESSAGE value="新增回复功能" />
     <MESSAGE value="新增浏览次数功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增浏览次数功能" />
+    <MESSAGE value="更新并优化了各种功能以及前端" />
+    <option name="LAST_COMMIT_MESSAGE" value="更新并优化了各种功能以及前端" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -133,8 +133,8 @@
 
         <div class="ui right aligned container">
           <button type="button" class="ui button" onclick="window.history.go(-1)" >返回</button>
-          <button type="button" id="save-btn" class="ui secondary button">保存</button>
-          <button type="button" id="publish-btn" class="ui teal button">发布</button>
+          <button type="button" id="save-btn" class="ui secondary button">仅自己可见</button>
+          <button type="button" id="publish-btn" class="ui teal button">所有人可见</button>
         </div>
 
       </form>
@@ -215,14 +215,14 @@
           identifier: 'firstPicture',
           rules: [{
             type : 'empty',
-            prompt: '标题：请输入博客首图'
+            prompt: '标题：请输入推文首图'
           }]
         },
           content : {
           identifier: 'content',
           rules: [{
             type : 'empty',
-            prompt: '标题：请输入博客描述'
+            prompt: '标题：请输入推文描述'
           }]
         }
       }

@@ -15991,3 +15991,704 @@ Caused by: java.lang.NumberFormatException: For input string: "testtag"
 2022-05-19 01:16:37.494  INFO 42891 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
 2022-05-19 01:16:37.495  INFO 42891 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2022-05-19 01:16:37.500  INFO 42891 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-05-19 12:46:38.522  INFO 12605 --- [restartedMain] com.blog.BlogApplication                 : Starting BlogApplication on ElvisdeMacBook-Pro.local with PID 12605 (/Users/elvislin/Documents/IDEA_PROJECT/capstoneTwitter/target/classes started by elvislin in /Users/elvislin/Documents/IDEA_PROJECT/capstoneTwitter)
+2022-05-19 12:46:38.524 DEBUG 12605 --- [restartedMain] com.blog.BlogApplication                 : Running with Spring Boot v2.2.5.RELEASE, Spring v5.2.4.RELEASE
+2022-05-19 12:46:38.524  INFO 12605 --- [restartedMain] com.blog.BlogApplication                 : The following profiles are active: dev
+2022-05-19 12:46:38.557  INFO 12605 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-05-19 12:46:38.557  INFO 12605 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-05-19 12:46:39.229  INFO 12605 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-05-19 12:46:39.233  INFO 12605 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-05-19 12:46:39.233  INFO 12605 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2022-05-19 12:46:39.267  INFO 12605 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-05-19 12:46:39.267  INFO 12605 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 710 ms
+2022-05-19 12:46:39.643  INFO 12605 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-05-19 12:46:39.691  INFO 12605 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-05-19 12:46:39.861  INFO 12605 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-05-19 12:46:39.888  INFO 12605 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-05-19 12:46:39.890  INFO 12605 --- [restartedMain] com.blog.BlogApplication                 : Started BlogApplication in 1.601 seconds (JVM running for 2.601)
+2022-05-19 12:46:44.601  INFO 12605 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-05-19 12:46:44.602  INFO 12605 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-05-19 12:46:44.610  INFO 12605 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2022-05-19 12:46:44.644  INFO 12605 --- [http-nio-8080-exec-1] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.IndexController.toIndex, args=[1, {}])
+2022-05-19 12:46:44.696  INFO 12605 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-05-19 12:46:44.954  INFO 12605 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-05-19 12:46:44.957 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getByDesc_COUNT    : ==>  Preparing: SELECT count(0) FROM tweet b, user u WHERE u.id = b.user_id 
+2022-05-19 12:46:44.970 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getByDesc_COUNT    : ==> Parameters: 
+2022-05-19 12:46:45.007 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getByDesc_COUNT    : <==      Total: 1
+2022-05-19 12:46:45.010 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getByDesc          : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.content, u.nickname, u.avatar from tweet b, user u where u.id = b.user_id order by b.update_time desc LIMIT ? 
+2022-05-19 12:46:45.010 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getByDesc          : ==> Parameters: 8(Integer)
+2022-05-19 12:46:45.015 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getByDesc          : <==      Total: 8
+2022-05-19 12:46:45.017 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TagDao.getAllTag            : ==>  Preparing: select * from t_tag 
+2022-05-19 12:46:45.017 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TagDao.getAllTag            : ==> Parameters: 
+2022-05-19 12:46:45.020 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TagDao.getAllTag            : <==      Total: 6
+2022-05-19 12:46:45.021 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 12:46:45.021 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 3(Long)
+2022-05-19 12:46:45.023 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-19 12:46:45.024 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 12:46:45.024 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 4(Long)
+2022-05-19 12:46:45.024 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-19 12:46:45.024 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 12:46:45.025 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 5(Long)
+2022-05-19 12:46:45.025 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-19 12:46:45.025 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 12:46:45.025 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 6(Long)
+2022-05-19 12:46:45.026 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-19 12:46:45.026 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 12:46:45.026 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 7(Long)
+2022-05-19 12:46:45.026 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-19 12:46:45.027 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 12:46:45.027 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 8(Long)
+2022-05-19 12:46:45.027 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-19 12:46:45.028  INFO 12605 --- [http-nio-8080-exec-1] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-19 12:46:45.028  INFO 12605 --- [http-nio-8080-exec-1] com.blog.aspect.LogAspect                : Result: index
+2022-05-19 12:46:47.687  INFO 12605 --- [http-nio-8080-exec-7] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/login, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.LoginController2.loginPage, args=[])
+2022-05-19 12:46:47.693  INFO 12605 --- [http-nio-8080-exec-7] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-19 12:46:47.693  INFO 12605 --- [http-nio-8080-exec-7] com.blog.aspect.LogAspect                : Result: login
+2022-05-19 12:46:55.438  INFO 12605 --- [http-nio-8080-exec-4] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/login, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.LoginController2.login, args=[test, test, org.apache.catalina.session.StandardSessionFacade@3b10caef, {}])
+2022-05-19 12:46:55.440 DEBUG 12605 --- [http-nio-8080-exec-4] c.b.d.U.queryByUsernameAndPassword       : ==>  Preparing: select * from user where username = ? and password = ?; 
+2022-05-19 12:46:55.440 DEBUG 12605 --- [http-nio-8080-exec-4] c.b.d.U.queryByUsernameAndPassword       : ==> Parameters: test(String), 098f6bcd4621d373cade4e832627b4f6(String)
+2022-05-19 12:46:55.441 DEBUG 12605 --- [http-nio-8080-exec-4] c.b.d.U.queryByUsernameAndPassword       : <==      Total: 1
+2022-05-19 12:46:55.442  INFO 12605 --- [http-nio-8080-exec-4] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-19 12:46:55.442  INFO 12605 --- [http-nio-8080-exec-4] com.blog.aspect.LogAspect                : Result: redirect:/
+2022-05-19 12:46:55.458  INFO 12605 --- [http-nio-8080-exec-7] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/;jsessionid=35385B0F1D04264BFE8BBE377CB344FD, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.IndexController.toIndex, args=[1, {}])
+2022-05-19 12:46:55.459 DEBUG 12605 --- [http-nio-8080-exec-7] com.blog.dao.TweetDao.getByDesc_COUNT    : ==>  Preparing: SELECT count(0) FROM tweet b, user u WHERE u.id = b.user_id 
+2022-05-19 12:46:55.459 DEBUG 12605 --- [http-nio-8080-exec-7] com.blog.dao.TweetDao.getByDesc_COUNT    : ==> Parameters: 
+2022-05-19 12:46:55.460 DEBUG 12605 --- [http-nio-8080-exec-7] com.blog.dao.TweetDao.getByDesc_COUNT    : <==      Total: 1
+2022-05-19 12:46:55.460 DEBUG 12605 --- [http-nio-8080-exec-7] com.blog.dao.TweetDao.getByDesc          : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.content, u.nickname, u.avatar from tweet b, user u where u.id = b.user_id order by b.update_time desc LIMIT ? 
+2022-05-19 12:46:55.460 DEBUG 12605 --- [http-nio-8080-exec-7] com.blog.dao.TweetDao.getByDesc          : ==> Parameters: 8(Integer)
+2022-05-19 12:46:55.464 DEBUG 12605 --- [http-nio-8080-exec-7] com.blog.dao.TweetDao.getByDesc          : <==      Total: 8
+2022-05-19 12:46:55.465 DEBUG 12605 --- [http-nio-8080-exec-7] com.blog.dao.TagDao.getAllTag            : ==>  Preparing: select * from t_tag 
+2022-05-19 12:46:55.465 DEBUG 12605 --- [http-nio-8080-exec-7] com.blog.dao.TagDao.getAllTag            : ==> Parameters: 
+2022-05-19 12:46:55.466 DEBUG 12605 --- [http-nio-8080-exec-7] com.blog.dao.TagDao.getAllTag            : <==      Total: 6
+2022-05-19 12:46:55.466 DEBUG 12605 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 12:46:55.466 DEBUG 12605 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 3(Long)
+2022-05-19 12:46:55.466 DEBUG 12605 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-19 12:46:55.467 DEBUG 12605 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 12:46:55.467 DEBUG 12605 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 4(Long)
+2022-05-19 12:46:55.467 DEBUG 12605 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-19 12:46:55.467 DEBUG 12605 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 12:46:55.468 DEBUG 12605 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 5(Long)
+2022-05-19 12:46:55.469 DEBUG 12605 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-19 12:46:55.469 DEBUG 12605 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 12:46:55.469 DEBUG 12605 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 6(Long)
+2022-05-19 12:46:55.470 DEBUG 12605 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-19 12:46:55.470 DEBUG 12605 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 12:46:55.470 DEBUG 12605 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 7(Long)
+2022-05-19 12:46:55.471 DEBUG 12605 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-19 12:46:55.471 DEBUG 12605 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 12:46:55.471 DEBUG 12605 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 8(Long)
+2022-05-19 12:46:55.472 DEBUG 12605 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-19 12:46:55.472  INFO 12605 --- [http-nio-8080-exec-7] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-19 12:46:55.472  INFO 12605 --- [http-nio-8080-exec-7] com.blog.aspect.LogAspect                : Result: index
+2022-05-19 12:47:34.404  INFO 12605 --- [http-nio-8080-exec-1] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.IndexController.toIndex, args=[1, {}])
+2022-05-19 12:47:34.407 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getByDesc_COUNT    : ==>  Preparing: SELECT count(0) FROM tweet b, user u WHERE u.id = b.user_id 
+2022-05-19 12:47:34.408 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getByDesc_COUNT    : ==> Parameters: 
+2022-05-19 12:47:34.409 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getByDesc_COUNT    : <==      Total: 1
+2022-05-19 12:47:34.411 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getByDesc          : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.content, u.nickname, u.avatar from tweet b, user u where u.id = b.user_id order by b.update_time desc LIMIT ? 
+2022-05-19 12:47:34.412 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getByDesc          : ==> Parameters: 8(Integer)
+2022-05-19 12:47:34.416 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getByDesc          : <==      Total: 8
+2022-05-19 12:47:34.418 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TagDao.getAllTag            : ==>  Preparing: select * from t_tag 
+2022-05-19 12:47:34.418 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TagDao.getAllTag            : ==> Parameters: 
+2022-05-19 12:47:34.423 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TagDao.getAllTag            : <==      Total: 6
+2022-05-19 12:47:34.424 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 12:47:34.424 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 3(Long)
+2022-05-19 12:47:34.426 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-19 12:47:34.426 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 12:47:34.427 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 4(Long)
+2022-05-19 12:47:34.428 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-19 12:47:34.428 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 12:47:34.429 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 5(Long)
+2022-05-19 12:47:34.430 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-19 12:47:34.431 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 12:47:34.432 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 6(Long)
+2022-05-19 12:47:34.433 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-19 12:47:34.434 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 12:47:34.434 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 7(Long)
+2022-05-19 12:47:34.435 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-19 12:47:34.435 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 12:47:34.435 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 8(Long)
+2022-05-19 12:47:34.436 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-19 12:47:34.436  INFO 12605 --- [http-nio-8080-exec-1] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-19 12:47:34.436  INFO 12605 --- [http-nio-8080-exec-1] com.blog.aspect.LogAspect                : Result: index
+2022-05-19 12:49:42.591  INFO 12605 --- [http-nio-8080-exec-3] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.IndexController.toIndex, args=[1, {}])
+2022-05-19 12:49:42.594 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TweetDao.getByDesc_COUNT    : ==>  Preparing: SELECT count(0) FROM tweet b, user u WHERE u.id = b.user_id 
+2022-05-19 12:49:42.594 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TweetDao.getByDesc_COUNT    : ==> Parameters: 
+2022-05-19 12:49:42.595 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TweetDao.getByDesc_COUNT    : <==      Total: 1
+2022-05-19 12:49:42.595 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TweetDao.getByDesc          : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.content, u.nickname, u.avatar from tweet b, user u where u.id = b.user_id order by b.update_time desc LIMIT ? 
+2022-05-19 12:49:42.596 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TweetDao.getByDesc          : ==> Parameters: 8(Integer)
+2022-05-19 12:49:42.599 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TweetDao.getByDesc          : <==      Total: 8
+2022-05-19 12:49:42.599 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TagDao.getAllTag            : ==>  Preparing: select * from t_tag 
+2022-05-19 12:49:42.599 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TagDao.getAllTag            : ==> Parameters: 
+2022-05-19 12:49:42.601 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TagDao.getAllTag            : <==      Total: 6
+2022-05-19 12:49:42.601 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 12:49:42.601 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 3(Long)
+2022-05-19 12:49:42.602 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-19 12:49:42.603 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 12:49:42.603 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 4(Long)
+2022-05-19 12:49:42.603 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-19 12:49:42.604 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 12:49:42.604 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 5(Long)
+2022-05-19 12:49:42.604 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-19 12:49:42.604 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 12:49:42.605 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 6(Long)
+2022-05-19 12:49:42.605 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-19 12:49:42.606 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 12:49:42.606 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 7(Long)
+2022-05-19 12:49:42.606 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-19 12:49:42.607 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 12:49:42.607 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 8(Long)
+2022-05-19 12:49:42.607 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-19 12:49:42.607  INFO 12605 --- [http-nio-8080-exec-3] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-19 12:49:42.607  INFO 12605 --- [http-nio-8080-exec-3] com.blog.aspect.LogAspect                : Result: index
+2022-05-19 12:49:43.693  INFO 12605 --- [http-nio-8080-exec-9] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/user/center, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.UserCenterController.userCenterPage, args=[{}, org.apache.catalina.session.StandardSessionFacade@3b10caef])
+2022-05-19 12:49:43.698  INFO 12605 --- [http-nio-8080-exec-9] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-19 12:49:43.698  INFO 12605 --- [http-nio-8080-exec-9] com.blog.aspect.LogAspect                : Result: usercenter
+2022-05-19 13:40:32.087  INFO 12605 --- [http-nio-8080-exec-1] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/login, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.LoginController2.loginPage, args=[])
+2022-05-19 13:40:32.088  INFO 12605 --- [http-nio-8080-exec-1] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-19 13:40:32.088  INFO 12605 --- [http-nio-8080-exec-1] com.blog.aspect.LogAspect                : Result: login
+2022-05-19 13:40:33.940  INFO 12605 --- [http-nio-8080-exec-10] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/login, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.LoginController2.login, args=[test, test, org.apache.catalina.session.StandardSessionFacade@27cd35b1, {}])
+2022-05-19 13:40:33.942 DEBUG 12605 --- [http-nio-8080-exec-10] c.b.d.U.queryByUsernameAndPassword       : ==>  Preparing: select * from user where username = ? and password = ?; 
+2022-05-19 13:40:33.942 DEBUG 12605 --- [http-nio-8080-exec-10] c.b.d.U.queryByUsernameAndPassword       : ==> Parameters: test(String), 098f6bcd4621d373cade4e832627b4f6(String)
+2022-05-19 13:40:33.944 DEBUG 12605 --- [http-nio-8080-exec-10] c.b.d.U.queryByUsernameAndPassword       : <==      Total: 1
+2022-05-19 13:40:33.945  INFO 12605 --- [http-nio-8080-exec-10] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-19 13:40:33.945  INFO 12605 --- [http-nio-8080-exec-10] com.blog.aspect.LogAspect                : Result: redirect:/
+2022-05-19 13:40:33.952  INFO 12605 --- [http-nio-8080-exec-1] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.IndexController.toIndex, args=[1, {}])
+2022-05-19 13:40:33.954 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getByDesc_COUNT    : ==>  Preparing: SELECT count(0) FROM tweet b, user u WHERE u.id = b.user_id 
+2022-05-19 13:40:33.955 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getByDesc_COUNT    : ==> Parameters: 
+2022-05-19 13:40:33.957 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getByDesc_COUNT    : <==      Total: 1
+2022-05-19 13:40:33.957 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getByDesc          : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.content, u.nickname, u.avatar from tweet b, user u where u.id = b.user_id order by b.update_time desc LIMIT ? 
+2022-05-19 13:40:33.958 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getByDesc          : ==> Parameters: 8(Integer)
+2022-05-19 13:40:33.961 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getByDesc          : <==      Total: 8
+2022-05-19 13:40:33.962 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TagDao.getAllTag            : ==>  Preparing: select * from t_tag 
+2022-05-19 13:40:33.962 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TagDao.getAllTag            : ==> Parameters: 
+2022-05-19 13:40:33.963 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TagDao.getAllTag            : <==      Total: 6
+2022-05-19 13:40:33.964 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:40:33.964 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 3(Long)
+2022-05-19 13:40:33.966 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-19 13:40:33.966 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:40:33.966 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 4(Long)
+2022-05-19 13:40:33.967 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-19 13:40:33.968 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:40:33.968 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 5(Long)
+2022-05-19 13:40:33.968 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-19 13:40:33.969 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:40:33.969 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 6(Long)
+2022-05-19 13:40:33.970 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-19 13:40:33.970 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:40:33.971 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 7(Long)
+2022-05-19 13:40:33.971 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-19 13:40:33.972 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:40:33.972 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 8(Long)
+2022-05-19 13:40:33.972 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-19 13:40:33.973  INFO 12605 --- [http-nio-8080-exec-1] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-19 13:40:33.973  INFO 12605 --- [http-nio-8080-exec-1] com.blog.aspect.LogAspect                : Result: index
+2022-05-19 13:40:35.376  INFO 12605 --- [http-nio-8080-exec-6] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/tweet/23, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.TweetController.surfTweet, args=[23, {}, org.apache.catalina.session.StandardSessionFacade@27cd35b1])
+2022-05-19 13:40:35.380 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.TweetDao.queryById          : ==>  Preparing: select id, title, content, first_picture, status, views, likes, commentable, published, recommend, create_time, update_time, type_id, user_id, tag_ids from blog_mb.tweet where id = ? 
+2022-05-19 13:40:35.380 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.TweetDao.queryById          : ==> Parameters: 23(Long)
+2022-05-19 13:40:35.381 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.TweetDao.queryById          : <==      Total: 1
+2022-05-19 13:40:35.390 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.TweetDao.update             : ==>  Preparing: update blog_mb.tweet SET title = ?, content = ?, first_picture = ?, status = ?, views = ?, likes = ?, commentable = ?, published = ?, recommend = ?, create_time = ?, update_time = ?, user_id = ?, tag_ids = ? where id = ? 
+2022-05-19 13:40:35.392 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.TweetDao.update             : ==> Parameters: test tag(String), test tag(String), test tag(String), 1(String), 173(Integer), 2(Integer), true(Boolean), true(Boolean), 1(Integer), 2022-05-18 11:54:48.0(Timestamp), 2022-05-18 11:54:48.0(Timestamp), 1(Long), 3,6,7(String), 23(Long)
+2022-05-19 13:40:35.395 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.TweetDao.update             : <==    Updates: 1
+2022-05-19 13:40:35.395 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==>  Preparing: select * from user where id = ? 
+2022-05-19 13:40:35.395 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==> Parameters: 1(Long)
+2022-05-19 13:40:35.396 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : <==      Total: 1
+2022-05-19 13:40:35.396 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.TrendDao.getByTweetId       : ==>  Preparing: select * from trend where tweet_Id = ? 
+2022-05-19 13:40:35.396 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.TrendDao.getByTweetId       : ==> Parameters: 23(Long)
+2022-05-19 13:40:35.397 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.TrendDao.getByTweetId       : <==      Total: 3
+2022-05-19 13:40:35.397 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.TagDao.getTag               : ==>  Preparing: select id,name from t_tag where id = ? 
+2022-05-19 13:40:35.397 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.TagDao.getTag               : ==> Parameters: 3(Long)
+2022-05-19 13:40:35.398 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.TagDao.getTag               : <==      Total: 1
+2022-05-19 13:40:35.398 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.TagDao.getTag               : ==>  Preparing: select id,name from t_tag where id = ? 
+2022-05-19 13:40:35.398 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.TagDao.getTag               : ==> Parameters: 6(Long)
+2022-05-19 13:40:35.398 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.TagDao.getTag               : <==      Total: 1
+2022-05-19 13:40:35.398 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.TagDao.getTag               : ==>  Preparing: select id,name from t_tag where id = ? 
+2022-05-19 13:40:35.398 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.TagDao.getTag               : ==> Parameters: 7(Long)
+2022-05-19 13:40:35.399 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.TagDao.getTag               : <==      Total: 1
+2022-05-19 13:40:35.399 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserCollectionDao.get       : ==>  Preparing: select * from `user_collection` where user_id = ? and tweet_id = ? 
+2022-05-19 13:40:35.399 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserCollectionDao.get       : ==> Parameters: 1(Long), 23(Long)
+2022-05-19 13:40:35.402 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserCollectionDao.get       : <==      Total: 0
+2022-05-19 13:40:35.403 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.LikeDao.get                 : ==>  Preparing: select * from `like` where user_id = ? and tweet_id = ? 
+2022-05-19 13:40:35.403 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.LikeDao.get                 : ==> Parameters: 1(Long), 23(Long)
+2022-05-19 13:40:35.405 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.LikeDao.get                 : <==      Total: 0
+2022-05-19 13:40:35.405  INFO 12605 --- [http-nio-8080-exec-6] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-19 13:40:35.405  INFO 12605 --- [http-nio-8080-exec-6] com.blog.aspect.LogAspect                : Result: tweet
+2022-05-19 13:40:35.459 ERROR 12605 --- [http-nio-8080-exec-5] c.b.handler.ControllerExceptionHandler   : Request url: /tweet/test%20tag, Exception: {}
+
+org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "testtag"
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:133) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:121) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:167) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:134) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:879) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1639) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_332]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_332]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.lang.Thread.run(Thread.java:750) [na:1.8.0_332]
+Caused by: java.lang.NumberFormatException: For input string: "testtag"
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65) ~[na:1.8.0_332]
+	at java.lang.Long.parseLong(Long.java:589) ~[na:1.8.0_332]
+	at java.lang.Long.valueOf(Long.java:803) ~[na:1.8.0_332]
+	at org.springframework.util.NumberUtils.parseNumber(NumberUtils.java:214) ~[spring-core-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.propertyeditors.CustomNumberEditor.setAsText(CustomNumberEditor.java:115) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.TypeConverterDelegate.doConvertTextValue(TypeConverterDelegate.java:429) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.TypeConverterDelegate.doConvertValue(TypeConverterDelegate.java:402) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.TypeConverterDelegate.convertIfNecessary(TypeConverterDelegate.java:155) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.TypeConverterSupport.convertIfNecessary(TypeConverterSupport.java:73) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.beans.TypeConverterSupport.convertIfNecessary(TypeConverterSupport.java:53) ~[spring-beans-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.validation.DataBinder.convertIfNecessary(DataBinder.java:693) ~[spring-context-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:125) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	... 47 common frames omitted
+
+2022-05-19 13:40:35.459  WARN 12605 --- [http-nio-8080-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; nested exception is java.lang.NumberFormatException: For input string: "testtag"]
+2022-05-19 13:40:35.806  INFO 12605 --- [http-nio-8080-exec-6] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/comments/23, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.CommentController.comments, args=[23, {}])
+2022-05-19 13:40:35.809 DEBUG 12605 --- [http-nio-8080-exec-6] c.b.d.C.selectMainCommentByTweetId       : ==>  Preparing: select * from comment where tweet_id = ? and parent_comment_id = -1 order by create_time asc 
+2022-05-19 13:40:35.809 DEBUG 12605 --- [http-nio-8080-exec-6] c.b.d.C.selectMainCommentByTweetId       : ==> Parameters: 23(Long)
+2022-05-19 13:40:35.814 DEBUG 12605 --- [http-nio-8080-exec-6] c.b.d.C.selectMainCommentByTweetId       : <==      Total: 11
+2022-05-19 13:40:35.814 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==>  Preparing: select * from user where id = ? 
+2022-05-19 13:40:35.814 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==> Parameters: 1(Long)
+2022-05-19 13:40:35.815 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : <==      Total: 1
+2022-05-19 13:40:35.815 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==>  Preparing: select * from user where id = ? 
+2022-05-19 13:40:35.815 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==> Parameters: 1(Long)
+2022-05-19 13:40:35.816 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : <==      Total: 1
+2022-05-19 13:40:35.816 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==>  Preparing: select * from user where id = ? 
+2022-05-19 13:40:35.816 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==> Parameters: 1(Long)
+2022-05-19 13:40:35.817 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : <==      Total: 1
+2022-05-19 13:40:35.817 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==>  Preparing: select * from user where id = ? 
+2022-05-19 13:40:35.817 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==> Parameters: 1(Long)
+2022-05-19 13:40:35.818 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : <==      Total: 1
+2022-05-19 13:40:35.819 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==>  Preparing: select * from user where id = ? 
+2022-05-19 13:40:35.819 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==> Parameters: 1(Long)
+2022-05-19 13:40:35.819 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : <==      Total: 1
+2022-05-19 13:40:35.820 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==>  Preparing: select * from user where id = ? 
+2022-05-19 13:40:35.820 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==> Parameters: 1(Long)
+2022-05-19 13:40:35.820 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : <==      Total: 1
+2022-05-19 13:40:35.821 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==>  Preparing: select * from user where id = ? 
+2022-05-19 13:40:35.821 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==> Parameters: 1(Long)
+2022-05-19 13:40:35.821 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : <==      Total: 1
+2022-05-19 13:40:35.822 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==>  Preparing: select * from user where id = ? 
+2022-05-19 13:40:35.822 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==> Parameters: 1(Long)
+2022-05-19 13:40:35.823 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : <==      Total: 1
+2022-05-19 13:40:35.824 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==>  Preparing: select * from user where id = ? 
+2022-05-19 13:40:35.824 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==> Parameters: 1(Long)
+2022-05-19 13:40:35.825 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : <==      Total: 1
+2022-05-19 13:40:35.826 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==>  Preparing: select * from user where id = ? 
+2022-05-19 13:40:35.826 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==> Parameters: 1(Long)
+2022-05-19 13:40:35.827 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : <==      Total: 1
+2022-05-19 13:40:35.827 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==>  Preparing: select * from user where id = ? 
+2022-05-19 13:40:35.827 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==> Parameters: 6(Long)
+2022-05-19 13:40:35.827 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : <==      Total: 1
+2022-05-19 13:40:35.828 DEBUG 12605 --- [http-nio-8080-exec-6] .b.d.C.selectSubCommentByParentCommentId : ==>  Preparing: select * from comment where parent_comment_id = ? order by create_time asc 
+2022-05-19 13:40:35.828 DEBUG 12605 --- [http-nio-8080-exec-6] .b.d.C.selectSubCommentByParentCommentId : ==> Parameters: 9(Long)
+2022-05-19 13:40:35.828 DEBUG 12605 --- [http-nio-8080-exec-6] .b.d.C.selectSubCommentByParentCommentId : <==      Total: 0
+2022-05-19 13:40:35.829 DEBUG 12605 --- [http-nio-8080-exec-6] .b.d.C.selectSubCommentByParentCommentId : ==>  Preparing: select * from comment where parent_comment_id = ? order by create_time asc 
+2022-05-19 13:40:35.829 DEBUG 12605 --- [http-nio-8080-exec-6] .b.d.C.selectSubCommentByParentCommentId : ==> Parameters: 10(Long)
+2022-05-19 13:40:35.829 DEBUG 12605 --- [http-nio-8080-exec-6] .b.d.C.selectSubCommentByParentCommentId : <==      Total: 0
+2022-05-19 13:40:35.829 DEBUG 12605 --- [http-nio-8080-exec-6] .b.d.C.selectSubCommentByParentCommentId : ==>  Preparing: select * from comment where parent_comment_id = ? order by create_time asc 
+2022-05-19 13:40:35.829 DEBUG 12605 --- [http-nio-8080-exec-6] .b.d.C.selectSubCommentByParentCommentId : ==> Parameters: 11(Long)
+2022-05-19 13:40:35.830 DEBUG 12605 --- [http-nio-8080-exec-6] .b.d.C.selectSubCommentByParentCommentId : <==      Total: 0
+2022-05-19 13:40:35.830 DEBUG 12605 --- [http-nio-8080-exec-6] .b.d.C.selectSubCommentByParentCommentId : ==>  Preparing: select * from comment where parent_comment_id = ? order by create_time asc 
+2022-05-19 13:40:35.830 DEBUG 12605 --- [http-nio-8080-exec-6] .b.d.C.selectSubCommentByParentCommentId : ==> Parameters: 12(Long)
+2022-05-19 13:40:35.831 DEBUG 12605 --- [http-nio-8080-exec-6] .b.d.C.selectSubCommentByParentCommentId : <==      Total: 0
+2022-05-19 13:40:35.831 DEBUG 12605 --- [http-nio-8080-exec-6] .b.d.C.selectSubCommentByParentCommentId : ==>  Preparing: select * from comment where parent_comment_id = ? order by create_time asc 
+2022-05-19 13:40:35.831 DEBUG 12605 --- [http-nio-8080-exec-6] .b.d.C.selectSubCommentByParentCommentId : ==> Parameters: 13(Long)
+2022-05-19 13:40:35.832 DEBUG 12605 --- [http-nio-8080-exec-6] .b.d.C.selectSubCommentByParentCommentId : <==      Total: 0
+2022-05-19 13:40:35.832 DEBUG 12605 --- [http-nio-8080-exec-6] .b.d.C.selectSubCommentByParentCommentId : ==>  Preparing: select * from comment where parent_comment_id = ? order by create_time asc 
+2022-05-19 13:40:35.832 DEBUG 12605 --- [http-nio-8080-exec-6] .b.d.C.selectSubCommentByParentCommentId : ==> Parameters: 14(Long)
+2022-05-19 13:40:35.832 DEBUG 12605 --- [http-nio-8080-exec-6] .b.d.C.selectSubCommentByParentCommentId : <==      Total: 0
+2022-05-19 13:40:35.832 DEBUG 12605 --- [http-nio-8080-exec-6] .b.d.C.selectSubCommentByParentCommentId : ==>  Preparing: select * from comment where parent_comment_id = ? order by create_time asc 
+2022-05-19 13:40:35.832 DEBUG 12605 --- [http-nio-8080-exec-6] .b.d.C.selectSubCommentByParentCommentId : ==> Parameters: 15(Long)
+2022-05-19 13:40:35.833 DEBUG 12605 --- [http-nio-8080-exec-6] .b.d.C.selectSubCommentByParentCommentId : <==      Total: 0
+2022-05-19 13:40:35.833 DEBUG 12605 --- [http-nio-8080-exec-6] .b.d.C.selectSubCommentByParentCommentId : ==>  Preparing: select * from comment where parent_comment_id = ? order by create_time asc 
+2022-05-19 13:40:35.833 DEBUG 12605 --- [http-nio-8080-exec-6] .b.d.C.selectSubCommentByParentCommentId : ==> Parameters: 16(Long)
+2022-05-19 13:40:35.833 DEBUG 12605 --- [http-nio-8080-exec-6] .b.d.C.selectSubCommentByParentCommentId : <==      Total: 0
+2022-05-19 13:40:35.834 DEBUG 12605 --- [http-nio-8080-exec-6] .b.d.C.selectSubCommentByParentCommentId : ==>  Preparing: select * from comment where parent_comment_id = ? order by create_time asc 
+2022-05-19 13:40:35.834 DEBUG 12605 --- [http-nio-8080-exec-6] .b.d.C.selectSubCommentByParentCommentId : ==> Parameters: 17(Long)
+2022-05-19 13:40:35.834 DEBUG 12605 --- [http-nio-8080-exec-6] .b.d.C.selectSubCommentByParentCommentId : <==      Total: 0
+2022-05-19 13:40:35.834 DEBUG 12605 --- [http-nio-8080-exec-6] .b.d.C.selectSubCommentByParentCommentId : ==>  Preparing: select * from comment where parent_comment_id = ? order by create_time asc 
+2022-05-19 13:40:35.834 DEBUG 12605 --- [http-nio-8080-exec-6] .b.d.C.selectSubCommentByParentCommentId : ==> Parameters: 18(Long)
+2022-05-19 13:40:35.836 DEBUG 12605 --- [http-nio-8080-exec-6] .b.d.C.selectSubCommentByParentCommentId : <==      Total: 6
+2022-05-19 13:40:35.836 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==>  Preparing: select * from user where id = ? 
+2022-05-19 13:40:35.836 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==> Parameters: 1(Long)
+2022-05-19 13:40:35.837 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : <==      Total: 1
+2022-05-19 13:40:35.837 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==>  Preparing: select * from user where id = ? 
+2022-05-19 13:40:35.837 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==> Parameters: 1(Long)
+2022-05-19 13:40:35.838 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : <==      Total: 1
+2022-05-19 13:40:35.838 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==>  Preparing: select * from user where id = ? 
+2022-05-19 13:40:35.838 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==> Parameters: 1(Long)
+2022-05-19 13:40:35.838 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : <==      Total: 1
+2022-05-19 13:40:35.839 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==>  Preparing: select * from user where id = ? 
+2022-05-19 13:40:35.839 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==> Parameters: 1(Long)
+2022-05-19 13:40:35.839 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : <==      Total: 1
+2022-05-19 13:40:35.839 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==>  Preparing: select * from user where id = ? 
+2022-05-19 13:40:35.839 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==> Parameters: 1(Long)
+2022-05-19 13:40:35.840 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : <==      Total: 1
+2022-05-19 13:40:35.840 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==>  Preparing: select * from user where id = ? 
+2022-05-19 13:40:35.840 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==> Parameters: 1(Long)
+2022-05-19 13:40:35.840 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : <==      Total: 1
+2022-05-19 13:40:35.840 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==>  Preparing: select * from user where id = ? 
+2022-05-19 13:40:35.840 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==> Parameters: 1(Long)
+2022-05-19 13:40:35.841 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : <==      Total: 1
+2022-05-19 13:40:35.841 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==>  Preparing: select * from user where id = ? 
+2022-05-19 13:40:35.841 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==> Parameters: 1(Long)
+2022-05-19 13:40:35.842 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : <==      Total: 1
+2022-05-19 13:40:35.842 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==>  Preparing: select * from user where id = ? 
+2022-05-19 13:40:35.842 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==> Parameters: 1(Long)
+2022-05-19 13:40:35.842 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : <==      Total: 1
+2022-05-19 13:40:35.842 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==>  Preparing: select * from user where id = ? 
+2022-05-19 13:40:35.842 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==> Parameters: 1(Long)
+2022-05-19 13:40:35.843 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : <==      Total: 1
+2022-05-19 13:40:35.843 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==>  Preparing: select * from user where id = ? 
+2022-05-19 13:40:35.843 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==> Parameters: 6(Long)
+2022-05-19 13:40:35.843 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : <==      Total: 1
+2022-05-19 13:40:35.843 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==>  Preparing: select * from user where id = ? 
+2022-05-19 13:40:35.843 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : ==> Parameters: 1(Long)
+2022-05-19 13:40:35.844 DEBUG 12605 --- [http-nio-8080-exec-6] com.blog.dao.UserDao.findById            : <==      Total: 1
+2022-05-19 13:40:35.844 DEBUG 12605 --- [http-nio-8080-exec-6] .b.d.C.selectSubCommentByParentCommentId : ==>  Preparing: select * from comment where parent_comment_id = ? order by create_time asc 
+2022-05-19 13:40:35.844 DEBUG 12605 --- [http-nio-8080-exec-6] .b.d.C.selectSubCommentByParentCommentId : ==> Parameters: 27(Long)
+2022-05-19 13:40:35.844 DEBUG 12605 --- [http-nio-8080-exec-6] .b.d.C.selectSubCommentByParentCommentId : <==      Total: 0
+2022-05-19 13:40:35.844  INFO 12605 --- [http-nio-8080-exec-6] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-19 13:40:35.844  INFO 12605 --- [http-nio-8080-exec-6] com.blog.aspect.LogAspect                : Result: tweet :: commentList
+2022-05-19 13:40:40.620 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TweetDao.getAllTweet_COUNT  : ==>  Preparing: SELECT count(0) FROM tweet 
+2022-05-19 13:40:40.620 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TweetDao.getAllTweet_COUNT  : ==> Parameters: 
+2022-05-19 13:40:40.623 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TweetDao.getAllTweet_COUNT  : <==      Total: 1
+2022-05-19 13:40:40.623 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TweetDao.getAllTweet        : ==>  Preparing: select * from tweet LIMIT ? 
+2022-05-19 13:40:40.624 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TweetDao.getAllTweet        : ==> Parameters: 5(Integer)
+2022-05-19 13:40:40.626 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TweetDao.getAllTweet        : <==      Total: 5
+2022-05-19 13:40:40.627 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TagDao.getAllTag            : ==>  Preparing: select * from t_tag 
+2022-05-19 13:40:40.627 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TagDao.getAllTag            : ==> Parameters: 
+2022-05-19 13:40:40.628 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TagDao.getAllTag            : <==      Total: 6
+2022-05-19 13:40:40.629 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:40:40.629 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 3(Long)
+2022-05-19 13:40:40.630 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-19 13:40:40.630 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:40:40.631 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 4(Long)
+2022-05-19 13:40:40.631 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-19 13:40:40.631 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:40:40.632 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 5(Long)
+2022-05-19 13:40:40.632 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-19 13:40:40.633 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:40:40.633 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 6(Long)
+2022-05-19 13:40:40.634 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-19 13:40:40.634 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:40:40.634 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 7(Long)
+2022-05-19 13:40:40.635 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-19 13:40:40.636 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:40:40.636 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 8(Long)
+2022-05-19 13:40:40.636 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-19 13:40:42.874  INFO 12605 --- [http-nio-8080-exec-8] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/tweet/1/edit, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.TweetController.toEditTweet, args=[1, {}])
+2022-05-19 13:40:42.876 DEBUG 12605 --- [http-nio-8080-exec-8] com.blog.dao.TweetDao.queryById          : ==>  Preparing: select id, title, content, first_picture, status, views, likes, commentable, published, recommend, create_time, update_time, type_id, user_id, tag_ids from blog_mb.tweet where id = ? 
+2022-05-19 13:40:42.876 DEBUG 12605 --- [http-nio-8080-exec-8] com.blog.dao.TweetDao.queryById          : ==> Parameters: 1(Long)
+2022-05-19 13:40:42.880 DEBUG 12605 --- [http-nio-8080-exec-8] com.blog.dao.TweetDao.queryById          : <==      Total: 1
+2022-05-19 13:40:42.903 DEBUG 12605 --- [http-nio-8080-exec-8] com.blog.dao.TypeDao.getAllType          : ==>  Preparing: select * from t_type 
+2022-05-19 13:40:42.903 DEBUG 12605 --- [http-nio-8080-exec-8] com.blog.dao.TypeDao.getAllType          : ==> Parameters: 
+2022-05-19 13:40:42.907 DEBUG 12605 --- [http-nio-8080-exec-8] com.blog.dao.TypeDao.getAllType          : <==      Total: 5
+2022-05-19 13:40:42.909 DEBUG 12605 --- [http-nio-8080-exec-8] com.blog.dao.TagDao.getAllTag            : ==>  Preparing: select * from t_tag 
+2022-05-19 13:40:42.909 DEBUG 12605 --- [http-nio-8080-exec-8] com.blog.dao.TagDao.getAllTag            : ==> Parameters: 
+2022-05-19 13:40:42.910 DEBUG 12605 --- [http-nio-8080-exec-8] com.blog.dao.TagDao.getAllTag            : <==      Total: 6
+2022-05-19 13:40:42.910 DEBUG 12605 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:40:42.910 DEBUG 12605 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 3(Long)
+2022-05-19 13:40:42.911 DEBUG 12605 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-19 13:40:42.911 DEBUG 12605 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:40:42.912 DEBUG 12605 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 4(Long)
+2022-05-19 13:40:42.912 DEBUG 12605 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-19 13:40:42.912 DEBUG 12605 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:40:42.912 DEBUG 12605 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 5(Long)
+2022-05-19 13:40:42.913 DEBUG 12605 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-19 13:40:42.913 DEBUG 12605 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:40:42.913 DEBUG 12605 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 6(Long)
+2022-05-19 13:40:42.914 DEBUG 12605 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-19 13:40:42.914 DEBUG 12605 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:40:42.914 DEBUG 12605 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 7(Long)
+2022-05-19 13:40:42.915 DEBUG 12605 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-19 13:40:42.915 DEBUG 12605 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:40:42.917 DEBUG 12605 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 8(Long)
+2022-05-19 13:40:42.918 DEBUG 12605 --- [http-nio-8080-exec-8] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-19 13:40:42.918  INFO 12605 --- [http-nio-8080-exec-8] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-19 13:40:42.918  INFO 12605 --- [http-nio-8080-exec-8] com.blog.aspect.LogAspect                : Result: send-tweet
+2022-05-19 13:40:47.386  INFO 12605 --- [http-nio-8080-exec-3] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.IndexController.toIndex, args=[1, {}])
+2022-05-19 13:40:47.398 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TweetDao.getByDesc_COUNT    : ==>  Preparing: SELECT count(0) FROM tweet b, user u WHERE u.id = b.user_id 
+2022-05-19 13:40:47.398 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TweetDao.getByDesc_COUNT    : ==> Parameters: 
+2022-05-19 13:40:47.400 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TweetDao.getByDesc_COUNT    : <==      Total: 1
+2022-05-19 13:40:47.400 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TweetDao.getByDesc          : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.content, u.nickname, u.avatar from tweet b, user u where u.id = b.user_id order by b.update_time desc LIMIT ? 
+2022-05-19 13:40:47.401 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TweetDao.getByDesc          : ==> Parameters: 8(Integer)
+2022-05-19 13:40:47.404 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TweetDao.getByDesc          : <==      Total: 8
+2022-05-19 13:40:47.405 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TagDao.getAllTag            : ==>  Preparing: select * from t_tag 
+2022-05-19 13:40:47.405 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TagDao.getAllTag            : ==> Parameters: 
+2022-05-19 13:40:47.406 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TagDao.getAllTag            : <==      Total: 6
+2022-05-19 13:40:47.407 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:40:47.407 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 3(Long)
+2022-05-19 13:40:47.408 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-19 13:40:47.409 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:40:47.409 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 4(Long)
+2022-05-19 13:40:47.410 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-19 13:40:47.410 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:40:47.410 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 5(Long)
+2022-05-19 13:40:47.411 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-19 13:40:47.411 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:40:47.412 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 6(Long)
+2022-05-19 13:40:47.412 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-19 13:40:47.413 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:40:47.413 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 7(Long)
+2022-05-19 13:40:47.415 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-19 13:40:47.415 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:40:47.415 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 8(Long)
+2022-05-19 13:40:47.417 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-19 13:40:47.417  INFO 12605 --- [http-nio-8080-exec-3] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-19 13:40:47.417  INFO 12605 --- [http-nio-8080-exec-3] com.blog.aspect.LogAspect                : Result: index
+2022-05-19 13:40:48.248 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getAllTweet_COUNT  : ==>  Preparing: SELECT count(0) FROM tweet 
+2022-05-19 13:40:48.249 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getAllTweet_COUNT  : ==> Parameters: 
+2022-05-19 13:40:48.250 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getAllTweet_COUNT  : <==      Total: 1
+2022-05-19 13:40:48.251 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getAllTweet        : ==>  Preparing: select * from tweet LIMIT ? 
+2022-05-19 13:40:48.251 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getAllTweet        : ==> Parameters: 5(Integer)
+2022-05-19 13:40:48.253 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getAllTweet        : <==      Total: 5
+2022-05-19 13:40:48.253 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TagDao.getAllTag            : ==>  Preparing: select * from t_tag 
+2022-05-19 13:40:48.254 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TagDao.getAllTag            : ==> Parameters: 
+2022-05-19 13:40:48.255 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TagDao.getAllTag            : <==      Total: 6
+2022-05-19 13:40:48.255 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:40:48.255 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 3(Long)
+2022-05-19 13:40:48.256 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-19 13:40:48.257 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:40:48.257 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 4(Long)
+2022-05-19 13:40:48.258 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-19 13:40:48.259 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:40:48.259 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 5(Long)
+2022-05-19 13:40:48.260 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-19 13:40:48.260 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:40:48.260 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 6(Long)
+2022-05-19 13:40:48.261 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-19 13:40:48.261 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:40:48.262 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 7(Long)
+2022-05-19 13:40:48.262 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-19 13:40:48.262 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:40:48.263 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 8(Long)
+2022-05-19 13:40:48.263 DEBUG 12605 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-19 13:41:07.545  INFO 12605 --- [http-nio-8080-exec-10] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.IndexController.toIndex, args=[1, {}])
+2022-05-19 13:41:07.548 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TweetDao.getByDesc_COUNT    : ==>  Preparing: SELECT count(0) FROM tweet b, user u WHERE u.id = b.user_id 
+2022-05-19 13:41:07.549 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TweetDao.getByDesc_COUNT    : ==> Parameters: 
+2022-05-19 13:41:07.551 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TweetDao.getByDesc_COUNT    : <==      Total: 1
+2022-05-19 13:41:07.551 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TweetDao.getByDesc          : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.content, u.nickname, u.avatar from tweet b, user u where u.id = b.user_id order by b.update_time desc LIMIT ? 
+2022-05-19 13:41:07.552 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TweetDao.getByDesc          : ==> Parameters: 8(Integer)
+2022-05-19 13:41:07.556 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TweetDao.getByDesc          : <==      Total: 8
+2022-05-19 13:41:07.557 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TagDao.getAllTag            : ==>  Preparing: select * from t_tag 
+2022-05-19 13:41:07.558 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TagDao.getAllTag            : ==> Parameters: 
+2022-05-19 13:41:07.559 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TagDao.getAllTag            : <==      Total: 6
+2022-05-19 13:41:07.560 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:41:07.561 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 3(Long)
+2022-05-19 13:41:07.562 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-19 13:41:07.562 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:41:07.563 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 4(Long)
+2022-05-19 13:41:07.563 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-19 13:41:07.563 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:41:07.564 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 5(Long)
+2022-05-19 13:41:07.564 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-19 13:41:07.565 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:41:07.565 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 6(Long)
+2022-05-19 13:41:07.566 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-19 13:41:07.566 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:41:07.566 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 7(Long)
+2022-05-19 13:41:07.567 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-19 13:41:07.568 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:41:07.568 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 8(Long)
+2022-05-19 13:41:07.569 DEBUG 12605 --- [http-nio-8080-exec-10] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-19 13:41:07.569  INFO 12605 --- [http-nio-8080-exec-10] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-19 13:41:07.569  INFO 12605 --- [http-nio-8080-exec-10] com.blog.aspect.LogAspect                : Result: index
+2022-05-19 13:41:09.244 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TweetDao.getAllTweet_COUNT  : ==>  Preparing: SELECT count(0) FROM tweet 
+2022-05-19 13:41:09.245 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TweetDao.getAllTweet_COUNT  : ==> Parameters: 
+2022-05-19 13:41:09.246 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TweetDao.getAllTweet_COUNT  : <==      Total: 1
+2022-05-19 13:41:09.247 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TweetDao.getAllTweet        : ==>  Preparing: select * from tweet LIMIT ? 
+2022-05-19 13:41:09.247 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TweetDao.getAllTweet        : ==> Parameters: 5(Integer)
+2022-05-19 13:41:09.251 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TweetDao.getAllTweet        : <==      Total: 5
+2022-05-19 13:41:09.252 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TagDao.getAllTag            : ==>  Preparing: select * from t_tag 
+2022-05-19 13:41:09.253 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TagDao.getAllTag            : ==> Parameters: 
+2022-05-19 13:41:09.254 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TagDao.getAllTag            : <==      Total: 6
+2022-05-19 13:41:09.255 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:41:09.256 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 3(Long)
+2022-05-19 13:41:09.257 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-19 13:41:09.257 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:41:09.257 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 4(Long)
+2022-05-19 13:41:09.258 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-19 13:41:09.258 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:41:09.258 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 5(Long)
+2022-05-19 13:41:09.259 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-19 13:41:09.259 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:41:09.260 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 6(Long)
+2022-05-19 13:41:09.260 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-19 13:41:09.261 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:41:09.261 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 7(Long)
+2022-05-19 13:41:09.262 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-19 13:41:09.262 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:41:09.262 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 8(Long)
+2022-05-19 13:41:09.263 DEBUG 12605 --- [http-nio-8080-exec-3] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-19 13:41:10.060  INFO 12605 --- [http-nio-8080-exec-4] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/tweet/1/edit, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.TweetController.toEditTweet, args=[1, {}])
+2022-05-19 13:41:10.062 DEBUG 12605 --- [http-nio-8080-exec-4] com.blog.dao.TweetDao.queryById          : ==>  Preparing: select id, title, content, first_picture, status, views, likes, commentable, published, recommend, create_time, update_time, type_id, user_id, tag_ids from blog_mb.tweet where id = ? 
+2022-05-19 13:41:10.062 DEBUG 12605 --- [http-nio-8080-exec-4] com.blog.dao.TweetDao.queryById          : ==> Parameters: 1(Long)
+2022-05-19 13:41:10.064 DEBUG 12605 --- [http-nio-8080-exec-4] com.blog.dao.TweetDao.queryById          : <==      Total: 1
+2022-05-19 13:41:10.066 DEBUG 12605 --- [http-nio-8080-exec-4] com.blog.dao.TypeDao.getAllType          : ==>  Preparing: select * from t_type 
+2022-05-19 13:41:10.066 DEBUG 12605 --- [http-nio-8080-exec-4] com.blog.dao.TypeDao.getAllType          : ==> Parameters: 
+2022-05-19 13:41:10.068 DEBUG 12605 --- [http-nio-8080-exec-4] com.blog.dao.TypeDao.getAllType          : <==      Total: 5
+2022-05-19 13:41:10.070 DEBUG 12605 --- [http-nio-8080-exec-4] com.blog.dao.TagDao.getAllTag            : ==>  Preparing: select * from t_tag 
+2022-05-19 13:41:10.071 DEBUG 12605 --- [http-nio-8080-exec-4] com.blog.dao.TagDao.getAllTag            : ==> Parameters: 
+2022-05-19 13:41:10.072 DEBUG 12605 --- [http-nio-8080-exec-4] com.blog.dao.TagDao.getAllTag            : <==      Total: 6
+2022-05-19 13:41:10.072 DEBUG 12605 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:41:10.072 DEBUG 12605 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 3(Long)
+2022-05-19 13:41:10.073 DEBUG 12605 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-19 13:41:10.074 DEBUG 12605 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:41:10.074 DEBUG 12605 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 4(Long)
+2022-05-19 13:41:10.074 DEBUG 12605 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-19 13:41:10.075 DEBUG 12605 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:41:10.075 DEBUG 12605 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 5(Long)
+2022-05-19 13:41:10.076 DEBUG 12605 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-19 13:41:10.076 DEBUG 12605 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:41:10.076 DEBUG 12605 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 6(Long)
+2022-05-19 13:41:10.077 DEBUG 12605 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-19 13:41:10.078 DEBUG 12605 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:41:10.078 DEBUG 12605 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 7(Long)
+2022-05-19 13:41:10.079 DEBUG 12605 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-19 13:41:10.080 DEBUG 12605 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:41:10.080 DEBUG 12605 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 8(Long)
+2022-05-19 13:41:10.081 DEBUG 12605 --- [http-nio-8080-exec-4] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-19 13:41:10.082  INFO 12605 --- [http-nio-8080-exec-4] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-19 13:41:10.082  INFO 12605 --- [http-nio-8080-exec-4] com.blog.aspect.LogAspect                : Result: send-tweet
+2022-05-19 13:45:02.095  INFO 12605 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2022-05-19 13:45:02.096  INFO 12605 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-05-19 13:45:02.099  INFO 12605 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-05-19 13:45:05.351  INFO 15057 --- [restartedMain] com.blog.BlogApplication                 : Starting BlogApplication on ElvisdeMacBook-Pro.local with PID 15057 (/Users/elvislin/Documents/IDEA_PROJECT/capstoneTwitter/target/classes started by elvislin in /Users/elvislin/Documents/IDEA_PROJECT/capstoneTwitter)
+2022-05-19 13:45:05.353 DEBUG 15057 --- [restartedMain] com.blog.BlogApplication                 : Running with Spring Boot v2.2.5.RELEASE, Spring v5.2.4.RELEASE
+2022-05-19 13:45:05.353  INFO 15057 --- [restartedMain] com.blog.BlogApplication                 : The following profiles are active: dev
+2022-05-19 13:45:05.383  INFO 15057 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-05-19 13:45:05.384  INFO 15057 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-05-19 13:45:06.017  INFO 15057 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-05-19 13:45:06.021  INFO 15057 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-05-19 13:45:06.021  INFO 15057 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2022-05-19 13:45:06.058  INFO 15057 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-05-19 13:45:06.058  INFO 15057 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 674 ms
+2022-05-19 13:45:06.472  INFO 15057 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-05-19 13:45:06.520  INFO 15057 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-05-19 13:45:06.690  INFO 15057 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-05-19 13:45:06.720  INFO 15057 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-05-19 13:45:06.721  INFO 15057 --- [restartedMain] com.blog.BlogApplication                 : Started BlogApplication in 1.579 seconds (JVM running for 1.942)
+2022-05-19 13:45:28.421  INFO 15057 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-05-19 13:45:28.421  INFO 15057 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-05-19 13:45:28.428  INFO 15057 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2022-05-19 13:45:28.445  INFO 15057 --- [http-nio-8080-exec-1] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.IndexController.toIndex, args=[1, {}])
+2022-05-19 13:45:28.466  INFO 15057 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-05-19 13:45:28.667  INFO 15057 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-05-19 13:45:28.671 DEBUG 15057 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getByDesc_COUNT    : ==>  Preparing: SELECT count(0) FROM tweet b, user u WHERE u.id = b.user_id 
+2022-05-19 13:45:28.683 DEBUG 15057 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getByDesc_COUNT    : ==> Parameters: 
+2022-05-19 13:45:28.693 DEBUG 15057 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getByDesc_COUNT    : <==      Total: 1
+2022-05-19 13:45:28.696 DEBUG 15057 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getByDesc          : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.content, u.nickname, u.avatar from tweet b, user u where u.id = b.user_id order by b.update_time desc LIMIT ? 
+2022-05-19 13:45:28.696 DEBUG 15057 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getByDesc          : ==> Parameters: 8(Integer)
+2022-05-19 13:45:28.700 DEBUG 15057 --- [http-nio-8080-exec-1] com.blog.dao.TweetDao.getByDesc          : <==      Total: 8
+2022-05-19 13:45:28.701 DEBUG 15057 --- [http-nio-8080-exec-1] com.blog.dao.TagDao.getAllTag            : ==>  Preparing: select * from t_tag 
+2022-05-19 13:45:28.701 DEBUG 15057 --- [http-nio-8080-exec-1] com.blog.dao.TagDao.getAllTag            : ==> Parameters: 
+2022-05-19 13:45:28.702 DEBUG 15057 --- [http-nio-8080-exec-1] com.blog.dao.TagDao.getAllTag            : <==      Total: 6
+2022-05-19 13:45:28.703 DEBUG 15057 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:45:28.703 DEBUG 15057 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 3(Long)
+2022-05-19 13:45:28.704 DEBUG 15057 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-19 13:45:28.704 DEBUG 15057 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:45:28.704 DEBUG 15057 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 4(Long)
+2022-05-19 13:45:28.704 DEBUG 15057 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-19 13:45:28.705 DEBUG 15057 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:45:28.705 DEBUG 15057 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 5(Long)
+2022-05-19 13:45:28.705 DEBUG 15057 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-19 13:45:28.705 DEBUG 15057 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:45:28.705 DEBUG 15057 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 6(Long)
+2022-05-19 13:45:28.706 DEBUG 15057 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-19 13:45:28.706 DEBUG 15057 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:45:28.706 DEBUG 15057 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 7(Long)
+2022-05-19 13:45:28.706 DEBUG 15057 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-19 13:45:28.707 DEBUG 15057 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:45:28.707 DEBUG 15057 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 8(Long)
+2022-05-19 13:45:28.707 DEBUG 15057 --- [http-nio-8080-exec-1] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-19 13:45:28.708  INFO 15057 --- [http-nio-8080-exec-1] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-19 13:45:28.708  INFO 15057 --- [http-nio-8080-exec-1] com.blog.aspect.LogAspect                : Result: index
+2022-05-19 13:45:29.695  INFO 15057 --- [http-nio-8080-exec-9] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/login, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.LoginController2.loginPage, args=[])
+2022-05-19 13:45:29.699  INFO 15057 --- [http-nio-8080-exec-9] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-19 13:45:29.700  INFO 15057 --- [http-nio-8080-exec-9] com.blog.aspect.LogAspect                : Result: login
+2022-05-19 13:45:31.522  INFO 15057 --- [http-nio-8080-exec-6] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/login, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.LoginController2.login, args=[test, test, org.apache.catalina.session.StandardSessionFacade@485bba96, {}])
+2022-05-19 13:45:31.524 DEBUG 15057 --- [http-nio-8080-exec-6] c.b.d.U.queryByUsernameAndPassword       : ==>  Preparing: select * from user where username = ? and password = ?; 
+2022-05-19 13:45:31.524 DEBUG 15057 --- [http-nio-8080-exec-6] c.b.d.U.queryByUsernameAndPassword       : ==> Parameters: test(String), 098f6bcd4621d373cade4e832627b4f6(String)
+2022-05-19 13:45:31.525 DEBUG 15057 --- [http-nio-8080-exec-6] c.b.d.U.queryByUsernameAndPassword       : <==      Total: 1
+2022-05-19 13:45:31.525  INFO 15057 --- [http-nio-8080-exec-6] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-19 13:45:31.525  INFO 15057 --- [http-nio-8080-exec-6] com.blog.aspect.LogAspect                : Result: redirect:/
+2022-05-19 13:45:31.537  INFO 15057 --- [http-nio-8080-exec-7] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.IndexController.toIndex, args=[1, {}])
+2022-05-19 13:45:31.538 DEBUG 15057 --- [http-nio-8080-exec-7] com.blog.dao.TweetDao.getByDesc_COUNT    : ==>  Preparing: SELECT count(0) FROM tweet b, user u WHERE u.id = b.user_id 
+2022-05-19 13:45:31.538 DEBUG 15057 --- [http-nio-8080-exec-7] com.blog.dao.TweetDao.getByDesc_COUNT    : ==> Parameters: 
+2022-05-19 13:45:31.539 DEBUG 15057 --- [http-nio-8080-exec-7] com.blog.dao.TweetDao.getByDesc_COUNT    : <==      Total: 1
+2022-05-19 13:45:31.539 DEBUG 15057 --- [http-nio-8080-exec-7] com.blog.dao.TweetDao.getByDesc          : ==>  Preparing: /*主页博客展示*/ select b.id, b.title, b.first_picture, b.views, b.update_time, b.content, u.nickname, u.avatar from tweet b, user u where u.id = b.user_id order by b.update_time desc LIMIT ? 
+2022-05-19 13:45:31.539 DEBUG 15057 --- [http-nio-8080-exec-7] com.blog.dao.TweetDao.getByDesc          : ==> Parameters: 8(Integer)
+2022-05-19 13:45:31.543 DEBUG 15057 --- [http-nio-8080-exec-7] com.blog.dao.TweetDao.getByDesc          : <==      Total: 8
+2022-05-19 13:45:31.543 DEBUG 15057 --- [http-nio-8080-exec-7] com.blog.dao.TagDao.getAllTag            : ==>  Preparing: select * from t_tag 
+2022-05-19 13:45:31.543 DEBUG 15057 --- [http-nio-8080-exec-7] com.blog.dao.TagDao.getAllTag            : ==> Parameters: 
+2022-05-19 13:45:31.544 DEBUG 15057 --- [http-nio-8080-exec-7] com.blog.dao.TagDao.getAllTag            : <==      Total: 6
+2022-05-19 13:45:31.545 DEBUG 15057 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:45:31.545 DEBUG 15057 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 3(Long)
+2022-05-19 13:45:31.546 DEBUG 15057 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-19 13:45:31.546 DEBUG 15057 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:45:31.546 DEBUG 15057 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 4(Long)
+2022-05-19 13:45:31.546 DEBUG 15057 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-19 13:45:31.547 DEBUG 15057 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:45:31.547 DEBUG 15057 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 5(Long)
+2022-05-19 13:45:31.548 DEBUG 15057 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-19 13:45:31.548 DEBUG 15057 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:45:31.548 DEBUG 15057 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 6(Long)
+2022-05-19 13:45:31.549 DEBUG 15057 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-19 13:45:31.549 DEBUG 15057 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:45:31.549 DEBUG 15057 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 7(Long)
+2022-05-19 13:45:31.550 DEBUG 15057 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : <==      Total: 1
+2022-05-19 13:45:31.550 DEBUG 15057 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : ==>  Preparing: select * from trend where tag_Id = ? 
+2022-05-19 13:45:31.550 DEBUG 15057 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : ==> Parameters: 8(Long)
+2022-05-19 13:45:31.551 DEBUG 15057 --- [http-nio-8080-exec-7] com.blog.dao.TrendDao.getByTagId         : <==      Total: 0
+2022-05-19 13:45:31.551  INFO 15057 --- [http-nio-8080-exec-7] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-19 13:45:31.551  INFO 15057 --- [http-nio-8080-exec-7] com.blog.aspect.LogAspect                : Result: index
+2022-05-19 13:45:32.734  INFO 15057 --- [http-nio-8080-exec-3] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/user/center, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.UserCenterController.userCenterPage, args=[{}, org.apache.catalina.session.StandardSessionFacade@485bba96])
+2022-05-19 13:45:32.737  INFO 15057 --- [http-nio-8080-exec-3] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-19 13:45:32.738  INFO 15057 --- [http-nio-8080-exec-3] com.blog.aspect.LogAspect                : Result: usercenter
+2022-05-19 13:45:35.410  INFO 15057 --- [http-nio-8080-exec-1] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/user/changepasswd, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.UserCenterController.userChangePasswd, args=[{}, org.apache.catalina.session.StandardSessionFacade@485bba96])
+2022-05-19 13:45:35.410  INFO 15057 --- [http-nio-8080-exec-1] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-19 13:45:35.410  INFO 15057 --- [http-nio-8080-exec-1] com.blog.aspect.LogAspect                : Result: changepassword
+2022-05-19 13:45:40.114  INFO 15057 --- [http-nio-8080-exec-10] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/user/center, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.UserCenterController.userCenterPage, args=[{}, org.apache.catalina.session.StandardSessionFacade@485bba96])
+2022-05-19 13:45:40.115  INFO 15057 --- [http-nio-8080-exec-10] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-19 13:45:40.115  INFO 15057 --- [http-nio-8080-exec-10] com.blog.aspect.LogAspect                : Result: usercenter
+2022-05-19 13:45:42.327  INFO 15057 --- [http-nio-8080-exec-4] com.blog.aspect.LogAspect                : Request: LogAspect.RequestLog(url=http://localhost:8080/user/changepasswd, ip=0:0:0:0:0:0:0:1, classMethod=com.blog.controller.UserCenterController.userChangePasswd, args=[{}, org.apache.catalina.session.StandardSessionFacade@485bba96])
+2022-05-19 13:45:42.328  INFO 15057 --- [http-nio-8080-exec-4] com.blog.aspect.LogAspect                : ------------doAfter------------
+2022-05-19 13:45:42.328  INFO 15057 --- [http-nio-8080-exec-4] com.blog.aspect.LogAspect                : Result: changepassword
