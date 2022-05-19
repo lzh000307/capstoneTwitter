@@ -28,8 +28,6 @@ public class TagShowController {
     private TagService tagService;
     @Autowired
     private TrendService trendService;
-//    @Autowired
-//    private BlogService blogService;
     @Autowired
     TweetFrontEndConvector tweetFrontEndConvector;
     @Autowired

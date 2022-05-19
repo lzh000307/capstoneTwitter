@@ -22,7 +22,7 @@ public class Tweet implements Serializable {
     
     private String firstPicture;
     
-    private String status;
+    private Integer status;
     
     private Integer views=0;
     
@@ -30,18 +30,11 @@ public class Tweet implements Serializable {
     
     private boolean commentable;
 
-    private Integer recommend=0;
-    
     private boolean published;
-
-
-    private boolean like;
     
     private Date createTime;
     
     private Date updateTime;
-    
-    private Long typeId;
     
     private Long userId;
     
@@ -57,38 +50,6 @@ public class Tweet implements Serializable {
         this.user = user;
     }
 
-
-    public boolean isCommentable() {
-        return commentable;
-    }
-
-    public void setCommentable(boolean commentable) {
-        this.commentable = commentable;
-    }
-
-    public Integer getRecommend() {
-        return recommend;
-    }
-
-    public void setRecommend(Integer recommend) {
-        this.recommend = recommend;
-    }
-
-    public boolean isPublished() {
-        return published;
-    }
-
-    public void setPublished(boolean published) {
-        this.published = published;
-    }
-
-    public boolean isLike() {
-        return like;
-    }
-
-    public void setLike(boolean like) {
-        this.like = like;
-    }
     @Override
     public String toString() {
         return "Tweet{" +
@@ -96,14 +57,13 @@ public class Tweet implements Serializable {
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
                 ", firstPicture='" + firstPicture + '\'' +
-                ", status='" + status + '\'' +
+                ", status=" + status +
                 ", views=" + views +
                 ", likes=" + likes +
                 ", commentable=" + commentable +
                 ", published=" + published +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
-                ", typeId=" + typeId +
                 ", userId=" + userId +
                 ", tagIds='" + tagIds + '\'' +
                 '}';
@@ -141,11 +101,11 @@ public class Tweet implements Serializable {
         this.firstPicture = firstPicture;
     }
 
-    public String getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 
@@ -165,6 +125,22 @@ public class Tweet implements Serializable {
         this.likes = likes;
     }
 
+    public boolean isCommentable() {
+        return commentable;
+    }
+
+    public void setCommentable(boolean commentable) {
+        this.commentable = commentable;
+    }
+
+    public boolean isPublished() {
+        return published;
+    }
+
+    public void setPublished(boolean published) {
+        this.published = published;
+    }
+
     public Date getCreateTime() {
         return createTime;
     }
@@ -179,14 +155,6 @@ public class Tweet implements Serializable {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
-    }
-
-    public Long getTypeId() {
-        return typeId;
-    }
-
-    public void setTypeId(Long typeId) {
-        this.typeId = typeId;
     }
 
     public Long getUserId() {
@@ -204,5 +172,4 @@ public class Tweet implements Serializable {
     public void setTagIds(String tagIds) {
         this.tagIds = tagIds;
     }
-
 }

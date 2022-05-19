@@ -29,9 +29,6 @@ public class IndexController {
     private TweetService tweetService;
     @Autowired
     private TrendService trendService;
-
-    @Autowired
-    private TypeService typeService;
     @Autowired
     private TagService tagService;
     @Autowired
@@ -42,14 +39,16 @@ public class IndexController {
 
         PageHelper.startPage(pagenum, 8);
         List<Tweet> indexTweet = tweetService.getIndex();
-//        List<Type> allType = typeService.getBlogType();  //获取博客的类型(联表查询)
-        List<Tag> allTag = tagService.getAllTag();  //获取博客的标签(联表查询)
+        List<Tag> allTag = tagService.getAllTag();  //获取趋势
+        List<TweetFrontEnd> tweetfes = tweetFrontEndConvector.convertToTweetFrontEnd(indexTweet);
+        //点赞排行榜
+        List<Tweet> likeTweets = tweetService.sortByLike(indexTweet);
+        List<TweetFrontEnd> likeTweetfes = tweetFrontEndConvector.convertToTweetFrontEnd(likeTweets);
         //得到分页结果对象
-        PageInfo pageInfo = new PageInfo(indexTweet);
+        PageInfo pageInfo = new PageInfo(tweetfes);
         model.addAttribute("pageInfo", pageInfo);
         model.addAttribute("tags", allTag);
-//        model.addAttribute("types", allType);
-//        model.addAttribute("recommendBlogs", recommendBlog);
+        model.addAttribute("likeTweetfes", likeTweetfes);
         return "index";
     }
 
@@ -57,17 +56,14 @@ public class IndexController {
     public String search(@RequestParam(required = false,defaultValue = "1",value = "pagenum")int pagenum,
                          @RequestParam String query, Model model){
 
-        PageHelper.startPage(pagenum, 5);
+        PageHelper.startPage(pagenum, 8);
 //        List<Blog> searchBlog = blogService.getSearchBlog(query);
         Tweet temp = new Tweet();
         temp.setContent(query);
         temp.setTitle(query);
         List<Tweet> searchTweet = tweetService.searchAllTweet(temp);
-        List<TweetFrontEnd> tweets = new ArrayList<>();
-        for(Tweet tweet:searchTweet){
-            tweets.add(tweetFrontEndConvector.convertToTweetFrontEnd(tweet));
-        }
-        PageInfo pageInfo = new PageInfo(tweets);
+        List<TweetFrontEnd> tweetfes = tweetFrontEndConvector.convertToTweetFrontEnd(searchTweet);
+        PageInfo pageInfo = new PageInfo(tweetfes);
         model.addAttribute("pageInfo", pageInfo);
         model.addAttribute("query", query);
         return "search";

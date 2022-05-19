@@ -18,7 +18,7 @@ public class TweetApplicationTests {
     public void test(){
         Tweet tweet = tweetDao.queryById(1L);
         System.out.println(tweet);
-        tweet.setStatus("2");
+        tweet.setStatus(2);
         tweetDao.insert(tweet);
         System.out.println(tweetDao.queryById(1L));
         tweet.setId(2L);

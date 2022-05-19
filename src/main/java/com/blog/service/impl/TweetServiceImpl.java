@@ -10,6 +10,7 @@ import com.blog.service.TweetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 @Service
@@ -41,6 +42,20 @@ public class TweetServiceImpl implements TweetService {
     public void viewPlusOne(Tweet tweet) {
         tweet.setViews(tweet.getViews()+1);
         tweetDao.update(tweet);
+    }
+
+    @Override
+    public List<Tweet> sortByLike(List<Tweet> tweets) {
+        Collections.sort(tweets, (o1, o2) -> o2.getLikes() - o1.getLikes());
+        if(tweets.size()>10){
+            return tweets.subList(0,10);
+        }
+        return tweets;
+    }
+
+    @Override
+    public List<Tweet> getTweetsByUserId(Long userId) {
+        return tweetDao.queryByUserId(userId);
     }
 
     @Override

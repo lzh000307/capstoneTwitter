@@ -75,7 +75,8 @@ public interface TweetDao {
     List<Tweet> getAllTweet();
 
     List<Tweet> searchAllTweet(Tweet tweet);
-
-    //TODO: 解耦合
     List<Tweet> getByDesc();
+
+    @Select("select * from tweet where user_id = #{userId}")
+    List<Tweet> queryByUserId(Long userId);
 }

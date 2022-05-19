@@ -4,14 +4,35 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08ebf5d0-8ae2-4bb1-9acc-7568cc9c269a" name="Default Changelist" comment="更新并优化了各种功能以及前端">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/changepassword.html" afterDir="false" />
+    <list default="true" id="08ebf5d0-8ae2-4bb1-9acc-7568cc9c269a" name="Default Changelist" comment="增加password页面">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/service/TweetFrontEndService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/error/401.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/usercenter/collections.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log/blog-dev.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/blog-dev.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/controller/UserCenterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/UserCenterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/controller/AboutShowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/AboutShowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/controller/ArchiveShowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/ArchiveShowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/controller/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/CommentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/controller/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/IndexController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/controller/IndexControllerBak.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/controller/TagShowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/TagShowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/controller/TagShowControllerBak.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/controller/TweetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/TweetController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/controller/TypeShowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/TypeShowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/controller/UserCenter/TweetsManageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/UserCenter/TweetsManageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/controller/UserCenterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/UserCenter/UserCenterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/dao/TweetDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/dao/TweetDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/pojo/Tweet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/pojo/Tweet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/service/TweetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/service/TweetService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/service/impl/TweetServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/service/impl/TweetServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/util/TweetFrontEndConvector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/util/TweetFrontEndConvector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/blog.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/blog.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/TweetDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/TweetDao.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/_fragments.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/_fragments.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/send-tweet.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/send-tweet.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/usercenter.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/usercenter.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/usercenter/tweets.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/usercenter/tweets.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/blog/TweetApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/blog/TweetApplicationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +122,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "extract.method.default.visibility": "private",
-    "last_opened_file_path": "/Users/elvislin/Documents/IDEA_PROJECT/capstoneTwitter/src/main/resources/templates/user",
+    "last_opened_file_path": "/Users/elvislin/Documents/IDEA_PROJECT/capstoneTwitter/src/main/resources/templates/usercenter",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -121,11 +142,11 @@
       <recent name="com.blog.util" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/templates/usercenter" />
+      <recent name="$PROJECT_DIR$/src/main/resources/templates/error" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates/user" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates" />
       <recent name="$PROJECT_DIR$/src/main/resources/mapper" />
-      <recent name="D:\capstoneTwitter\src\main\resources\templates" />
-      <recent name="D:\capstoneTwitter\src\main\resources\templates\admin" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources" />
@@ -319,7 +340,7 @@
       <workItem from="1652845651662" duration="54000" />
       <workItem from="1652845715368" duration="36362000" />
       <workItem from="1652935548312" duration="25000" />
-      <workItem from="1652935586596" duration="2004000" />
+      <workItem from="1652935586596" duration="9289000" />
     </task>
     <task id="LOCAL-00001" summary="update md5">
       <created>1584841437407</created>
@@ -447,7 +468,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652894234693</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="增加password页面">
+      <created>1652939186579</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1652939186579</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -519,7 +547,8 @@
     <MESSAGE value="新增回复功能" />
     <MESSAGE value="新增浏览次数功能" />
     <MESSAGE value="更新并优化了各种功能以及前端" />
-    <option name="LAST_COMMIT_MESSAGE" value="更新并优化了各种功能以及前端" />
+    <MESSAGE value="增加password页面" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加password页面" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

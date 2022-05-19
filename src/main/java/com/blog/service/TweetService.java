@@ -21,4 +21,8 @@ public interface TweetService {
     List<Tweet> getIndex();
 
     void viewPlusOne(Tweet tweet);
+
+    List<Tweet> sortByLike(List<Tweet> tweets);
+
+    List<Tweet> getTweetsByUserId(Long userId);
 }

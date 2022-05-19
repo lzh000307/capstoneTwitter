@@ -24,11 +24,8 @@ public class CommentController {
 
     @Autowired
     private CommentFrontEndService commentFrontEndService;
-
     @Autowired
     private CommentService commentService;
-    @Autowired
-    private BlogService blogService;
     @Autowired
     UserService userService;
 
@@ -82,6 +79,9 @@ public class CommentController {
                 comment.setParentCommentId(mainComment.getId());
             }
             commentService.saveComment(comment);
+        }
+        if(user == null){
+            return "/error/401";
         }
         return "redirect:/comments/" + tweetId;
     }

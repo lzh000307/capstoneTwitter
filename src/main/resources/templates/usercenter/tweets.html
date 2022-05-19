@@ -79,7 +79,11 @@
           <tbody>
           <tr th:each="tweet, iterStat : ${pageInfo.list}">
             <td th:text="${iterStat.count}">1</td>
-            <td th:text="${tweet.title}">刻意练习清单</td>
+
+            <td>
+              <a style="color:black;" th:text="${tweet.title}" href="#" th:href="@{/tweet/{id}(id=${tweet.id})}">this is a title</a>
+            </td>
+
 <!--            <td th:text="${tweet.type.name}">认知升级</td>-->
             <td th:text="${tweet.commentable} ? '可评论':'不可评论'">是</td>
             <td th:text="${tweet.published} ? '所有人可见':'仅自己可见'">发布</td>
@@ -94,7 +98,7 @@
           <tr>
             <th colspan="7">
               <div class="ui mini pagination menu"  >
-                <div class="item"><a th:href="@{/}">首页</a></div>
+                <div class="item"><a th:href="@{/usercenter/tweets}">首页</a></div>
                 <div class="item"><a th:href="@{/usercenter/tweets(pagenum=${pageInfo.hasPreviousPage}?${pageInfo.prePage}:1)}">上一页</a></div>
                 <div class="item"><a th:href="@{/usercenter/tweets(pagenum=${pageInfo.hasNextPage}?${pageInfo.nextPage}:${pageInfo.pages})}">下一页</a></div>
                 <div class="item"><a th:href="@{/usercenter/tweets(pagenum=${pageInfo.pages})}">尾页</a></div>
@@ -125,11 +129,11 @@
   <br>
 
   <!--底部footer-->
-  <footer th:replace="admin/_fragments :: footer">
+  <footer th:replace="_fragments :: footer">
 
   </footer>
 
-  <th:block th:replace="admin/_fragments :: script">
+  <th:block th:replace="_fragments :: script">
 
   </th:block>
 

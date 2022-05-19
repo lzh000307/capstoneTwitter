@@ -262,3 +262,31 @@ CREATE TABLE `user_collection`(
                        `user_id` bigint(20) NULL DEFAULT NULL,
                        `tweet_id` bigint(20) NULL DEFAULT NULL
 ) ENGINE = InnoDB ROW_FORMAT = Compact;
+
+
+
+--
+-- Table structure for table `tweet`
+--
+
+DROP TABLE IF EXISTS `tweet`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tweet` (
+                         `id` bigint NOT NULL AUTO_INCREMENT,
+                         `title` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+                         `content` text CHARACTER SET utf8 COLLATE utf8_general_ci,
+                         `first_picture` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+                         `status` int DEFAULT NULL,
+                         `views` int DEFAULT NULL,
+                         `likes` int NOT NULL DEFAULT '0',
+                         `commentable` int NOT NULL DEFAULT '0',
+                         `published` int NOT NULL DEFAULT '0',
+                         `create_time` datetime DEFAULT NULL,
+                         `update_time` datetime DEFAULT NULL,
+                         `type_id` bigint DEFAULT NULL,
+                         `user_id` bigint DEFAULT NULL,
+                         `tag_ids` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+                         PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=COMPACT;
+/*!40101 SET character_set_client = @saved_cs_client */;

@@ -8,6 +8,8 @@ import com.blog.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class TweetFrontEndConvector {
     @Autowired
@@ -24,5 +26,12 @@ public class TweetFrontEndConvector {
         //寻找tagList
         trendService.getTagByTweetId(tweet.getId());
         return tweetFrontEnd;
+    }
+    public List<TweetFrontEnd> convertToTweetFrontEnd(List<Tweet> tweets){
+        List<TweetFrontEnd> tweetFrontEnds = new java.util.ArrayList<>();
+        for(Tweet tweet:tweets){
+            tweetFrontEnds.add(convertToTweetFrontEnd(tweet));
+        }
+        return tweetFrontEnds;
     }
 }

@@ -8,15 +8,13 @@
         <result property="title" column="title" jdbcType="VARCHAR"/>
         <result property="content" column="content" jdbcType="VARCHAR"/>
         <result property="firstPicture" column="first_picture" jdbcType="VARCHAR"/>
-        <result property="status" column="status" jdbcType="VARCHAR"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
         <result property="views" column="views" jdbcType="INTEGER"/>
         <result property="likes" column="likes" jdbcType="INTEGER"/>
         <result property="commentable" column="commentable" jdbcType="INTEGER"/>
         <result property="published" column="published" jdbcType="INTEGER"/>
-        <result property="recommend" column="recommend" jdbcType="INTEGER"/>
         <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
         <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
-        <result property="typeId" column="type_id" jdbcType="INTEGER"/>
         <result property="userId" column="user_id" jdbcType="INTEGER"/>
         <result property="tagIds" column="tag_ids" jdbcType="VARCHAR"/>
         <association property="user" javaType="User">
@@ -31,7 +29,7 @@
     <!--查询单个-->
     <select id="queryById" resultMap="BaseResultMap">
         select
-          id, title, content, first_picture, status, views, likes, commentable, published, recommend, create_time, update_time, type_id, user_id, tag_ids
+          id, title, content, first_picture, status, views, likes, commentable, published, create_time, update_time, user_id, tag_ids
         from blog_mb.tweet
         where id = #{id}
     </select>
@@ -39,7 +37,7 @@
     <!--查询指定行数据-->
     <select id="queryAllByLimit" resultMap="BaseResultMap">
         select
-          id, title, content, first_picture, status, views, likes, commentable, published, recommend, create_time, update_time, type_id, user_id, tag_ids
+          id, title, content, first_picture, status, views, likes, commentable, published, create_time, update_time, user_id, tag_ids
         from blog_mb.tweet
         limit #{offset}, #{limit}
     </select>
@@ -47,7 +45,7 @@
     <!--通过实体作为筛选条件查询-->
     <select id="queryAll" resultMap="BaseResultMap">
         select
-          id, title, content, first_picture, status, views, likes, commentable, published, recommend, create_time, update_time, type_id, user_id, tag_ids
+          id, title, content, first_picture, status, views, likes, commentable, published, create_time, update_time, user_id, tag_ids
         from blog_mb.tweet
         <where>
             <if test="id != null">
@@ -77,17 +75,11 @@
             <if test="published != null">
                 and published = #{published}
             </if>
-            <if test="recommend != null">
-                and recommend = #{recommend}
-            </if>
             <if test="createTime != null">
                 and create_time = #{createTime}
             </if>
             <if test="updateTime != null">
                 and update_time = #{updateTime}
-            </if>
-            <if test="typeId != null">
-                and type_id = #{typeId}
             </if>
             <if test="userId != null">
                 and user_id = #{userId}
@@ -100,8 +92,8 @@
 
     <!--新增所有列-->
     <insert id="insert" keyProperty="id" useGeneratedKeys="true">
-        insert into blog_mb.tweet(title, content, first_picture, status, views, likes, commentable, published, recommend, create_time, update_time, type_id, user_id, tag_ids)
-        values (#{title}, #{content}, #{firstPicture}, #{status}, #{views}, #{likes}, #{commentable}, #{published}, #{recommend}, #{createTime}, #{updateTime}, #{typeId}, #{userId}, #{tagIds})
+        insert into blog_mb.tweet(title, content, first_picture, status, views, likes, commentable, published, create_time, update_time, user_id, tag_ids)
+        values (#{title}, #{content}, #{firstPicture}, #{status}, #{views}, #{likes}, #{commentable}, #{published}, #{createTime}, #{updateTime}, #{userId}, #{tagIds})
     </insert>
 
     <!--通过主键修改数据-->
@@ -132,17 +124,11 @@
             <if test="published != null">
                 published = #{published},
             </if>
-            <if test="recommend != null">
-                recommend = #{recommend},
-            </if>
             <if test="createTime != null">
                 create_time = #{createTime},
             </if>
             <if test="updateTime != null">
                 update_time = #{updateTime},
-            </if>
-            <if test="typeId != null">
-                type_id = #{typeId},
             </if>
             <if test="userId != null">
                 user_id = #{userId},
@@ -159,32 +145,11 @@
         delete from blog_mb.tweet where id = #{id}
     </delete>
 
-<!--    <select id="searchAllTweet" parameterType="Tweet" resultMap="BaseResultMap">-->
-<!--        <bind name="pattern" value="'%' + title + '%'" />    /*模糊查询*/-->
-<!--        select b.id, b.title, b.update_time, b.recommend, b.published, b.type_id, b.content-->
-<!--        from tweet b-->
-<!--        <where>-->
-<!--            <if test="recommend != null">-->
-<!--                and b.recommend = #{recommend}   /*根据博客推荐查询*/-->
-<!--            </if>-->
-<!--            <if test="title != null">-->
-<!--                and b.title like #{pattern}   /*根据博客title模糊查询*/-->
-<!--            </if>-->
-<!--            <if test="content != null">-->
-<!--                and b.content like #{pattern}   /*根据博客title模糊查询*/-->
-<!--            </if>-->
-<!--        </where>-->
-<!--    </select> -->
-<!--    -->
-
     <select id="searchAllTweet" parameterType="Tweet" resultMap="BaseResultMap">
         <bind name="pattern" value="'%' + title + '%'" />    /*模糊查询*/
         select *
         from tweet b
         <where>
-            <if test="recommend != null">
-                and b.recommend = #{recommend}   /*根据博客推荐查询*/
-            </if>
             <if test="title != null">
                 and b.title like #{pattern}   /*根据博客title模糊查询*/
             </if>
@@ -194,13 +159,12 @@
         </where>
     </select>
 
-
+<!--    select b.id, b.title, b.first_picture, b.views, b.update_time, b.content, b.likes, b.status, b.user_id-->
     <select id="getByDesc" resultMap="BaseResultMap">  /*主页博客展示*/
-    select b.id, b.title, b.first_picture, b.views, b.update_time, b.content,
-           u.nickname, u.avatar
-    from tweet b, user u
-    where u.id = b.user_id
-    order by b.update_time desc
+        select *
+        from tweet
+        where status &lt; 2000 and published = 1
+        order by update_time desc
     </select>
 
 </mapper>
