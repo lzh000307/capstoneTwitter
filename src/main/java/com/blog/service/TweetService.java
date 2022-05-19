@@ -25,4 +25,6 @@ public interface TweetService {
     List<Tweet> sortByLike(List<Tweet> tweets);
 
     List<Tweet> getTweetsByUserId(Long userId);
+
+    public void updateStatusByUserId(Long userId, Integer originStatus, Integer afterStatus);
 }

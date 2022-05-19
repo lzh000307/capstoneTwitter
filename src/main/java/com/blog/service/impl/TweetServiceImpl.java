@@ -58,6 +58,24 @@ public class TweetServiceImpl implements TweetService {
         return tweetDao.queryByUserId(userId);
     }
 
+    /**
+     * 只改动状态一样的推文，不改动由其他原因屏蔽的推文
+     * @param userId
+     * @param originStatus
+     * @param afterStatus
+     */
+    @Override
+    public void updateStatusByUserId(Long userId, Integer originStatus, Integer afterStatus) {
+        //找到List<Tweet>
+        List<Tweet> tweets = tweetDao.queryByUserId(userId);
+        for (Tweet tweet : tweets) {
+            if(tweet.getStatus().equals(originStatus)) {
+                tweet.setStatus(afterStatus);
+                tweetDao.update(tweet);
+            }
+        }
+    }
+
     @Override
     public List<Tweet> getAllTweet() {
         return tweetDao.getAllTweet();

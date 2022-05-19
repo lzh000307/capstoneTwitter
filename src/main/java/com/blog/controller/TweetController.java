@@ -22,7 +22,7 @@ import java.util.List;
 @RequestMapping("/tweet")
 public class TweetController {
 
-    public final String REJECT = "/error/401";
+    public final String REJECT = "redirect:/error/401";
     @Autowired
     private TweetService tweetService;
 
@@ -170,7 +170,6 @@ public class TweetController {
         }else {
             userCollectionService.addUserCollection(user.getId(), id);
         }
-        tweetService.updateTweet(tweet);
         return "redirect:/tweet/" + id;
     }
 

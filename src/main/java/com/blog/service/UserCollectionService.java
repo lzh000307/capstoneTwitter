@@ -1,5 +1,9 @@
 package com.blog.service;
 
+import com.blog.pojo.UserCollection;
+
+import java.util.List;
+
 public interface UserCollectionService {
 
 
@@ -9,5 +13,5 @@ public interface UserCollectionService {
 
     public boolean isUserCollection(Long userId, Long tweetId);
 
-
+    List<UserCollection> getUserCollections(Long id);
 }

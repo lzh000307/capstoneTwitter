@@ -28,14 +28,18 @@ public class LoginController2 {
                         HttpSession session,
                         RedirectAttributes attributes){
         User user = userService.checkUser(username, password);
-        if(user != null){
-            user.setPassword(null);
-            session.setAttribute("user", user);
-            return "redirect:/";
-        }else {
+        if(user == null){
             attributes.addFlashAttribute("msg", "用户名或密码错误");
             return "redirect:/login";
         }
+//        if(user != null){
+        if(user.getStatus().equals(Constant.BAN)){
+            attributes.addFlashAttribute("msg", "改用户已被封禁");
+            return "redirect:/login";
+        }
+        user.setPassword(null);
+        session.setAttribute("user", user);
+        return "redirect:/";
     }
 
     @GetMapping("/logout")

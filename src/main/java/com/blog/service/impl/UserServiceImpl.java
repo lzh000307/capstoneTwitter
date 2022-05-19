@@ -2,18 +2,22 @@ package com.blog.service.impl;
 
 import com.blog.dao.UserDao;
 import com.blog.pojo.User;
+import com.blog.service.TweetService;
 import com.blog.service.UserService;
 import com.blog.util.MD5Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserDao userDao;
+    @Autowired
+    private TweetService tweetService;
 
     @Override
     public User checkUser(String username, String password) {
@@ -56,5 +60,29 @@ public class UserServiceImpl implements UserService {
         //密码扔掉
         user.setPassword(null);
         return user;
+    }
+
+    @Override
+    public List<User> getAllUser() {
+        List<User> users = userDao.findAll();
+        for(User user:users){
+            user.setPassword(null);
+        }
+        return users;
+    }
+
+    @Override
+    public void setStatus(Long id, Integer status) {
+        //找到User
+        User user = userDao.findById(id);
+        Integer originStatus = user.getStatus();
+        if(user!=null) {
+            //设置status
+            user.setStatus(status);
+            //更新
+            userDao.updateUser(user);
+            //更新tweet表中的status
+            tweetService.updateStatusByUserId(id, originStatus, status);
+        }
     }
 }

@@ -27,6 +27,7 @@
 <!--      <a href="#" th:href="@{/archives}"class="m-item orange item m-mobile-hide" th:classappend="${n==4}?'active'"><i class=" clone icon"></i>时间线</a>-->
 <!--      <a href="#" th:href="@{/about}"class="m-item green item m-mobile-hide" th:classappend="${n==5}?'active'"><i class=" info icon"></i>关于我</a>-->
       <a href="#" th:if="${session.user!=null}" th:href="@{/usercenter/tweets}" class="m-item item m-mobile-hide" th:classappend="${n==2}?'active'"><i class="archive icon"></i>推文管理</a>
+      <a href="#" th:if="${session.user!=null}" th:href="@{/usercenter/collections}" class="m-item item m-mobile-hide" th:classappend="${n==4}?'active'"><i class="archive icon"></i>我的收藏</a>
       <a href="#" th:if="${session.user!=null}" th:href="@{/tweet/send}" class="m-item item blue m-mobile-hide" th:classappend="${n==6}?'active'"><i class="comments icon"></i>发推</a>
       <div class="right m-item item m-mobile-hide">
         <form name="search" action="#" method="post" th:action="@{/search}" target="_blank">
