@@ -16,6 +16,7 @@ public class TweetForm extends Tweet {
     private MultipartFile img5;
     private MultipartFile img6;
 
+    private MultipartFile[] imgs; // 图片数组
     public MultipartFile getImg1() {
         return img1;
     }

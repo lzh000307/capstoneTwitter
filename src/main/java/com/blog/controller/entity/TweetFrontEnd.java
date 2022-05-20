@@ -4,6 +4,8 @@ import com.blog.pojo.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.web.multipart.MultipartFile;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,23 +16,6 @@ import static com.blog.util.Converter.tagsToIds;
 @NoArgsConstructor
 public class TweetFrontEnd {
 
-//    private Long id;
-//    private String title;
-//    private String content;
-//    private String firstPicture;
-//    private String status;
-//    private Integer views;
-//    private Integer likes;
-//    private boolean commentable;
-//    private Integer recommend;
-//    private boolean published;
-//    private boolean like;
-//    private Date createTime;
-//    private Date updateTime;
-//    private Long typeId;
-//    private Long userId;
-
-
     private User user = new User();
     private Tweet tweet = new Tweet();
     private String tagIds;
@@ -38,6 +23,25 @@ public class TweetFrontEnd {
     private List<Tweet> tweets = new ArrayList<>();
     private List<Tag> tags = new ArrayList<>();
     private List<CommentLe> comments = new ArrayList<>();
+
+    private List<String> imgUnits = new ArrayList<>();
+    private Integer imgNum;
+
+    public Integer getImgNum() {
+        return imgNum;
+    }
+
+    public void setImgNum(Integer imgNum) {
+        this.imgNum = imgNum;
+    }
+
+    public List<String> getImgUnits() {
+        return imgUnits;
+    }
+
+    public void setImgUnits(List<String> imgUnits) {
+        this.imgUnits = imgUnits;
+    }
 
     public void init(){
         this.tagIds = tagsToIds(this.getTags());

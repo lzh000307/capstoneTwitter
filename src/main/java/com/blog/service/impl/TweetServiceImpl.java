@@ -35,7 +35,7 @@ public class TweetServiceImpl implements TweetService {
 
     @Override
     public List<Tweet> getIndex() {
-        return tweetDao.getByDesc();
+        return tweetDao.getByDesc2();
     }
 
     @Override

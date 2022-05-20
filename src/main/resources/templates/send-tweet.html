@@ -11,7 +11,7 @@
   <!--中间内容-->
   <div  class="m-container m-padded-tb-big">
     <div class="ui container">
-      <form id="blog-form" action="#" th:object="${tweetf}" th:action="@{/tweet/}" method="post" class="ui form">
+      <form id="blog-form" enctype="multipart/form-data" action="#" th:object="${tweet}" th:action="@{/tweet/}" method="post" class="ui form">
         <input type="hidden" name="published" th:value="*{published}">  <!--发布状态-->
         <input type="hidden" name="id" th:value="*{id}">
         <div class="required field">
@@ -29,7 +29,7 @@
                 <i class="dropdown icon"></i>
                 <div class="default text">趋势列表</div>
                 <div class="menu">
-                  <div th:each="tag : ${tags}" class="item" data-value="1" th:data-value="${id}" th:text="${name}">java</div>
+                  <div th:each="tag : ${tags}" class="item" data-value="1" th:data-value="${tag.id}" th:text="${tag.name}">java</div>
                 </div>
               </div>
             </div>
@@ -39,8 +39,8 @@
         <div class="two field">  <!--required表示必须要填-->
             <div class="field">
               <div class="ui left labeled input">
-                <label class="ui teal basic label">首页图片</label>
-                  <input type="file" name="files" th:value="*{img1}" required placeholder="点击上传首页图片"/>
+                <label class="ui teal basic label">选择图片</label>
+                  <input type="file" name="files" multiple="multiple" required placeholder="点击上传图片"/>
 <!--                <input type="text" name="firstPicture" th:value="*{img1}" placeholder="首页图片">-->
               </div>
             </div>
@@ -87,6 +87,12 @@
 <!--              <li><span th:text="${filename}"></span></li>-->
           </ul>
       </form>
+
+      <div class="sixteen wide column">
+          <div class="ui small images"  style="text-align:center;">
+            <img src="" th:each="img : ${legacyImg}" th:src="@{${img}}">
+          </div>
+      </div>
     </div>
   </div>
 

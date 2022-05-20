@@ -32,17 +32,18 @@ public class IndexController {
     private TweetFrontEndConvector tweetFrontEndConvector;
 
     @GetMapping("/")
-    public String toIndex(@RequestParam(required = false,defaultValue = "1",value = "pagenum")int pagenum, Model model){
-
-        PageHelper.startPage(pagenum, 8);
+    public String toIndex(/*@RequestParam(required = false,defaultValue = "1",value = "pagenum")int pagenum, */Model model){
+        //巨坑
+//        PageHelper.startPage(pagenum, 10);
         List<Tweet> indexTweet = tweetService.getIndex();
-        List<Tag> allTag = tagService.getAllTag();  //获取趋势
         List<TweetFrontEnd> tweetfes = tweetFrontEndConvector.convertToTweetFrontEnd(indexTweet);
+        PageInfo pageInfo = new PageInfo(tweetfes);
+        List<Tag> allTag = tagService.getAllTag();  //获取趋势
         //点赞排行榜
-        List<Tweet> likeTweets = tweetService.sortByLike(indexTweet);
+        List<Tweet> allIndex = tweetService.getIndex();
+        List<Tweet> likeTweets = tweetService.sortByLike(allIndex);
         List<TweetFrontEnd> likeTweetfes = tweetFrontEndConvector.convertToTweetFrontEnd(likeTweets);
         //得到分页结果对象
-        PageInfo pageInfo = new PageInfo(tweetfes);
         model.addAttribute("pageInfo", pageInfo);
         model.addAttribute("tags", allTag);
         model.addAttribute("likeTweetfes", likeTweetfes);

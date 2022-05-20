@@ -7,6 +7,7 @@ import com.blog.service.*;
 import com.blog.util.Converter;
 import com.blog.util.MinioUtilS;
 import com.blog.util.TweetFrontEndConvector;
+import com.sun.jndi.toolkit.url.UrlUtil;
 import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -59,9 +60,10 @@ public class InputController {
 //        //图片列表：
 //        List<String> imgUnits = new ArrayList<>();
 //        //丢进model
-////        model.addAttribute("imgUnits", imgUnits);
-        TweetForm tweetf = new TweetForm();
-        model.addAttribute("tweetf", tweetf);  //返回一个tweet对象给前端th:object
+        Tweet tweet = new Tweet();
+        List<String> legacyImg = new ArrayList<>();
+        model.addAttribute("legacyImg", legacyImg);
+        model.addAttribute("tweet", tweet);  //返回一个tweet对象给前端th:object
         setTag(model);
         return "send-tweet";
     }
@@ -75,8 +77,8 @@ public class InputController {
         }
         //如果不是该用户所发的推文，则跳转到错误页
         if(tweet.getUserId().equals(user.getId())){
-            List<String> imgUnits = tweetImgService.getImgUrl(id); //获取图片url
-            model.addAttribute("imgUnits", imgUnits);
+            List<String> legacyImg = tweetImgService.getImgUrl(id); //获取图片url
+            model.addAttribute("legacyImg", legacyImg);
             model.addAttribute("tweet", tweet);     //返回一个tweet对象给前端th:object
             setTag(model);
             return "send-tweet";
@@ -98,17 +100,12 @@ public class InputController {
     }
 
     @PostMapping("/") //新增、编辑博客
-    public String addTweet(TweetForm tweetForm, HttpSession session, RedirectAttributes attributes){
+    public String addTweet(@RequestParam("files") MultipartFile[] files, TweetForm tweetForm, HttpSession session, RedirectAttributes attributes, Model model){
         //设置user属性
         User user = (User) session.getAttribute("user"); //获取session中的user
         if(user.getId()==null){
             return "redirect:/login";
         }
-        //处理上传图片
-//        List<String> upload = minioUtilS.upload(tweetform.getImgs());
-//        for(String url:upload){
-//            System.out.println(address+"/"+bucketName+"/"+url);
-//        }
         Tweet tweet = (Tweet) tweetForm;
         //设置用户id
         tweet.setUserId(user.getId());
@@ -124,7 +121,35 @@ public class InputController {
             tweetService.updateTweet(tweet);
             trendService.updateTrends(converter.convertStringToTagIds(tweet.getTagIds()), tweet.getId());
         }
-
+        //处理上传图片，这个时候Tweet里一定有ID
+        List<String> fileUrls = new ArrayList<>();
+        try {
+            if(null != files){
+                List<String> upload = minioUtilS.upload(files);
+                //清空图片
+                tweetImgService.deleteByTweetId(tweet.getId());
+                for(String url:upload) {
+                    //编码
+                    //坑：urlEncoder中的空格会变成+，所以需要转义
+//                    String encodedUrl = URLEncoder.encode(url, "UTF-8").replaceAll("\\+", "%20");
+                    String encodedUrl = UrlUtil.encode(url, "UTF-8");
+                    String imgUrl = address + "/" + bucketName + "/" + encodedUrl;
+                    System.out.println(imgUrl);
+                    fileUrls.add(imgUrl);
+                    //添加图片
+                    tweetImgService.save(tweet.getId(), imgUrl);
+                }
+                //设置首页图片
+                tweet.setFirstPicture(fileUrls.get(0));
+                //再次更新
+                tweetService.updateTweet(tweet);
+            }
+            model.addAttribute("message", "Files uploaded successfully!");
+//            model.addAttribute("files", fileUrls);
+        } catch (Exception e) {
+            model.addAttribute("message", "Fail!");
+//            model.addAttribute("files", fileUrls);
+        }
         attributes.addFlashAttribute("msg", "新增成功");
         return "redirect:/";
     }
