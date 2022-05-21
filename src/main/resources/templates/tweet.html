@@ -48,6 +48,13 @@
 <!--            </div>-->
 
 <!--        </div>-->
+        <div th:if="${tweetfe.tweet.firstPicture!=null}" class="ui attached segment">
+            <!--视频区域-->
+            <video style="text-align: center" align="center"width="800" height="550" controls>
+                <source th:src="${tweetfe.tweet.firstPicture}" type="video/mp4">
+                您的浏览器不支持 HTML5 video 标签。
+            </video>
+        </div>
 
 
         <div class="ui attached segment">
@@ -70,23 +77,10 @@
             <div class="m-padded-lr-responsive">
                 <div class="ui basic teal left pointing label" th:each="tag : ${tweetfe.tags}" th:text="${tag.name}">方法论</div>
             </div>
-
-<!--            <div class="ui attached padded segment">-->
-<!--            <div th:if="${tweetfe.imgNum!=0}" class="ui attached padded segment">-->
-                <!--图片区域-->
-                <!--1张图-->
-                <img th:if="${tweetfe.imgNum<2}" src="../static/images/bg1.jpeg" th:src="@{${tweetfe.tweet.firstPicture}}" alt="" class="ui rounded image">
-                <!--            2站图-->
-<!--                <div th:if="${tweetfe.imgNum>1}" class="ui three column grid">-->
-<!--                    <div class="ui rounded images" th:each="img : ${tweetfe.imgUnits}">-->
-<!--                        <img src="../static/images/bg1.jpeg" th:src="@{${img}}">-->
-<!--                    </div>-->
-<!--                </div>-->
-                <!--            3站图-->
-                <div th:if="${tweetfe.imgNum>1}"  class="ui big rounded images" style="text-align:center;" >
-                    <img  th:each="img : ${tweetfe.imgUnits}" src="../static/images/bg1.jpeg" th:src="@{${img}}" alt="" class="ui rounded image">
-                </div>
-<!--            </div>-->
+            <!--图片-->
+            <div th:if="${tweetfe.imgNum!=0}"  class="ui big rounded images" style="text-align:center;" >
+                <img  th:each="img : ${tweetfe.imgUnits}" src="../static/images/bg1.jpeg" th:src="@{${img}}" alt="" class="ui rounded image">
+            </div>
 
 
         </div>

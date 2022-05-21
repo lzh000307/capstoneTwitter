@@ -34,6 +34,12 @@
               </div>
             </div>
           </div>
+          <div class="field">
+          <div class="ui left labeled input">
+            <label class="ui teal basic label">选择视频</label>
+            <input type="file" name="video" placeholder="点击上传视频"/>
+          </div>
+        </div>
         </div>
 
         <div class="two field">  <!--required表示必须要填-->
@@ -46,10 +52,25 @@
             </div>
         </div>
 
+        <div class="ui segment">
+          <!--图片区域-->
+          <div class="ui small images"  style="text-align:left;">
+            <img src="" th:each="img : ${legacyImg}" th:src="@{${img}}">
+          </div>
+        </div>
+
+        <div th:if="${tweet.firstPicture!=null}" class="ui segment" style="text-align:center;">
+          <!--视频区域-->
+          <video style="text-align:center;" align="center" width="950" height="600" controls>
+            <source th:src="${tweet.firstPicture}" type="video/mp4">
+            您的浏览器不支持 HTML5 video 标签。
+          </video>
+        </div>
+
         <div class="required field">
-            <div class="field">
-                <textarea name="content" th:text="*{content}" placeholder="写点儿什么吧..." maxlength="300"></textarea>
-            </div>
+          <div class="field">
+            <textarea name="content" th:text="*{content}" placeholder="写点儿什么吧..." maxlength="300"></textarea>
+          </div>
         </div>
 
         <div class="inline fields">
@@ -82,17 +103,14 @@
               <strong><span th:text="${message}"></span></strong>
               <hr>
           </div>
-          <ul th:each="filename: ${imgUnits}">
-              <img src="https://unsplash.it/800/450?image=1005" th:src="@{${filename}}"  alt="" class="ui rounded image">
-<!--              <li><span th:text="${filename}"></span></li>-->
-          </ul>
       </form>
 
-      <div class="sixteen wide column">
-          <div class="ui small images"  style="text-align:center;">
-            <img src="" th:each="img : ${legacyImg}" th:src="@{${img}}">
-          </div>
-      </div>
+<!--      <div class="sixteen wide column">-->
+<!--          <div class="ui small images"  style="text-align:center;">-->
+<!--            <img src="" th:each="img : ${legacyImg}" th:src="@{${img}}">-->
+<!--          </div>-->
+<!--      </div>-->
+
     </div>
   </div>
 

@@ -100,7 +100,7 @@ public class InputController {
     }
 
     @PostMapping("/") //新增、编辑博客
-    public String addTweet(@RequestParam("files") MultipartFile[] files, TweetForm tweetForm, HttpSession session, RedirectAttributes attributes, Model model){
+    public String addTweet(@RequestParam("files") MultipartFile[] files, @RequestParam("video") MultipartFile video, TweetForm tweetForm, HttpSession session, RedirectAttributes attributes, Model model){
         //设置user属性
         User user = (User) session.getAttribute("user"); //获取session中的user
         if(user.getId()==null){
@@ -139,8 +139,20 @@ public class InputController {
                     //添加图片
                     tweetImgService.save(tweet.getId(), imgUrl);
                 }
-                //设置首页图片
-                tweet.setFirstPicture(fileUrls.get(0));
+//                //设置首页图片
+//                tweet.setFirstPicture(fileUrls.get(0));
+//                //再次更新
+//                tweetService.updateTweet(tweet);
+            }
+            //处理上传视频
+            if(null != video){
+                MultipartFile[] videos = new MultipartFile[1];
+                videos[0] = video;
+                List<String> uploadVideo = minioUtilS.upload(videos);
+                String encodedUrl = UrlUtil.encode(uploadVideo.get(0), "UTF-8");
+                String videoUrl = address + "/" + bucketName + "/" + encodedUrl;
+                //设置视频（数据库懒得改了）
+                tweet.setFirstPicture(videoUrl);
                 //再次更新
                 tweetService.updateTweet(tweet);
             }

@@ -17,7 +17,8 @@
                 <a class="item active" href="#" th:href="@{/user/center}"><i class=" home icon"></i>个人资料</a>
                 <a class="item" href="#" th:href="@{/user/collections}" ><i class="star icon"></i>我的收藏</a>
                 <a class="item" href="#" th:href="@{/user/changepasswd}"><i class="lock icon"></i>更改密码</a>
-                <a class="item" href="#" th:if="${session.user.status==1000}" th:href="@{/admin/usermanage}"><i class="lock icon"></i>管理页面</a>
+                <a class="item" href="#" th:if="${session.user.status==1000}" th:href="@{/admin/usermanage}"><i class="lock icon"></i>用户管理</a>
+                <a class="item" href="#" th:if="${session.user.status==1000}" th:href="@{/admin/tags}"><i class="lock icon"></i>话题管理</a>
             </div>
         </div>
 

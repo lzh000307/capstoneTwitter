@@ -40,7 +40,7 @@
                                 <h5><br/> </h5>
                                 <div class="sixteen wide column">
                                     <a href="#" th:href="@{/tweet/{id}(id=${tweetfe.tweet.id})}" target="_blank">
-                                        <div class="ui small images"  style="text-align:center;">
+                                        <div class="ui small images" th:if="${tweetfe.imgNum!=0}" style="text-align:center;">
                                             <img src="" th:each="img : ${tweetfe.imgUnits}" th:src="@{${img}}">
                                         </div>
                                     </a>
