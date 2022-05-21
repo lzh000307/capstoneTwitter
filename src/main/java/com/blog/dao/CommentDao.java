@@ -1,6 +1,7 @@
 package com.blog.dao;
 
 import com.blog.pojo.Comment;
+import com.blog.pojo.Tweet;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -22,7 +23,7 @@ public interface CommentDao {
     /**
      * 通过TweetId查询主评论，按时间升序排列
      */
-    @Select("select * from comment where tweet_id = #{tweetId} and parent_comment_id = -1 order by create_time asc")
+    @Select("select * from comment where tweet_id = #{tweetId} and parent_comment_id = -1 and status < 2000 order by create_time asc")
     List<Comment> selectMainCommentByTweetId(@Param("tweetId") Long tweetId);
     /**
      * 通过TweetId和ParentCommentId查询子评论，按时间升序排列
@@ -80,6 +81,10 @@ public interface CommentDao {
      */
     int deleteById(Long id);
 
-    @Select("select * from comment where parent_comment_id = #{parentCommentId} order by create_time asc")
+    @Select("select * from comment where parent_comment_id = #{parentCommentId} and status < 2000 order by create_time asc")
     List<Comment> selectSubCommentByParentCommentId(Long parentCommentId);
+    @Select("select * from comment")
+    List<Comment> getAll();
+    @Select("select * from comment where status = #{status}")
+    List<Comment> queryByStatus(Integer status);
 }

@@ -74,7 +74,7 @@ public class TweetController {
 
     @PostMapping("/search")  //按条件查询博客
     public String searchTweets(Tweet tweet, @RequestParam(required = false,defaultValue = "1",value = "pagenum")int pagenum, Model model){
-        PageHelper.startPage(pagenum, 5);
+        PageHelper.startPage(pagenum, 8);
         List<Tweet> Tweets = tweetService.searchAllTweet(tweet);
         //得到分页结果对象
         PageInfo pageInfo = new PageInfo(Tweets);
@@ -121,15 +121,23 @@ public class TweetController {
 
     @GetMapping("/{id}")
     public String surfTweet(@PathVariable Long id, Model model, HttpSession session){
+        User user = (User) session.getAttribute("user");
+        //判断是否被屏蔽
+        Tweet tweet = tweetService.getTweet(id);
+        Integer status = tweet.getStatus();
+        if(status > 2000){
+            if(user == null || !user.getId().equals(tweet.getUserId())){
+                return Constant.REJECT;
+            }
+        }
+        //没被屏蔽的情况
         boolean isCollection = false; //是否收藏
         boolean isLike = false;
-//        Blog blog = blogService.getDetailedBlog(id);
-        Tweet tweet = tweetService.getTweet(id);
         tweetService.viewPlusOne(tweet);
         TweetFrontEnd tweetFE = tweetFrontEndConvector.convertToTweetFrontEnd(tweet);
-        if(session.getAttribute("user") != null){
-            isCollection = userCollectionService.isUserCollection(((User)session.getAttribute("user")).getId(), id);
-            isLike = likeService.isLike(((User)session.getAttribute("user")).getId(), id);
+        if(user != null){
+            isCollection = userCollectionService.isUserCollection(user.getId(), id);
+            isLike = likeService.isLike(user.getId(), id);
         }
         model.addAttribute("tweetfe", tweetFE);
         model.addAttribute("isCollection", isCollection);

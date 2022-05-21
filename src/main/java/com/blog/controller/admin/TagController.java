@@ -1,6 +1,8 @@
 package com.blog.controller.admin;
 
+import com.blog.controller.Constant;
 import com.blog.pojo.Tag;
+import com.blog.pojo.User;
 import com.blog.service.TagService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -8,8 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -20,7 +24,16 @@ public class TagController {
     TagService tagService;
 
     @GetMapping("/tags")
-    public String tags(@RequestParam(required = false,defaultValue = "1",value = "pagenum")int pagenum, Model model){
+    public String tags(@RequestParam(required = false,defaultValue = "1",value = "pagenum")int pagenum, Model model, HttpSession session){
+        User user = (User) session.getAttribute("user");
+        //用户为空，跳转到登录页面
+        if(user == null){
+            return "redirect:/login";
+        }
+        //用户没权限，跳转REJECT
+        if(user.getStatus() != 1000){
+            return Constant.REJECT;
+        }
         PageHelper.startPage(pagenum, 5);
         List<Tag> allTag = tagService.getAllTag();
         //得到分页结果对象
@@ -30,19 +43,46 @@ public class TagController {
     }
 
     @GetMapping("/tags/input")
-    public String toAddTag(Model model){
+    public String toAddTag(Model model, HttpSession session){
+        User user = (User) session.getAttribute("user");
+        //用户为空，跳转到登录页面
+        if(user == null){
+            return "redirect:/login";
+        }
+        //用户没权限，跳转REJECT
+        if(user.getStatus() != 1000){
+            return Constant.REJECT;
+        }
         model.addAttribute("tag", new Tag());   //返回一个tag对象给前端th:object
         return "admin/tags-input";
     }
 
     @GetMapping("/tags/{id}/input")
-    public String toEditTag(@PathVariable Long id, Model model){
+    public String toEditTag(@PathVariable Long id, Model model, HttpSession session){
+        User user = (User) session.getAttribute("user");
+        //用户为空，跳转到登录页面
+        if(user == null){
+            return "redirect:/login";
+        }
+        //用户没权限，跳转REJECT
+        if(user.getStatus() != 1000){
+            return Constant.REJECT;
+        }
         model.addAttribute("tag", tagService.getTag(id));
         return "admin/tags-input";
     }
 
     @PostMapping("/tags")
-    public String addTag(Tag tag, RedirectAttributes attributes){   //新增
+    public String addTag(Tag tag, RedirectAttributes attributes, HttpSession session){   //新增
+        User user = (User) session.getAttribute("user");
+        //用户为空，跳转到登录页面
+        if(user == null){
+            return "redirect:/login";
+        }
+        //用户没权限，跳转REJECT
+        if(user.getStatus() != 1000){
+            return Constant.REJECT;
+        }
         Tag t = tagService.getTagByName(tag.getName());
         if(t != null){
             attributes.addFlashAttribute("msg", "不能添加重复的标签");
@@ -55,7 +95,16 @@ public class TagController {
     }
 
     @PostMapping("/tags/{id}")
-    public String editTag(@PathVariable Long id, Tag tag, RedirectAttributes attributes){  //修改
+    public String editTag(@PathVariable Long id, Tag tag, RedirectAttributes attributes, HttpSession session){  //修改
+        User user = (User) session.getAttribute("user");
+        //用户为空，跳转到登录页面
+        if(user == null){
+            return "redirect:/login";
+        }
+        //用户没权限，跳转REJECT
+        if(user.getStatus() != 1000){
+            return Constant.REJECT;
+        }
         Tag t = tagService.getTagByName(tag.getName());
         if(t != null){
             attributes.addFlashAttribute("msg", "不能添加重复的标签");
@@ -68,7 +117,16 @@ public class TagController {
     }
 
     @GetMapping("/tags/{id}/delete")
-    public String delete(@PathVariable Long id, RedirectAttributes attributes){
+    public String delete(@PathVariable Long id, RedirectAttributes attributes, HttpSession session){
+        User user = (User) session.getAttribute("user");
+        //用户为空，跳转到登录页面
+        if(user == null){
+            return "redirect:/login";
+        }
+        //用户没权限，跳转REJECT
+        if(user.getStatus() != 1000){
+            return Constant.REJECT;
+        }
         tagService.deleteTag(id);
         attributes.addFlashAttribute("msg", "删除成功");
         return "redirect:/admin/tags";

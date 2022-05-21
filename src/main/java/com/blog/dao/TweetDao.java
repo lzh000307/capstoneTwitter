@@ -79,6 +79,8 @@ public interface TweetDao {
     @Select("select * from tweet where status<2000 and published=1" +
             " order by update_time desc")
     List<Tweet> getByDesc2();
-    @Select("select * from tweet where user_id = #{userId}")
+    @Select("select * from tweet where user_id = #{userId} order by update_time desc")
     List<Tweet> queryByUserId(Long userId);
+    @Select("select * from tweet where status = #{status}")
+    List<Tweet> queryByStatus(Integer status);
 }

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="admin/_fragments :: head(~{::title})">
-  <title>话题管理</title>
+<head th:replace="_fragments :: head(~{::title})">
+  <title>敏感词审查</title>
 </head>
 
 <body>
@@ -15,8 +15,8 @@
 <!--  <div class="ui attached pointing menu">-->
 <!--    <div class="ui container">-->
 <!--      <div class="right menu">-->
-<!--        <a href="#" th:href="@{/admin/tags/input}" class=" item">新增</a>-->
-<!--        <a href="#" th:href="@{/admin/tags}" class="teal active item">列表</a>-->
+<!--        <a href="#" th:href="@{/admin/censorship/input}" class=" item">新增</a>-->
+<!--        <a href="#" th:href="@{/admin/censorship}" class="teal active item">列表</a>-->
 <!--      </div>-->
 <!--    </div>-->
 <!--  </div>-->
@@ -36,12 +36,12 @@
           </tr>
           </thead>
           <tbody>
-          <tr th:each="tag, iterStat : ${pageInfo.list}">
+          <tr th:each="censorship, iterStat : ${pageInfo.list}">
             <td th:text="${iterStat.count}">1</td>
-            <td th:text="${tag.name}">摸鱼方法</td>
+            <td th:text="${censorship.word}">摸鱼方法</td>
             <td>
-              <a href="#" th:href="@{/admin/tags/{id}/input(id=${tag.id})}" class="ui mini teal basic button">编辑</a>
-              <a href="#" th:href="@{/admin/tags/{id}/delete(id=${tag.id})}" class="ui mini red basic button">删除</a>
+              <a href="#" th:href="@{/admin/censorships/{id}/input(id=${censorship.id})}" class="ui mini teal basic button">编辑</a>
+              <a href="#" th:href="@{/admin/censorships/{id}/delete(id=${censorship.id})}" class="ui mini red basic button">删除</a>
             </td>
           </tr>
           </tbody>
@@ -49,12 +49,12 @@
           <tr>
             <th colspan="7">
               <div class="ui mini pagination menu"  >
-                <div class="item"><a th:href="@{/admin/tags}">首页</a></div>
-                <div class="item"><a th:href="@{/admin/tags(pagenum=${pageInfo.hasPreviousPage}?${pageInfo.prePage}:1)}">上一页</a></div>
-                <div class="item"><a th:href="@{/admin/tags(pagenum=${pageInfo.hasNextPage}?${pageInfo.nextPage}:${pageInfo.pages})}">下一页</a></div>
-                <div class="item"><a th:href="@{/admin/tags(pagenum=${pageInfo.pages})}">尾页</a></div>
+                <div class="item"><a th:href="@{/admin/censorships}">首页</a></div>
+                <div class="item"><a th:href="@{/admin/censorships(pagenum=${pageInfo.hasPreviousPage}?${pageInfo.prePage}:1)}">上一页</a></div>
+                <div class="item"><a th:href="@{/admin/censorships(pagenum=${pageInfo.hasNextPage}?${pageInfo.nextPage}:${pageInfo.pages})}">下一页</a></div>
+                <div class="item"><a th:href="@{/admin/censorships(pagenum=${pageInfo.pages})}">尾页</a></div>
               </div>
-              <a href="#" th:href="@{/admin/tags/input}" class="ui mini right floated teal basic button">新增</a>
+              <a href="#" th:href="@{/admin/censorships/input}" class="ui mini right floated teal basic button">新增</a>
             </th>
           </tr>
           </tfoot>
@@ -78,11 +78,11 @@
   <br>
   <br>
   <!--底部footer-->
-  <footer th:replace="admin/_fragments :: footer">
+  <footer th:replace="_fragments :: footer">
 
   </footer>
 
-  <th:block th:replace="admin/_fragments :: script">
+  <th:block th:replace="_fragments :: script">
 
   </th:block>
 

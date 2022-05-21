@@ -1,9 +1,9 @@
 package com.blog.controller.admin;
 
+import com.blog.controller.Constant;
 import com.blog.pojo.Censorship;
-import com.blog.pojo.Tag;
+import com.blog.pojo.User;
 import com.blog.service.CensorshipService;
-import com.blog.service.TagService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.checkerframework.checker.units.qual.A;
@@ -13,70 +13,122 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
 @RequestMapping("/admin")
 public class CensorshipController {
-
-    @Autowired
-    TagService tagService;
     @Autowired
     CensorshipService censorshipService;
 
 
-    @GetMapping("/censorship")
-    public String tags(@RequestParam(required = false,defaultValue = "1",value = "pagenum")int pagenum, Model model){
-        PageHelper.startPage(pagenum, 5);
-        List<Tag> allTag = tagService.getAllTag();
+    @GetMapping("/censorships")
+    public String censorships(@RequestParam(required = false,defaultValue = "1",value = "pagenum")int pagenum, Model model, HttpSession session){
+        User user = (User) session.getAttribute("user");
+        //用户为空，跳转到登录页面
+        if(user == null){
+            return "redirect:/login";
+        }
+        //用户没权限，跳转REJECT
+        if(user.getStatus() != 1000){
+            return Constant.REJECT;
+        }
+        PageHelper.startPage(pagenum, 10);
+        List<Censorship> all = censorshipService.getAll();
         //得到分页结果对象
-        PageInfo<Tag> pageInfo = new PageInfo<>(allTag);
+        PageInfo<Censorship> pageInfo = new PageInfo<>(all);
         model.addAttribute("pageInfo", pageInfo);
-        return "admin/tags";
+        return "admin/censors";
     }
 
-    @GetMapping("/censorship/input")
-    public String toAddTag(Model model){
-        model.addAttribute("tag", new Tag());   //返回一个tag对象给前端th:object
+    @GetMapping("/censorships/input")
+    public String toAddCensorship(Model model, HttpSession session){
+        User user = (User) session.getAttribute("user");
+        //用户为空，跳转到登录页面
+        if(user == null){
+            return "redirect:/login";
+        }
+        //用户没权限，跳转REJECT
+        if(user.getStatus() != 1000){
+            return Constant.REJECT;
+        }
+        model.addAttribute("censorship", new Censorship());   //返回一个tag对象给前端th:object
         return "admin/censors-input";
     }
 
     @GetMapping("/censorships/{id}/input")
-    public String toEditTag(@PathVariable Long id, Model model){
-        model.addAttribute("tag", tagService.getTag(id));
+    public String toEditCensorship(@PathVariable int id, Model model, HttpSession session){
+        User user = (User) session.getAttribute("user");
+        //用户为空，跳转到登录页面
+        if(user == null){
+            return "redirect:/login";
+        }
+        //用户没权限，跳转REJECT
+        if(user.getStatus() != 1000){
+            return Constant.REJECT;
+        }
+        model.addAttribute("censorship", censorshipService.getById(id));
         return "admin/censors-input";
     }
 
     @PostMapping("/censorships")
-    public String addTag(Tag tag, RedirectAttributes attributes){   //新增
-        Tag t = tagService.getTagByName(tag.getName());
+    public String addCensorship(Censorship censorship, RedirectAttributes attributes, HttpSession session){   //新增
+        User user = (User) session.getAttribute("user");
+        //用户为空，跳转到登录页面
+        if(user == null){
+            return "redirect:/login";
+        }
+        //用户没权限，跳转REJECT
+        if(user.getStatus() != 1000){
+            return Constant.REJECT;
+        }
+        Censorship t = censorshipService.getByWord(censorship.getWord());
         if(t != null){
             attributes.addFlashAttribute("msg", "不能添加重复的标签");
-            return "redirect:/admin/tags/input";
+            return "redirect:/admin/censorships/input";
         }else {
             attributes.addFlashAttribute("msg", "添加成功");
         }
-        tagService.saveTag(tag);
-        return "redirect:/admin/tags";   //不能直接跳转到tags页面，否则不会显示tag数据(没经过tags方法)
+        censorshipService.add(censorship);
+        return "redirect:/admin/censorships";   //不能直接跳转到tags页面，否则不会显示tag数据(没经过tags方法)
     }
 
     @PostMapping("/censorships/{id}")
-    public String editTag(@PathVariable Long id, Tag tag, RedirectAttributes attributes){  //修改
-        Tag t = tagService.getTagByName(tag.getName());
+    public String editCensorship(@PathVariable int id, Censorship censorship, RedirectAttributes attributes, HttpSession session){  //修改
+        User user = (User) session.getAttribute("user");
+        //用户为空，跳转到登录页面
+        if(user == null){
+            return "redirect:/login";
+        }
+        //用户没权限，跳转REJECT
+        if(user.getStatus() != 1000){
+            return Constant.REJECT;
+        }
+        Censorship t = censorshipService.getByWord(censorship.getWord());
         if(t != null){
             attributes.addFlashAttribute("msg", "不能添加重复的标签");
-            return "redirect:/admin/censors/input";
+            return "redirect:/admin/censorships/input";
         }else {
             attributes.addFlashAttribute("msg", "修改成功");
         }
-        tagService.updateTag(tag);
-        return "redirect:/admin/censors";   //不能直接跳转到tags页面，否则不会显示tag数据(没经过tags方法)
+        censorshipService.update(censorship);
+        return "redirect:/admin/censorships";   //不能直接跳转到tags页面，否则不会显示tag数据(没经过tags方法)
     }
 
     @GetMapping("/censorships/{id}/delete")
-    public String delete(@PathVariable Long id, RedirectAttributes attributes){
-        tagService.deleteTag(id);
+    public String delete(@PathVariable int id, RedirectAttributes attributes, HttpSession session){
+        User user = (User) session.getAttribute("user");
+        //用户为空，跳转到登录页面
+        if(user == null){
+            return "redirect:/login";
+        }
+        //用户没权限，跳转REJECT
+        if(user.getStatus() != 1000){
+            return Constant.REJECT;
+        }
+        censorshipService.delete(id);
         attributes.addFlashAttribute("msg", "删除成功");
-        return "redirect:/admin/censots";
+        return "redirect:/admin/censorships";
     }
 }

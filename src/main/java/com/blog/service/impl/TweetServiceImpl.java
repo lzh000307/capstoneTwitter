@@ -2,11 +2,10 @@ package com.blog.service.impl;
 
 import com.blog.dao.TweetDao;
 import com.blog.exception.NotFoundException;
-import com.blog.pojo.Blog;
-import com.blog.pojo.BlogAndTag;
-import com.blog.pojo.Tag;
-import com.blog.pojo.Tweet;
+import com.blog.pojo.*;
+import com.blog.service.CensorshipService;
 import com.blog.service.TweetService;
+import com.blog.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +17,10 @@ public class TweetServiceImpl implements TweetService {
 
     @Autowired
     private TweetDao tweetDao;
+    @Autowired
+    private UserService userService;
+    @Autowired
+    private CensorshipService censorshipService; // 屏蔽词服务
 
     @Override
     public Tweet getTweet(Long id) {
@@ -77,6 +80,38 @@ public class TweetServiceImpl implements TweetService {
     }
 
     @Override
+    public void censorshipAPI(Censorship censorship) {
+        List<Tweet> tweets = tweetDao.getAllTweet();
+        String word = censorship.getWord();
+        Integer status = censorship.getId() + 4000;
+        //查找所有包含该词的推文
+        for (Tweet tweet : tweets) {
+            if(tweet.getContent().contains(word)||tweet.getTitle().contains(word)){
+                tweet.setStatus(status);
+                tweetDao.update(tweet);
+            }
+        }
+    }
+
+    @Override
+    public void removeCensorship(int id) {
+        Integer status = id + 4000;
+        List<Tweet> tweets = tweetDao.queryByStatus(id+4000);
+        //恢复推文
+        for (Tweet tweet : tweets) {
+            tweet.setStatus(userService.findById(tweet.getUserId()).getStatus());
+            //反查有无其他敏感词
+            int newStatus = censorshipService.censor(tweet.getContent() + " " + tweet.getTitle());
+            if(newStatus>0){
+                newStatus = newStatus + 4000;
+                tweet.setStatus(newStatus);
+            }
+            //更新推文
+            tweetDao.update(tweet);
+        }
+    }
+
+    @Override
     public List<Tweet> getAllTweet() {
         return tweetDao.getAllTweet();
     }
@@ -86,12 +121,27 @@ public class TweetServiceImpl implements TweetService {
         tweet.setCreateTime(new Date());
         tweet.setUpdateTime(new Date());
         tweet.setViews(0);
+        //敏感词审查
+        int status = censorshipService.censor(tweet.getContent() + " " + tweet.getTitle());
+        if(status>0){
+            status = status + 4000;
+            tweet.setStatus(status);
+        }
         //保存博客
         tweetDao.insert(tweet);
     }
 
     @Override
     public void updateTweet(Tweet tweet) {
+        //敏感词审查
+        int status = censorshipService.censor(tweet.getContent() + " " + tweet.getTitle());
+        if(status>0){
+            status = status + 4000;
+            tweet.setStatus(status);
+        }else{
+            //没有发现关键词
+            tweet.setStatus(userService.findById(tweet.getUserId()).getStatus());
+        }
         tweetDao.update(tweet);
     }
 

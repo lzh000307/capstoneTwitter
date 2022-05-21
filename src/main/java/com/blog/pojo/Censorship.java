@@ -1,16 +1,20 @@
 package com.blog.pojo;
 
-public class Censorship {
+import java.io.Serializable;
+
+/**
+ * (Censorship)实体类
+ *
+ * @author makejava
+ * @since 2022-05-21 17:17:06
+ */
+public class Censorship implements Serializable {
+//    private static final long serialVersionUID = -67015027883877866L;
+    
     private Integer id;
+    
     private String word;
 
-    @Override
-    public String toString() {
-        return "Censorship{" +
-                "id=" + id +
-                ", word='" + word + '\'' +
-                '}';
-    }
 
     public Integer getId() {
         return id;
@@ -27,4 +31,5 @@ public class Censorship {
     public void setWord(String word) {
         this.word = word;
     }
+
 }

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="admin/_fragments :: head(~{::title})">
-  <title>标签新增</title>
+<head th:replace="_fragments :: head(~{::title})">
+  <title>敏感词新增</title>
 </head>
 
 <body>
@@ -24,12 +24,12 @@
   <!--中间内容-->
   <div  class="m-container m-padded-tb-big">
     <div class="ui container">                         <!--如果没id，则进行新增，若有id，则进行更新-->
-      <form action="#" th:object="${tag}" th:action="*{id}==null ? @{/admin/tags} : @{/admin/tags/{id}(id=*{id})}" method="post" class="ui form">
+      <form action="#" enctype="multipart/form-data" th:object="${censorship}" th:action="*{id}==null ? @{/admin/censorships} : @{/admin/censorships/{id}(id=*{id})}" method="post" class="ui form">
         <input type="hidden" name="id" th:value="*{id}">
         <div class="required field">
           <div class="ui left labeled input">
-            <label class="ui teal basic label">名称</label>
-            <input type="text" name="name"  placeholder="标签名称" th:value="*{name}">
+            <label class="ui teal basic label">敏感词</label>
+            <input type="text" name="word"  placeholder="敏感词" th:value="*{word}">
           </div>
         </div>
 
@@ -60,11 +60,11 @@
   <br>
   <br>
   <!--底部footer-->
-  <footer th:replace="admin/_fragments :: footer" >
+  <footer th:replace="_fragments :: footer" >
     
   </footer>
 
-  <th:block th:replace="admin/_fragments :: script">
+  <th:block th:replace="_fragments :: script">
 
   </th:block>
 
@@ -82,7 +82,7 @@
     $('.ui.form').form({
       fields : {
         title : {
-          identifier: 'name',
+          identifier: 'word',
           rules: [{
             type : 'empty',
             prompt: '请输入标签名称'

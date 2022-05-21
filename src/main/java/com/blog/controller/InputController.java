@@ -124,7 +124,8 @@ public class InputController {
         //处理上传图片，这个时候Tweet里一定有ID
         List<String> fileUrls = new ArrayList<>();
         try {
-            if(null != files){
+            //坑：会传回来空值，并不是null值
+            if(!files[0].isEmpty()){
                 List<String> upload = minioUtilS.upload(files);
                 //清空图片
                 tweetImgService.deleteByTweetId(tweet.getId());
@@ -145,7 +146,7 @@ public class InputController {
 //                tweetService.updateTweet(tweet);
             }
             //处理上传视频
-            if(null != video){
+            if(!video.isEmpty()){
                 MultipartFile[] videos = new MultipartFile[1];
                 videos[0] = video;
                 List<String> uploadVideo = minioUtilS.upload(videos);

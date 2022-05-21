@@ -27,41 +27,6 @@
     <div class="ui container">
 
       <div  class="ui secondary segment form">
-        <!--查询表单需要是form提交数据-->
-<!--        <form th:action="@{/admin/blogs/search}" method="post" class="ui segment form">-->
-
-          <!--fields代表一个区域,inline缩短区域的效果-->
-<!--        <div class="inline fields">-->
-<!--          <div class="field">-->
-<!--            <input type="text" name="title" placeholder="标题">-->
-<!--          </div>-->
-<!--          <div class="field">-->
-<!--            &lt;!&ndash;dropdown是下拉框效果&ndash;&gt;-->
-<!--            <div class="ui labeled action input">-->
-<!--              <div class="ui type selection dropdown">-->
-<!--                <input type="hidden" name="typeId">-->
-<!--                <i class="dropdown icon"></i>-->
-<!--                <div class="default text">分类</div>-->
-<!--                &lt;!&ndash;menu是菜单&ndash;&gt;-->
-<!--                <div class="menu">-->
-<!--                  <div  th:each="type : ${types}" th:data-value="${type.id}" th:text="${type.name}" class="item" data-value="1"  >错误日志</div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--              <button id="clear-btn" class="ui compact button">clear</button>-->
-<!--            </div>-->
-
-<!--          </div>-->
-<!--          <div class="field">-->
-<!--            <div class="ui checkbox">-->
-<!--              <input type="checkbox" id="recommend" name="recommend">-->
-<!--              <label for="recommend">推荐</label>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="field">-->
-<!--            <button  type="button" id="search-btn" class="ui mini teal basic button"><i class="search icon"></i>搜索</button>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        </form>-->
 
       <div id="table-container">
         <table th:fragment="tweetList" class="ui compact teal table">
@@ -69,8 +34,8 @@
           <tr>
             <th></th>
             <th>标题</th>
-<!--            <th>类型</th>-->
             <th>评论</th>
+            <th>权限</th>
             <th>状态</th>
             <th>更新时间</th>
             <th>操作</th>
@@ -87,6 +52,7 @@
 <!--            <td th:text="${tweet.type.name}">认知升级</td>-->
             <td th:text="${tweet.commentable} ? '可评论':'不可评论'">是</td>
             <td th:text="${tweet.published} ? '所有人可见':'仅自己可见'">发布</td>
+            <td th:text="${tweet.status<2000} ? '正常':'触发敏感词屏蔽'">发布</td>
             <td th:text="${#dates.format(tweet.updateTime,'yyyy-MM-dd')}">2020-3-02</td>
             <td>
               <a href="#" th:href="@{/tweet/{id}/edit(id=${tweet.id})}" class="ui mini teal basic button">编辑</a>

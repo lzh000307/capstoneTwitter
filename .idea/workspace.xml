@@ -5,17 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="08ebf5d0-8ae2-4bb1-9acc-7568cc9c269a" name="Default Changelist" comment="新增上传视频功能">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/blog/service/impl/CensorshipImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/CensorshipDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/usermanagebak.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log/blog-dev.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/blog-dev.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/controller/UserCollectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/UserCollectionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/controller/InputController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/InputController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/controller/TweetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/TweetController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/controller/TypeShowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/legacy/TypeShowController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/controller/admin/CensorshipController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/admin/CensorshipController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/controller/admin/TagController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/admin/TagController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/dao/CensorshipDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/dao/CensorshipDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/dao/CommentDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/dao/CommentDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/dao/TweetDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/dao/TweetDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/pojo/Censorship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/pojo/Censorship.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/service/CensorshipService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/service/CensorshipService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/blog.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/blog.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/changepassword.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/changepassword.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/service/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/service/CommentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/service/TweetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/service/TweetService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/service/impl/CensorshipImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/service/impl/CensorshipImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/service/impl/CommentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/service/impl/CommentServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/blog/service/impl/TweetServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/blog/service/impl/TweetServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/censors-input.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/censors-input.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/censors.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/censors.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/tags-input.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/tags-input.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/tags.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/tags.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/usermanage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/usermanage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/usercenter.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/usercenter.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/usercenter/tweets.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/usercenter/tweets.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/usercollections.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/usercollections.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -102,7 +118,7 @@
     "RequestMappingsPanelWidth0": "75",
     "RequestMappingsPanelWidth1": "75",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/elvislin/Documents/IDEA_PROJECT/capstoneTwitter/src/main/resources/templates/admin",
+    "last_opened_file_path": "/Users/elvislin/Documents/IDEA_PROJECT/capstoneTwitter/src/main/resources/mapper",
     "spring.configuration.checksum": "6cc4b1e97a4186012ae1beb7b57c8b01",
     "vue.rearranger.settings.migration": "true"
   }
@@ -112,11 +128,11 @@
       <recent name="com.blog.util" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/mapper" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates/admin" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates/usercenter" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates/error" />
-      <recent name="$PROJECT_DIR$/src/main/resources/templates/user" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/templates/Legacy" />
@@ -124,11 +140,11 @@
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.blog.pojo" />
+      <recent name="com.blog.dao" />
       <recent name="com.blog.controller.admin" />
       <recent name="com.blog.controller.UserCenter" />
       <recent name="com.blog.service.impl" />
-      <recent name="com.blog.service" />
-      <recent name="com.blog.pojo" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.BlogApplication">
@@ -315,7 +331,7 @@
       <workItem from="1652935586596" duration="15179000" />
       <workItem from="1652978333941" duration="347000" />
       <workItem from="1653013341989" duration="17128000" />
-      <workItem from="1653106361406" duration="6930000" />
+      <workItem from="1653106361406" duration="19570000" />
     </task>
     <task id="LOCAL-00001" summary="update md5">
       <created>1584841437407</created>
@@ -478,7 +494,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653110346796</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="新增上传视频功能">
+      <created>1653119896331</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1653119896331</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -575,10 +598,11 @@
     <watches-manager>
       <configuration name="SpringBootApplicationConfigurationType">
         <watch expression="commentFrontEnds.get(9).replyComments.get(1)" />
+        <watch expression="user" />
       </configuration>
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/capstoneTwitter$BlogApplication.ic" NAME="BlogApplication Coverage Results" MODIFIED="1652971519276" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/capstoneTwitter$BlogApplication.ic" NAME="BlogApplication Coverage Results" MODIFIED="1653124240602" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

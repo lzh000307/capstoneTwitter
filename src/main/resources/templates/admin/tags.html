@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="admin/_fragments :: head(~{::title})">
+<head th:replace="_fragments :: head(~{::title})">
   <title>话题管理</title>
 </head>
 
@@ -78,11 +78,11 @@
   <br>
   <br>
   <!--底部footer-->
-  <footer th:replace="admin/_fragments :: footer">
+  <footer th:replace="_fragments :: footer">
 
   </footer>
 
-  <th:block th:replace="admin/_fragments :: script">
+  <th:block th:replace="_fragments :: script">
 
   </th:block>
 

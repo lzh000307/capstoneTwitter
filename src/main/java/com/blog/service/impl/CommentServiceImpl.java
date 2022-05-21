@@ -2,8 +2,13 @@ package com.blog.service.impl;
 
 import com.blog.dao.BlogDao;
 import com.blog.dao.CommentDao;
+import com.blog.pojo.Censorship;
 import com.blog.pojo.Comment;
+import com.blog.pojo.Tweet;
+import com.blog.service.CensorshipService;
 import com.blog.service.CommentService;
+import com.blog.service.UserService;
+import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,9 +20,10 @@ public class CommentServiceImpl implements CommentService {
 
     @Autowired
     private CommentDao commentDao;
-
     @Autowired
-    private BlogDao blogDao;
+    private CensorshipService censorshipService; // 评论审核
+    @Autowired
+    private UserService userService;
 
     /**
      * 查询主评论
@@ -59,15 +65,46 @@ public class CommentServiceImpl implements CommentService {
 //        Long parentCommentId = comment.getParentCommentId();
         comment.setCreateTime(new Date());
         //没有父级评论默认是-1
-//        if (parentCommentId != -1) {
-//            //有父级评论
-//            comment.setParentComment(commentDao.findByParentCommentId(comment.getParentCommentId()));
-//        } else {
-//            //没有父级评论
-//            comment.setParentCommentId((long) -1);
-//            comment.setParentComment(null);
-//        }
+        //检测敏感词
+        int status = censorshipService.censor(comment.getContent());
+        if(status > 0){
+            status = status + 4000;
+            comment.setStatus(status);
+            return commentDao.insert(comment);
+        }
         return commentDao.insert(comment);
+    }
+
+    @Override
+    public void censorshipAPI(Censorship censorship) {
+        List<Comment> comments = commentDao.getAll();
+        String word = censorship.getWord();
+        Integer status = censorship.getId() + 4000;
+        //查找所有包含该词的推文
+        for (Comment comment : comments) {
+            if(comment.getContent().contains(word)){
+                comment.setStatus(status);
+                commentDao.update(comment);
+            }
+        }
+    }
+
+    @Override
+    public void removeCensorship(int id) {
+        Integer status = id + 4000;
+        List<Comment> comments = commentDao.queryByStatus(id+4000);
+        //恢复推文
+        for (Comment comment : comments) {
+            comment.setStatus(userService.findById(comment.getUserId()).getStatus());
+            //反查有无其他敏感词
+            int newStatus = censorshipService.censor(comment.getContent());
+            if(newStatus>0){
+                newStatus = newStatus + 4000;
+                comment.setStatus(newStatus);
+            }
+            //更新推文
+            commentDao.update(comment);
+        }
     }
 
 }
