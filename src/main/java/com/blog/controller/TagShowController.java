@@ -36,7 +36,7 @@ public class TagShowController {
     @GetMapping("/tags/{id}")
     public String types(@PathVariable Long id, @RequestParam(required = false,defaultValue = "1",value = "pagenum")int pagenum,
                         Model model){
-        PageHelper.startPage(pagenum, 100);  //开启分页
+//        PageHelper.startPage(pagenum, 100);  //开启分页
         List<Tag> tags = tagService.getAllTag(); //获取所有标签
         //-1从导航点过来的
         if (id == -1){

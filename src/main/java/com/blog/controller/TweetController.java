@@ -122,10 +122,10 @@ public class TweetController {
     @GetMapping("/{id}")
     public String surfTweet(@PathVariable Long id, Model model, HttpSession session){
         User user = (User) session.getAttribute("user");
-        //判断是否被屏蔽
+        //判断是否被屏蔽，以及是否仅自己可见
         Tweet tweet = tweetService.getTweet(id);
         Integer status = tweet.getStatus();
-        if(status > 2000){
+        if(status > 2000 || tweet.isPublished()==false){
             if(user == null || !user.getId().equals(tweet.getUserId())){
                 return Constant.REJECT;
             }

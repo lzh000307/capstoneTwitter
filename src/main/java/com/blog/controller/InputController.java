@@ -100,13 +100,12 @@ public class InputController {
     }
 
     @PostMapping("/") //新增、编辑博客
-    public String addTweet(@RequestParam("files") MultipartFile[] files, @RequestParam("video") MultipartFile video, TweetForm tweetForm, HttpSession session, RedirectAttributes attributes, Model model){
+    public String addTweet(@RequestParam("files") MultipartFile[] files, @RequestParam("video") MultipartFile video, Tweet tweet, HttpSession session, RedirectAttributes attributes, Model model){
         //设置user属性
         User user = (User) session.getAttribute("user"); //获取session中的user
         if(user.getId()==null){
             return "redirect:/login";
         }
-        Tweet tweet = (Tweet) tweetForm;
         //设置用户id
         tweet.setUserId(user.getId());
         //设置权限类别
