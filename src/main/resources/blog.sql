@@ -25,7 +25,7 @@ CREATE TABLE `t_blog`  (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `content` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
-  `first_picture` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `first_picture` varchar(512) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `flag` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `views` int(11) NULL DEFAULT NULL,
   `appreciation` int(11) NOT NULL DEFAULT 0,
@@ -295,6 +295,6 @@ DROP TABLE IF EXISTS `tweet_img`;       /* 推文图片URL */
 CREATE TABLE `tweet_img`(
     `id` bigint NOT NULL AUTO_INCREMENT primary key ,      /*有可能有前后顺序的关系*/
     `tweet_id` bigint(20) NULL DEFAULT NULL,
-    `img_url` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL
+    `img_url` varchar(512) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL
 ) ENGINE = InnoDB ROW_FORMAT = Compact AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
 

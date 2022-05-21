@@ -40,13 +40,13 @@ public class UserCollectionController {
     }
 
     @GetMapping("/tweets")  //显示自己的推文列表
-    public String tweetsManagement(@RequestParam(required = false,defaultValue = "1",value = "pagenum")int pagenum, Model model, HttpSession session){
+    public String tweetsManagement(/*@RequestParam(required = false,defaultValue = "1",value = "pagenum")int pagenum, */Model model, HttpSession session){
         User user = (User) session.getAttribute("user");
         if(user == null){
             return "redirect:/login";
         }
-        PageHelper.startPage(pagenum, 8);
         List<Tweet> allTweet = tweetService.getTweetsByUserId(user.getId());
+//        PageHelper.startPage(pagenum, 8);
         //得到分页结果对象
         PageInfo pageInfo = new PageInfo(allTweet);
         model.addAttribute("pageInfo", pageInfo);

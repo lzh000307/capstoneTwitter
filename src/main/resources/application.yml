@@ -6,8 +6,8 @@ spring:            #全局配置
   servlet:
     multipart:
       location: /Users/elvislin/Documents/temp
-      max-file-size: 100MB
-      max-request-size: 100MB
+      max-file-size: 1024MB
+      max-request-size: 1024MB
 
 minio:
   endpoint: http://127.0.0.1:9000

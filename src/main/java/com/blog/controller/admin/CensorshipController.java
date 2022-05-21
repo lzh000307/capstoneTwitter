@@ -1,9 +1,12 @@
 package com.blog.controller.admin;
 
+import com.blog.pojo.Censorship;
 import com.blog.pojo.Tag;
+import com.blog.service.CensorshipService;
 import com.blog.service.TagService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +21,9 @@ public class CensorshipController {
 
     @Autowired
     TagService tagService;
+    @Autowired
+    CensorshipService censorshipService;
+
 
     @GetMapping("/censorship")
     public String tags(@RequestParam(required = false,defaultValue = "1",value = "pagenum")int pagenum, Model model){
