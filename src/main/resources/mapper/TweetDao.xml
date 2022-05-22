@@ -166,6 +166,7 @@
         select *
         from tweet
         where (title like #{pattern} or content like #{pattern}) and status &lt; 2000 and published = 1
+        order by update_time desc
     </select>
 
 <!--    select b.id, b.title, b.first_picture, b.views, b.update_time, b.content, b.likes, b.status, b.user_id-->

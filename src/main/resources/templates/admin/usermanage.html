@@ -8,35 +8,12 @@
 <body>
 
   <!--头部导航-->
-  <nav th:replace="_fragments :: menu(8)">
-<!--  <nav th:replace="_fragments :: menu(4)">-->
-
-  </nav>
-
-<!--  <div class="ui attached pointing menu">-->
-<!--    <div class="ui container">-->
-<!--      <div class="right menu">-->
-<!--        <a href="#" th:href="@{/admin/blogs/input}" class=" item">发布</a>-->
-<!--        <a href="#" th:href="@{/admin/blogs}" class="teal active item">列表</a>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-
+  <nav th:replace="_fragments :: menu(8)"></nav>
 
   <!--中间内容-->
   <div  class="m-container m-padded-tb-big">
 
     <div class="ui container">
-<!--      <div class="three column">-->
-<!--        <div class="ui vertical pointing menu">-->
-<!--          <a class="item active" href="#" th:href="@{/user/center}"><i class=" home icon"></i>个人资料</a>-->
-<!--          <a class="item" href="#" th:href="@{/user/collections}" ><i class="star icon"></i>我的收藏</a>-->
-<!--          <a class="item" href="#" th:href="@{/user/changepasswd}"><i class="lock icon"></i>更改密码</a>-->
-<!--          <a class="item" href="#" th:if="${session.user.status==1000}" th:href="@{/admin/usermanage}"><i class="lock icon"></i>用户管理</a>-->
-<!--          <a class="item" href="#" th:if="${session.user.status==1000}" th:href="@{/admin/tags}"><i class="lock icon"></i>话题管理</a>-->
-<!--          <a class="item" href="#" th:if="${session.user.status==1000}" th:href="@{/admin/tags}"><i class="lock icon"></i>敏感词审查</a>-->
-<!--        </div>-->
-<!--      </div>-->
       <div id="table-container">
         <table th:fragment="tweetList" class="ui table">
           <thead>

@@ -48,34 +48,6 @@ public class TweetController {
     public void setTag(Model model) {
         model.addAttribute("tags", tagService.getAllTag());
     }
-
-//    @GetMapping("/list")  //显示列表
-//    public String showTweetList(@RequestParam(required = false,defaultValue = "1",value = "pagenum")int pagenum, Model model, HttpSession session){
-//        User user = (User) session.getAttribute("user");
-//        if(user == null){
-//            return REJECT;
-//        }
-//        PageHelper.startPage(pagenum, 8);
-//        List<Tweet> tweets = tweetService.getTweetsByUserId(user.getId());
-//        //得到分页结果对象
-//        PageInfo pageInfo = new PageInfo(tweets);
-//        model.addAttribute("pageInfo", pageInfo);
-//        setTag(model);  //查询类型和标签
-//        return "tweets2";
-//    }
-
-//    @PostMapping("/search")  //按条件查询博客
-//    public String searchTweets(Tweet tweet, @RequestParam(required = false,defaultValue = "1",value = "pagenum")int pagenum, Model model){
-//        PageHelper.startPage(pagenum, 8);
-//        List<Tweet> Tweets = tweetService.searchAllTweet(tweet);
-//        //得到分页结果对象
-//        PageInfo pageInfo = new PageInfo(Tweets);
-//        model.addAttribute("pageInfo", pageInfo);
-//        model.addAttribute("message", "查询成功");
-//        setTag(model);
-//        return "tweets";
-//    }
-
     @GetMapping("/likes/{id}")
     public String likes(@PathVariable Long id, HttpSession session){
         User user = (User) session.getAttribute("user");
