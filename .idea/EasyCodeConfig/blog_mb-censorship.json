@@ -1,0 +1,27 @@
+{
+  "name" : "Censorship",
+  "originTableName" : "censorship",
+  "comment" : null,
+  "fullColumn" : [ {
+    "name" : "id",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "ktShortType" : "Int",
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "word",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "ktShortType" : "String",
+    "custom" : false,
+    "ext" : { }
+  } ],
+  "pkColumn" : null,
+  "otherColumn" : null,
+  "savePackageName" : "com.blog.pojo",
+  "savePath" : "./src/main/java/com/blog/pojo",
+  "saveModelName" : "CapstoneTwitter"
+}

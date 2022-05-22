@@ -19,6 +19,11 @@
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>cn.hutool</groupId>
+			<artifactId>hutool-all</artifactId>
+			<version>5.3.8</version>
+		</dependency>
 		<!--这三个jar包作用是将markdown格式转成html格式-->
 		<dependency>
 			<groupId>com.atlassian.commonmark</groupId>

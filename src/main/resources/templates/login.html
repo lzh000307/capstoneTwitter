@@ -33,6 +33,13 @@
                                 <input type="password" name="password" placeholder="密码">
                             </div>
                         </div>
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="privacy icon"></i>
+                                <input type="text" placeholder="验证码" id="code" name="code">
+                                <img src="/login/getCode" id="captchaPic" style="width:100px;height:40px;" class="mr-2" onclick="refresh()"/>
+                            </div>
+                        </div>
                         <button class="ui fluid large teal submit button">登   录</button>
                     </div>
 

@@ -25,13 +25,9 @@ public class CommentController {
     @Autowired
     UserService userService;
 
-    @Value("${comment.avatar}")
-    private String avatar;
-
     @GetMapping("/comments/{tweetId}")  //展示留言
     public String comments(@PathVariable Long tweetId, Model model){
         model.addAttribute("comments", commentFrontEndService.passToFront(tweetId));
-//        model.addAttribute("blog", blogService.getDetailedBlog(blogId));
         return "tweet :: commentList";
     }
 

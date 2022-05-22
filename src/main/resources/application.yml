@@ -14,5 +14,3 @@ minio:
   accessKey: minioadmin
   secretKey: minioadmin
   bucketName: twitter
-
-comment.avatar: /images/avatar.jpg
