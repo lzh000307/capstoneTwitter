@@ -28,16 +28,7 @@ public class UserManageController {
     private UserService userService;
 
     @GetMapping("/usermanage")  //显示自己的收藏列表
-    public String userManagement(@RequestParam(required = false,defaultValue = "1",value = "pagenum")int pagenum, Model model, HttpSession session){
-        User user = (User) session.getAttribute("user");
-        //用户为空，跳转到登录页面
-        if(user == null){
-            return "redirect:/login";
-        }
-        //用户没权限，跳转REJECT
-        if(user.getStatus() != 1000){
-            return REJECT;
-        }
+    public String userManagement(@RequestParam(required = false,defaultValue = "1",value = "pagenum")int pagenum, Model model){
         PageHelper.startPage(pagenum, 8);
         //取得用户列表
         List<User> users = userService.getAllUser();
@@ -48,16 +39,7 @@ public class UserManageController {
     }
 
     @GetMapping("/ban/{id}")  //显示自己的收藏列表
-    public String banUser(@PathVariable Long id, HttpSession session){
-        User user = (User) session.getAttribute("user");
-        //用户为空，跳转到登录页面
-        if(user == null){
-            return "redirect:/login";
-        }
-        //用户没权限，跳转REJECT
-        if(user.getStatus() != 1000){
-            return REJECT;
-        }
+    public String banUser(@PathVariable Long id){
         if(!userService.findById(id).getStatus().equals(BAN)) {
             userService.setStatus(id, BAN);
         }else{
@@ -67,16 +49,7 @@ public class UserManageController {
     }
 
     @GetMapping("/censor/{id}")  //显示自己的收藏列表
-    public String censorUserTweets(@PathVariable Long id, HttpSession session){
-        User user = (User) session.getAttribute("user");
-        //用户为空，跳转到登录页面
-        if(user == null){
-            return "redirect:/login";
-        }
-        //用户没权限，跳转REJECT
-        if(user.getStatus() != 1000){
-            return REJECT;
-        }
+    public String censorUserTweets(@PathVariable Long id){
         if(!userService.findById(id).getStatus().equals(CENSOR)) {
             userService.setStatus(id, CENSOR);
         }else{

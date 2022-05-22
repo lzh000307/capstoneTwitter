@@ -24,16 +24,7 @@ public class CensorshipController {
 
 
     @GetMapping("/censorships")
-    public String censorships(@RequestParam(required = false,defaultValue = "1",value = "pagenum")int pagenum, Model model, HttpSession session){
-        User user = (User) session.getAttribute("user");
-        //用户为空，跳转到登录页面
-        if(user == null){
-            return "redirect:/login";
-        }
-        //用户没权限，跳转REJECT
-        if(user.getStatus() != 1000){
-            return Constant.REJECT;
-        }
+    public String censorships(@RequestParam(required = false,defaultValue = "1",value = "pagenum")int pagenum, Model model){
         PageHelper.startPage(pagenum, 10);
         List<Censorship> all = censorshipService.getAll();
         //得到分页结果对象
@@ -43,46 +34,19 @@ public class CensorshipController {
     }
 
     @GetMapping("/censorships/input")
-    public String toAddCensorship(Model model, HttpSession session){
-        User user = (User) session.getAttribute("user");
-        //用户为空，跳转到登录页面
-        if(user == null){
-            return "redirect:/login";
-        }
-        //用户没权限，跳转REJECT
-        if(user.getStatus() != 1000){
-            return Constant.REJECT;
-        }
+    public String toAddCensorship(Model model){
         model.addAttribute("censorship", new Censorship());   //返回一个tag对象给前端th:object
         return "admin/censors-input";
     }
 
     @GetMapping("/censorships/{id}/input")
-    public String toEditCensorship(@PathVariable int id, Model model, HttpSession session){
-        User user = (User) session.getAttribute("user");
-        //用户为空，跳转到登录页面
-        if(user == null){
-            return "redirect:/login";
-        }
-        //用户没权限，跳转REJECT
-        if(user.getStatus() != 1000){
-            return Constant.REJECT;
-        }
+    public String toEditCensorship(@PathVariable int id, Model model){
         model.addAttribute("censorship", censorshipService.getById(id));
         return "admin/censors-input";
     }
 
     @PostMapping("/censorships")
-    public String addCensorship(Censorship censorship, RedirectAttributes attributes, HttpSession session){   //新增
-        User user = (User) session.getAttribute("user");
-        //用户为空，跳转到登录页面
-        if(user == null){
-            return "redirect:/login";
-        }
-        //用户没权限，跳转REJECT
-        if(user.getStatus() != 1000){
-            return Constant.REJECT;
-        }
+    public String addCensorship(Censorship censorship, RedirectAttributes attributes){   //新增
         Censorship t = censorshipService.getByWord(censorship.getWord());
         if(t != null){
             attributes.addFlashAttribute("msg", "不能添加重复的标签");
@@ -95,16 +59,7 @@ public class CensorshipController {
     }
 
     @PostMapping("/censorships/{id}")
-    public String editCensorship(@PathVariable int id, Censorship censorship, RedirectAttributes attributes, HttpSession session){  //修改
-        User user = (User) session.getAttribute("user");
-        //用户为空，跳转到登录页面
-        if(user == null){
-            return "redirect:/login";
-        }
-        //用户没权限，跳转REJECT
-        if(user.getStatus() != 1000){
-            return Constant.REJECT;
-        }
+    public String editCensorship(@PathVariable int id, Censorship censorship, RedirectAttributes attributes){  //修改
         Censorship t = censorshipService.getByWord(censorship.getWord());
         if(t != null){
             attributes.addFlashAttribute("msg", "不能添加重复的标签");
@@ -117,16 +72,7 @@ public class CensorshipController {
     }
 
     @GetMapping("/censorships/{id}/delete")
-    public String delete(@PathVariable int id, RedirectAttributes attributes, HttpSession session){
-        User user = (User) session.getAttribute("user");
-        //用户为空，跳转到登录页面
-        if(user == null){
-            return "redirect:/login";
-        }
-        //用户没权限，跳转REJECT
-        if(user.getStatus() != 1000){
-            return Constant.REJECT;
-        }
+    public String delete(@PathVariable int id, RedirectAttributes attributes){
         censorshipService.delete(id);
         attributes.addFlashAttribute("msg", "删除成功");
         return "redirect:/admin/censorships";

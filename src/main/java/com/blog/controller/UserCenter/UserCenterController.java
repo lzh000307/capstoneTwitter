@@ -10,17 +10,11 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 public class UserCenterController {
-    @Autowired
-    private UserService userService;
 
     @GetMapping("/user/center")
     public String userCenterPage(Model model, HttpSession session) {
         // 获取当前登录用户
         User user = (User) session.getAttribute("user");
-        //验证一下user是否为空
-        if(user == null) {
-            return "redirect:/login";
-        }
         //传回前端
         model.addAttribute("user", user);
         return "usercenter";
@@ -29,10 +23,6 @@ public class UserCenterController {
     public String userChangePasswd(Model model, HttpSession session) {
         // 获取当前登录用户
         User user = (User) session.getAttribute("user");
-        //验证一下user是否为空
-        if(user == null) {
-            return "redirect:/login";
-        }
         //传回前端
         model.addAttribute("user", user);
         return "changepassword";

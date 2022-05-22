@@ -45,11 +45,7 @@ public class CommentController {
     @PostMapping("/comments")   //提交留言
     public String post(Comment comment, HttpSession session){
         Long tweetId = comment.getTweetId();
-//        comment.setBlog(blogService.getDetailedBlog(blogId));  //绑定博客与评论
-//        comment.setBlogId(blogId);
         User user = (User) session.getAttribute("user");
-        //防止篡改？好像session不会被篡改草
-//        User user = userService.findById(temp.getId());
         System.out.println(comment);
         //校验一下有没有用户
         if (user != null){

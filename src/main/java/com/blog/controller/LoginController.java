@@ -32,7 +32,6 @@ public class LoginController {
             attributes.addFlashAttribute("msg", "用户名或密码错误");
             return "redirect:/login";
         }
-//        if(user != null){
         if(user.getStatus().equals(Constant.BAN)){
             attributes.addFlashAttribute("msg", "该用户已被封禁");
             return "redirect:/login";

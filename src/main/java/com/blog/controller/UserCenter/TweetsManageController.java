@@ -27,16 +27,12 @@ public class TweetsManageController {
     @Autowired
     private UserCollectionService userCollectionService;
     public void setTypeAndTag(Model model) {
-//        model.addAttribute("types", typeService.getAllType());
         model.addAttribute("tags", tagService.getAllTag());
     }
 
     @GetMapping("/tweets")  //显示自己的推文列表
     public String tweetsManagement(@RequestParam(required = false,defaultValue = "1",value = "pagenum")int pagenum, Model model, HttpSession session){
         User user = (User) session.getAttribute("user");
-        if(user == null){
-            return "redirect:/login";
-        }
         PageHelper.startPage(pagenum, 8);
         List<Tweet> allTweet = tweetService.getTweetsByUserId(user.getId());
         //得到分页结果对象
@@ -49,9 +45,6 @@ public class TweetsManageController {
     @GetMapping("/collections")  //显示自己的收藏列表
     public String collectionsManagement(@RequestParam(required = false,defaultValue = "1",value = "pagenum")int pagenum, Model model, HttpSession session){
         User user = (User) session.getAttribute("user");
-        if(user == null){
-            return "redirect:/login";
-        }
         PageHelper.startPage(pagenum, 10);
         //通过收藏列表得到推文列表
         List<Tweet> collectTweet = userCollectionService.getUserCollectionTweets(user.getId());
@@ -71,10 +64,6 @@ public class TweetsManageController {
     @GetMapping("/deleteCollection/{id}")
     public String deleteCollection(@PathVariable Long id, HttpSession session){
         User user = (User) session.getAttribute("user");
-        if (user == null) {
-            return "redirect:/login";
-        }
-        Tweet tweet = tweetService.getTweet(id);
         //如果已经收藏，则取消收藏
         if(userCollectionService.isUserCollection(user.getId(), id)){
             userCollectionService.deleteUserCollection(user.getId(), id);
