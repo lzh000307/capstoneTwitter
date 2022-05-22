@@ -1,8 +1,6 @@
 package com.blog.controller;
 
-import com.blog.controller.entity.TweetForm;
 import com.blog.controller.entity.TweetFrontEnd;
-import com.blog.pojo.Blog;
 import com.blog.pojo.Tweet;
 import com.blog.pojo.User;
 import com.blog.service.*;
@@ -36,8 +34,6 @@ public class TweetController {
     private Converter converter;
     @Autowired
     private TrendService trendService;
-    @Autowired
-    private TypeService typeService;
     @Autowired
     private LikeService likeService;
     @Autowired

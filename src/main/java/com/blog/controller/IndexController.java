@@ -1,10 +1,8 @@
 package com.blog.controller;
 
 import com.blog.controller.entity.TweetFrontEnd;
-import com.blog.pojo.Blog;
 import com.blog.pojo.Tag;
 import com.blog.pojo.Tweet;
-import com.blog.pojo.Type;
 import com.blog.service.*;
 import com.blog.util.TweetFrontEndConvector;
 import com.github.pagehelper.PageHelper;
@@ -55,7 +53,6 @@ public class IndexController {
                          @RequestParam String query, Model model){
 
         PageHelper.startPage(pagenum, 8);
-//        List<Blog> searchBlog = blogService.getSearchBlog(query);
         Tweet temp = new Tweet();
         temp.setContent(query);
         temp.setTitle(query);

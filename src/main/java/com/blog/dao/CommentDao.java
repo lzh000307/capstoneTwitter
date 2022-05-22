@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * (CommentLe)表数据库访问层
+ * (Comment)表数据库访问层
  *
  * @author makejava
  * @since 2022-05-18 15:50:33

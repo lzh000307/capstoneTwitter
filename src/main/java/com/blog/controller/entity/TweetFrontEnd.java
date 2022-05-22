@@ -22,8 +22,6 @@ public class TweetFrontEnd {
     //获取多个标签的id
     private List<Tweet> tweets = new ArrayList<>();
     private List<Tag> tags = new ArrayList<>();
-    private List<CommentLe> comments = new ArrayList<>();
-
     private List<String> imgUnits = new ArrayList<>();
     private Integer imgNum;
 
@@ -86,13 +84,5 @@ public class TweetFrontEnd {
 
     public void setTags(List<Tag> tags) {
         this.tags = tags;
-    }
-
-    public List<CommentLe> getComments() {
-        return comments;
-    }
-
-    public void setComments(List<CommentLe> comments) {
-        this.comments = comments;
     }
 }

@@ -1,15 +1,12 @@
 package com.blog.controller;
 
 import com.blog.controller.entity.TweetFrontEnd;
-import com.blog.pojo.Blog;
 import com.blog.pojo.Tag;
 import com.blog.pojo.Tweet;
-import com.blog.service.BlogService;
 import com.blog.service.TagService;
 import com.blog.service.TrendService;
 import com.blog.service.TweetService;
 import com.blog.util.TweetFrontEndConvector;
-import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -42,7 +39,6 @@ public class TagShowController {
         if (id == -1){
             id = tags.get(0).getId();
         }
-//        List<Blog> blogs = blogService.getByTagId(id);
         List<Long> trends = trendService.getTweetIdByTagId(id);
         List<Tweet> tweets = new ArrayList<>();
         for(Long trend : trends){

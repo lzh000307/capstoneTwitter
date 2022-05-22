@@ -23,8 +23,6 @@ public class User {
     private Date createTime;
     private Date updateTime;
 
-    private List<Blog> blogs = new ArrayList<>();
-
     @Override
     public String toString() {
         return "User{" +
@@ -38,7 +36,6 @@ public class User {
                 ", type=" + status +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
-                ", blogs=" + blogs +
                 '}';
     }
 
@@ -120,13 +117,5 @@ public class User {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
-    }
-
-    public List<Blog> getBlogs() {
-        return blogs;
-    }
-
-    public void setBlogs(List<Blog> blogs) {
-        this.blogs = blogs;
     }
 }

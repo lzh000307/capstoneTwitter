@@ -1,14 +1,11 @@
 package com.blog.service.impl;
 
-import com.blog.dao.BlogDao;
 import com.blog.dao.CommentDao;
 import com.blog.pojo.Censorship;
 import com.blog.pojo.Comment;
-import com.blog.pojo.Tweet;
 import com.blog.service.CensorshipService;
 import com.blog.service.CommentService;
 import com.blog.service.UserService;
-import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

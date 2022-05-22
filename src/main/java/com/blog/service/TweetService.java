@@ -1,6 +1,5 @@
 package com.blog.service;
 
-import com.blog.pojo.Blog;
 import com.blog.pojo.Censorship;
 import com.blog.pojo.Tweet;
 

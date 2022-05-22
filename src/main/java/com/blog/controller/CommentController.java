@@ -1,12 +1,8 @@
 package com.blog.controller;
 
-import com.blog.controller.entity.CommentFrontEnd;
-import com.blog.controller.entity.TweetFrontEnd;
 import com.blog.controller.service.CommentFrontEndService;
 import com.blog.pojo.Comment;
-import com.blog.pojo.CommentLe;
 import com.blog.pojo.User;
-import com.blog.service.BlogService;
 import com.blog.service.CommentService;
 import com.blog.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

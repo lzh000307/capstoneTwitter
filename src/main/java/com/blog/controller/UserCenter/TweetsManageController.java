@@ -1,6 +1,5 @@
 package com.blog.controller.UserCenter;
 
-import com.blog.pojo.Blog;
 import com.blog.pojo.Tweet;
 import com.blog.pojo.User;
 import com.blog.pojo.UserCollection;
