@@ -4,7 +4,6 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: Lin-200307
-
 pagehelper:                #分页插件
   helper-dialect: mysql
   reasonable: true

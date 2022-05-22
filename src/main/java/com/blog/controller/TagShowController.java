@@ -42,11 +42,15 @@ public class TagShowController {
         List<Long> trends = trendService.getTweetIdByTagId(id);
         List<Tweet> tweets = new ArrayList<>();
         for(Long trend : trends){
-            tweets.add(tweetService.getTweet(trend));
+            Tweet tweet = tweetService.getTweet(trend);
+            if(tweet.getStatus()>2000||!tweet.isPublished()){
+                continue;
+            }
+            tweets.add(tweet);
         }
         List<TweetFrontEnd> tweetfe = new ArrayList<>();
         for (Tweet tweet : tweets) {
-            System.out.println(tweets);
+//            System.out.println(tweets);
             tweetfe.add(tweetFrontEndConvector.convertToTweetFrontEnd(tweet));
         }
         PageInfo<TweetFrontEnd> pageInfo = new PageInfo<>(tweetfe);

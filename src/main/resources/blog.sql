@@ -178,22 +178,22 @@ create table censorship
 );
 DROP TABLE IF EXISTS `tweet`;
 CREATE TABLE `tweet`  (
-                          `id` bigint(20) NOT NULL AUTO_INCREMENT,                                                      /* Tweet's ID */
-                          `title`   varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-                          `content` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,                           /* content, up to 300 words */
-                          `first_picture` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,    /* Picture's URL in the brief */
-                          `status` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,           /* 禁止恶意发推 */
-                          `views` int(11) NULL DEFAULT NULL,                                                            /* 观看人数 */
-                          `likes` int(11) NOT NULL DEFAULT 0,                                                            /* 点赞数量 */
-                          `commentable` int(11) NOT NULL DEFAULT 0,                                                    /* comment ability */
-                          `published` int(11) NOT NULL DEFAULT 0,                                                       /* is published */
-                          `recommend` int(11) NOT NULL DEFAULT 0,
-                          `create_time` datetime NULL DEFAULT NULL,
-                          `update_time` datetime NULL DEFAULT NULL,
-                          `type_id` bigint(20) NULL DEFAULT NULL,                                                       /* type */
-                          `user_id` bigint(20) NULL DEFAULT NULL,
-                          `tag_ids` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,          /* tag */
-                          PRIMARY KEY (`id`) USING BTREE
+      `id` bigint(20) NOT NULL AUTO_INCREMENT,                                                      /* Tweet's ID */
+      `title`   varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+      `content` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,                           /* content, up to 300 words */
+      `first_picture` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,    /* Picture's URL in the brief */
+      `status` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,           /* 禁止恶意发推 */
+      `views` int(11) NULL DEFAULT NULL,                                                            /* 观看人数 */
+      `likes` int(11) NOT NULL DEFAULT 0,                                                            /* 点赞数量 */
+      `commentable` int(11) NOT NULL DEFAULT 0,                                                    /* comment ability */
+      `published` int(11) NOT NULL DEFAULT 0,                                                       /* is published */
+      `recommend` int(11) NOT NULL DEFAULT 0,
+      `create_time` datetime NULL DEFAULT NULL,
+      `update_time` datetime NULL DEFAULT NULL,
+      `type_id` bigint(20) NULL DEFAULT NULL,                                                       /* type */
+      `user_id` bigint(20) NULL DEFAULT NULL,
+      `tag_ids` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,          /* tag */
+      PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user`  (
@@ -273,21 +273,21 @@ DROP TABLE IF EXISTS `tweet`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tweet` (
-                         `id` bigint NOT NULL AUTO_INCREMENT,
-                         `title` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                         `content` text CHARACTER SET utf8 COLLATE utf8_general_ci,
-                         `first_picture` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                         `status` int DEFAULT NULL,
-                         `views` int DEFAULT NULL,
-                         `likes` int NOT NULL DEFAULT '0',
-                         `commentable` int NOT NULL DEFAULT '0',
-                         `published` int NOT NULL DEFAULT '0',
-                         `create_time` datetime DEFAULT NULL,
-                         `update_time` datetime DEFAULT NULL,
-                         `type_id` bigint DEFAULT NULL,
-                         `user_id` bigint DEFAULT NULL,
-                         `tag_ids` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                         PRIMARY KEY (`id`) USING BTREE
+         `id` bigint NOT NULL AUTO_INCREMENT,
+         `title` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+         `content` text CHARACTER SET utf8 COLLATE utf8_general_ci,
+         `first_picture` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+         `status` int DEFAULT NULL,
+         `views` int DEFAULT NULL,
+         `likes` int NOT NULL DEFAULT '0',
+         `commentable` int NOT NULL DEFAULT '0',
+         `published` int NOT NULL DEFAULT '0',
+         `create_time` datetime DEFAULT NULL,
+         `update_time` datetime DEFAULT NULL,
+         `type_id` bigint DEFAULT NULL,
+         `user_id` bigint DEFAULT NULL,
+         `tag_ids` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+         PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=COMPACT;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

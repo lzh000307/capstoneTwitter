@@ -1,16 +1,16 @@
-spring:            #全局配置
-  thymeleaf:
-    cache: false
+spring:            #Spring配置
+  thymeleaf:       #thymeleaf模板引擎配置
+    cache: false   #禁用缓存
   profiles:
-    active: dev
-  servlet:
-    multipart:
-      location: /Users/elvislin/Documents/temp
-      max-file-size: 1024MB
-      max-request-size: 1024MB
+    active: dev    #开发配置
+  servlet:         #Servlet配置
+    multipart:     #文件上传配置
+      location: /Users/elvislin/Documents/temp  #上传文件的临时存储路径
+      max-file-size: 1024MB        #上传文件的最大大小
+      max-request-size: 1024MB     #上传文件的最大大小
 
-minio:
-  endpoint: http://127.0.0.1:9000
-  accessKey: minioadmin
-  secretKey: minioadmin
-  bucketName: twitter
+minio:             #Minio存储配置
+  endpoint: http://127.0.0.1:9000   #Minio存储服务器地址
+  accessKey: minioadmin             #Minio存储服务器访问密钥
+  secretKey: minioadmin             #Minio存储服务器访问密钥
+  bucketName: twitter               #Minio存储服务器上的存储桶名称

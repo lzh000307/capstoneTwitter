@@ -20,6 +20,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.servlet.http.HttpSession;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -120,6 +121,7 @@ public class InputController {
             //updateTrends: 更新趋势
             trendService.updateTrends(converter.convertStringToTagIds(tweet.getTagIds()), tweet.getId());
         } else {
+            tweet.setUpdateTime(new Date());
             tweetService.updateTweet(tweet);
             trendService.updateTrends(converter.convertStringToTagIds(tweet.getTagIds()), tweet.getId());
         }
@@ -157,6 +159,7 @@ public class InputController {
                 //设置视频（数据库懒得改了）
                 tweet.setFirstPicture(videoUrl);
                 //再次更新
+                tweet.setUpdateTime(new Date());
                 tweetService.updateTweet(tweet);
             }
 //            model.addAttribute("message", "Files uploaded successfully!");
