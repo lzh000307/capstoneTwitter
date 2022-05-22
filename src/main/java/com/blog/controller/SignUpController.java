@@ -34,7 +34,7 @@ public class SignUpController {
                         HttpSession session,
                         RedirectAttributes attributes){
         if(user.getUsername()==null || userService.existUsername(user.getUsername())){
-            attributes.addFlashAttribute("msg","用户名已存在");
+            attributes.addFlashAttribute("msg","用户名已存在，请重新输入");
             return "redirect:/signup";
         }else {
             userService.signUp(user);

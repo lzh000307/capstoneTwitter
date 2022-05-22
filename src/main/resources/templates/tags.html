@@ -17,7 +17,7 @@
       <div class="ui top attached segment">
         <div class="ui middle aligned two column grid">
           <div class="column">
-            <h3 class="ui pink header">标签</h3>
+            <h3 class="ui blue header">标签</h3>
           </div>
           <div class="right aligned column">
             共 <h2 class="ui orange header m-inline-block m-text-thin" th:text="${#arrays.length(tags)}"> 14 </h2> 个
@@ -26,12 +26,12 @@
       </div>
 
       <div class="ui attached segment m-padded-tb-large">
-        <a href="#" th:href="@{/tags/{id}(id=${tag.id})}" class="ui basic left pointing large label m-margin-tb-tiny" th:classappend="${tag.id==activeTagId} ? 'pink'" th:each="tag : ${tags}">
+        <a href="#" th:href="@{/tags/{id}(id=${tag.id})}" class="ui basic left pointing large label m-margin-tb-tiny" th:classappend="${tag.id==activeTagId} ? 'blue'" th:each="tag : ${tags}">
           <span th:text="${tag.name}">方法论</span> <div class="detail" th:text="${tag.blogNum}">23</div>
         </a>
       </div>
 
-      <div class="ui top attached pink segment">
+      <div class="ui top attached blue segment">
         <div class="ui padded vertical segment m-padded-tb-large" th:each="tweetfe : ${pageInfo.list}">
           <div class="ui middle aligned mobile reversed stackable grid">
             <div class="eleven wide column">
@@ -53,7 +53,7 @@
                   </div>
                 </div>
 <!--                <div class="right aligned five wide column">-->
-<!--                  <a href="#" target="_blank" class="ui pink basic label m-padded-tiny m-text-thin" th:text="${blog.type.name}">认知升级</a>-->
+<!--                  <a href="#" target="_blank" class="ui blue basic label m-padded-tiny m-text-thin" th:text="${blog.type.name}">认知升级</a>-->
 <!--                </div>-->
               </div>
             </div>
@@ -64,7 +64,7 @@
             </div>
             <div class="row">
               <div class="column">
-                <a href="#" th:href="@{/tag/{id}(id=${tag.id})}" class="ui basic pink left pointing label m-padded-mini m-text-thin" th:each="tag : ${tweetfe.tags}" th:text="${tag.name}">蹦蹦蹦</a>
+                <a href="#" th:href="@{/tag/{id}(id=${tag.id})}" class="ui basic blue left pointing label m-padded-mini m-text-thin" th:each="tag : ${tweetfe.tags}" th:text="${tag.name}">蹦蹦蹦</a>
               </div>
             </div>
 
@@ -77,10 +77,10 @@
 <!--            <div class="ui bottom attached segment" >-->
 <!--              <div class="ui middle aligned two column grid">-->
 <!--                <div class="column">-->
-<!--                  <div class="item"><a class="ui mini pink basic button" th:href="@{/tags(pageNum=${pageInfo.hasPreviousPage}?${pageInfo.prePage}:1)}">上一页</a></div>-->
+<!--                  <div class="item"><a class="ui mini blue basic button" th:href="@{/tags(pageNum=${pageInfo.hasPreviousPage}?${pageInfo.prePage}:1)}">上一页</a></div>-->
 <!--                </div>-->
 <!--                <div class="right aligned column">-->
-<!--                  <div class="item"><a class="ui mini pink basic button" th:href="@{/tags(pageNum=${pageInfo.hasNextPage}?${pageInfo.nextPage}:${pageInfo.pages})}">下一页</a></div>-->
+<!--                  <div class="item"><a class="ui mini blue basic button" th:href="@{/tags(pageNum=${pageInfo.hasNextPage}?${pageInfo.nextPage}:${pageInfo.pages})}">下一页</a></div>-->
 <!--                </div>-->
 <!--              </div>-->
 <!--            </div>-->

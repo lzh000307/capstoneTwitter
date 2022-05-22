@@ -18,4 +18,6 @@ public interface UserService {
     List<User> getAllUser();
 
     void setStatus(Long id, Integer status);
+
+    void update(User user1);
 }

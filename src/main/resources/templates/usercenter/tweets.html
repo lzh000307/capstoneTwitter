@@ -17,10 +17,10 @@
   <div  class="m-container m-padded-tb-big">
     <div class="ui container">
 
-      <div  class="ui secondary segment form">
+<!--      <div  class="ui secondary segment form">-->
 
       <div id="table-container">
-        <table th:fragment="tweetList" class="ui compact teal table">
+        <table th:fragment="tweetList" class="ui table">
           <thead>
           <tr>
             <th></th>
@@ -70,7 +70,7 @@
           <p >当前第<span th:text="${pageInfo.pageNum}"></span>页，总<span th:text="${pageInfo.pages}"></span>页，共<span th:text="${pageInfo.total}"></span>条记录</p>
         </div>
 
-        <div class="ui success message" >
+        <div th:if="${msg!=null}" class="ui success message" >
           <i class="close icon"></i>
           <div class="header">提示：</div>
           <p th:text="${msg}">恭喜，操作成功！</p>
@@ -80,15 +80,16 @@
 
     </div>
   </div>
-  </div>
+<!--  </div>-->
 
   <br>
   <br>
+
 
   <!--底部footer-->
-  <footer th:replace="_fragments :: footer">
-
-  </footer>
+  <footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive"></footer>
+  <!--导入的script-->
+  <th:block th:replace="_fragments :: script"></th:block>
 
   <th:block th:replace="_fragments :: script">
 

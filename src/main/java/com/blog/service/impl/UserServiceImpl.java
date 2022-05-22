@@ -85,4 +85,17 @@ public class UserServiceImpl implements UserService {
             tweetService.updateStatusByUserId(id, originStatus, status);
         }
     }
+
+    @Override
+    public void update(User user1) {
+        User user = userDao.findById(user1.getId());
+        if(user!=null){
+            user.setNickname(user1.getNickname());
+            user.setAvatar(user1.getAvatar());
+            user.setUpdateTime(new Date());
+            user.setPhoneNumber(user1.getPhoneNumber());
+            user.setEmail(user1.getEmail());
+            userDao.updateUser(user);
+        }
+    }
 }

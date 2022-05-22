@@ -102,6 +102,7 @@ public class InputController {
 
     @PostMapping("/") //新增、编辑博客
     public String addTweet(@RequestParam("files") MultipartFile[] files, @RequestParam("video") MultipartFile video, Tweet tweet, HttpSession session, RedirectAttributes attributes, Model model){
+        boolean isNew = false;
         //设置user属性
         User user = (User) session.getAttribute("user"); //获取session中的user
         if(user.getId()==null){
@@ -112,6 +113,7 @@ public class InputController {
         //设置权限类别
         tweet.setStatus(user.getStatus());
         if (tweet.getId() == null) {   //id为空，则为新增
+            isNew = true;
             tweetService.saveTweet(tweet);
             //getTagIds: 从前端传回的String类型，like 1,2,3
             //convertToTagIds: 将String类型转换为List<Long>类型
@@ -157,14 +159,17 @@ public class InputController {
                 //再次更新
                 tweetService.updateTweet(tweet);
             }
-            model.addAttribute("message", "Files uploaded successfully!");
+//            model.addAttribute("message", "Files uploaded successfully!");
 //            model.addAttribute("files", fileUrls);
         } catch (Exception e) {
-            model.addAttribute("message", "Fail!");
+//            model.addAttribute("message", "Fail!");
 //            model.addAttribute("files", fileUrls);
         }
-        attributes.addFlashAttribute("msg", "新增成功");
-        return "redirect:/";
+        attributes.addFlashAttribute("msg", "编辑成功");
+        if(isNew) {
+            return "redirect:/";
+        }else
+            return "redirect:/usercenter/tweets";
     }
 
     @PostMapping("/imgUpload")
