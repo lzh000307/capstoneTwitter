@@ -55,25 +55,38 @@ public class UserCollectionController {
     }
 
     @GetMapping("/user/collections")  //显示自己的收藏列表
-    public String collectionsManagement(@RequestParam(required = false,defaultValue = "1",value = "pagenum")int pagenum, Model model, HttpSession session){
+    public String collectionsManagement(/*@RequestParam(required = false,defaultValue = "1",value = "pagenum")int pagenum, */Model model, HttpSession session){
         User user = (User) session.getAttribute("user");
         if(user == null){
             return "redirect:/login";
         }
-        PageHelper.startPage(pagenum, 8);
-        //取得收藏列表
-        List<UserCollection> userCollections = userCollectionService.getUserCollections(user.getId());
+//        PageHelper.startPage(pagenum, 8);
         //通过收藏列表得到推文列表
-        List<Tweet> collectTweet = new ArrayList<>();
-        for(UserCollection userCollection : userCollections){
-            collectTweet.add(tweetService.getTweet(userCollection.getTweetId()));
-        }
-        //得到分页结果对象
+        List<Tweet> collectTweet = userCollectionService.getUserCollectionTweets(user.getId());
         List<TweetFrontEnd> tweetfes = tweetFrontEndConvector.convertToTweetFrontEnd(collectTweet);
         PageInfo pageInfo = new PageInfo(tweetfes);
         model.addAttribute("pageInfo", pageInfo);
         setTypeAndTag(model);  //查询类型和标签
         return "usercollections";
+    }
+
+    /**
+     * 土方法，我知道这个方法有重复，为了跳转...有时间再设置get跳转
+     * @param id
+     * @param session
+     * @return
+     */
+    @GetMapping("/user/collections/delete/{id}")
+    public String deleteCollection(@PathVariable Long id, HttpSession session){
+        User user = (User) session.getAttribute("user");
+        if (user == null) {
+            return "redirect:/login";
+        }
+        //如果已经收藏，则取消收藏
+        if(userCollectionService.isUserCollection(user.getId(), id)){
+            userCollectionService.deleteUserCollection(user.getId(), id);
+        }
+        return "redirect:/usercollections";
     }
 
 

@@ -2,10 +2,7 @@ package com.blog.dao;
 
 import com.blog.pojo.Like;
 import com.blog.pojo.UserCollection;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -53,5 +50,6 @@ public interface UserCollectionDao {
 
     @Select("select * from `user_collection` where user_id = #{userId}")
     List<UserCollection> getByUserId(@Param("userId") Long userId);
-
+    @Delete("delete from `user_collection` where tweet_id = #{tweetId}")
+    int deleteByTweetId(Long tweetId);
 }

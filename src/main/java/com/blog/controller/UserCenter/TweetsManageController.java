@@ -53,14 +53,9 @@ public class TweetsManageController {
         if(user == null){
             return "redirect:/login";
         }
-        PageHelper.startPage(pagenum, 8);
-        //取得收藏列表
-        List<UserCollection> userCollections = userCollectionService.getUserCollections(user.getId());
+        PageHelper.startPage(pagenum, 10);
         //通过收藏列表得到推文列表
-        List<Tweet> collectTweet = new ArrayList<>();
-        for(UserCollection userCollection : userCollections){
-            collectTweet.add(tweetService.getTweet(userCollection.getTweetId()));
-        }
+        List<Tweet> collectTweet = userCollectionService.getUserCollectionTweets(user.getId());
         //得到分页结果对象
         PageInfo pageInfo = new PageInfo(collectTweet);
         model.addAttribute("pageInfo", pageInfo);
@@ -87,17 +82,4 @@ public class TweetsManageController {
         }
         return "redirect:/usercenter/collections";
     }
-
-
-//    @PostMapping("/blogs/search")  //按条件查询博客
-//    public String searchBlogs(Blog blog, @RequestParam(required = false,defaultValue = "1",value = "pagenum")int pagenum, Model model){
-//        PageHelper.startPage(pagenum, 5);
-//        List<Tweet> allTweet = tweetService.searchAllTweet(tweet);
-//        //得到分页结果对象
-//        PageInfo pageInfo = new PageInfo(allTweet);
-//        model.addAttribute("pageInfo", pageInfo);
-//        model.addAttribute("message", "查询成功");
-//        setTypeAndTag(model);
-//        return "admin/blogs";
-//    }
 }

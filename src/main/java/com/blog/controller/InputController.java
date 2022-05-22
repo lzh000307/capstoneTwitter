@@ -93,6 +93,7 @@ public class InputController {
         if(tweet.getUserId().equals(user.getId())) {
             tweetService.deleteTweet(id);
             trendService.deleteByTweetId(id);
+            userCollectionService.deleteByTweetId(id);
             attributes.addFlashAttribute("msg", "删除成功");
             return "redirect:/usercenter/tweets";
         }

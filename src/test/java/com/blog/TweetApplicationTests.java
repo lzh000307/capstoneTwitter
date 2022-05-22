@@ -1,7 +1,6 @@
 package com.blog;
 
 import com.blog.dao.TweetDao;
-import com.blog.dao.TweetDao2;
 import com.blog.pojo.Tweet;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
