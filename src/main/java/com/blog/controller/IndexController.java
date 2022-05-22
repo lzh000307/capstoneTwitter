@@ -52,7 +52,7 @@ public class IndexController {
     public String search(@RequestParam(required = false,defaultValue = "1",value = "pagenum")int pagenum,
                          @RequestParam String query, Model model){
 
-        PageHelper.startPage(pagenum, 8);
+//        PageHelper.startPage(pagenum, 8);
         Tweet temp = new Tweet();
         temp.setContent(query);
         temp.setTitle(query);

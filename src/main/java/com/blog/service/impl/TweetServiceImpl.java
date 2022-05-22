@@ -34,6 +34,7 @@ public class TweetServiceImpl implements TweetService {
     @Override
     public List<Tweet> searchAllTweet(Tweet tweet) {
         return tweetDao.searchAllTweet(tweet);
+
     }
 
     @Override

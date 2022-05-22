@@ -145,18 +145,27 @@
         delete from blog_mb.tweet where id = #{id}
     </delete>
 
+<!--    <select id="searchAllTweet" parameterType="Tweet" resultMap="BaseResultMap">-->
+<!--        <bind name="pattern" value="'%' + title + '%'" />    /*模糊查询*/-->
+<!--        select *-->
+<!--        from tweet b-->
+<!--        <where>-->
+<!--            <if test="title != null">-->
+<!--                and b.title like #{pattern}-->
+<!--            </if>-->
+<!--            <if test="content != null">-->
+<!--                and b.content like #{pattern}-->
+<!--            </if>-->
+<!--                and status &lt; 2000 and published = 1-->
+<!--        </where>-->
+<!--    </select>-->
+
+
     <select id="searchAllTweet" parameterType="Tweet" resultMap="BaseResultMap">
         <bind name="pattern" value="'%' + title + '%'" />    /*模糊查询*/
         select *
-        from tweet b
-        <where>
-            <if test="title != null">
-                and b.title like #{pattern}   /*根据博客title模糊查询*/
-            </if>
-            <if test="content != null">
-                and b.content like #{pattern}   /*根据博客title模糊查询*/
-            </if>
-        </where>
+        from tweet
+        where (title like #{pattern} or content like #{pattern}) and status &lt; 2000 and published = 1
     </select>
 
 <!--    select b.id, b.title, b.first_picture, b.views, b.update_time, b.content, b.likes, b.status, b.user_id-->

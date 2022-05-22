@@ -12,15 +12,6 @@
 
   </nav>
 
-<!--  <div class="ui attached pointing menu">-->
-<!--    <div class="ui container">-->
-<!--      <div class="right menu">-->
-<!--        <a href="#" th:href="@{/admin/blogs/input}" class=" item">发布</a>-->
-<!--        <a href="#" th:href="@{/admin/blogs}" class="teal active item">列表</a>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-
 
   <!--中间内容-->
   <div  class="m-container m-padded-tb-big">
@@ -52,7 +43,7 @@
 <!--            <td th:text="${tweet.type.name}">认知升级</td>-->
             <td th:text="${tweet.commentable} ? '可评论':'不可评论'">是</td>
             <td th:text="${tweet.published} ? '所有人可见':'仅自己可见'">发布</td>
-            <td th:text="${tweet.status<2000} ? '正常':'触发敏感词屏蔽'">发布</td>
+            <td th:text="${tweet.status<2000} ? '正常':'被屏蔽'">发布</td>
             <td th:text="${#dates.format(tweet.updateTime,'yyyy-MM-dd')}">2020-3-02</td>
             <td>
               <a href="#" th:href="@{/tweet/{id}/edit(id=${tweet.id})}" class="ui mini teal basic button">编辑</a>
