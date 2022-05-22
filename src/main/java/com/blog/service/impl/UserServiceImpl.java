@@ -98,4 +98,14 @@ public class UserServiceImpl implements UserService {
             userDao.updateUser(user);
         }
     }
+
+    @Override
+    public void changePswd(Long id, String newpswd) {
+        User user = userDao.findById(id);
+        if(user!=null){
+            user.setPassword(MD5Utils.code(newpswd));
+            user.setUpdateTime(new Date());
+            userDao.updatePassword(user);
+        }
+    }
 }

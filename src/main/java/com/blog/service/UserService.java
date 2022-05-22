@@ -20,4 +20,6 @@ public interface UserService {
     void setStatus(Long id, Integer status);
 
     void update(User user1);
+
+    void changePswd(Long id, String newpswd);
 }

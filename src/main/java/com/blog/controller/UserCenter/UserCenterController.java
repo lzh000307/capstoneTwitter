@@ -76,4 +76,27 @@ public class UserCenterController {
         session.setAttribute("user", user1);
         return "redirect:/user/center";
     }
+    @PostMapping("/user/changepswd")
+    public String userChangePswd(@RequestParam("legacy_password") String oldpswd,
+                                 @RequestParam("new_password") String newpswd, @RequestParam("repeat") String repeat,
+                                 HttpSession session, RedirectAttributes attributes) {
+        // 获取当前登录用户
+        User user_now = (User) session.getAttribute("user");
+        User user = userService.checkUser(user_now.getUsername(), oldpswd);
+        //密码错误
+        if(user == null){
+            attributes.addFlashAttribute("msg_n", "用户名或密码错误");
+            return "redirect:/user/changepasswd";
+        }
+        //密码一致
+        //确认输入的密码不一致
+        if(!newpswd.equals(repeat)){
+            attributes.addFlashAttribute("msg_n", "两次输入的新密码不一致");
+            return "redirect:/user/changepasswd";
+        }
+        //更改密码
+        userService.changePswd(user_now.getId(), newpswd);
+        attributes.addFlashAttribute("msg", "密码修改成功");
+        return "redirect:/user/changepasswd";
+    }
 }

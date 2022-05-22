@@ -1,10 +1,7 @@
 package com.blog.dao;
 
 import com.blog.pojo.User;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -49,4 +46,9 @@ public interface UserDao {
 
     @Select("select * from user where id = #{id}")
     User getById(Long id);
+
+    @Update("update user set password = #{password}, update_time = #{updateTime} where id = #{id}")
+    int updatePassword(User user);
+
+
 }
