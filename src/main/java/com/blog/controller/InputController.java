@@ -1,6 +1,5 @@
 package com.blog.controller;
 
-import com.blog.controller.entity.TweetForm;
 import com.blog.pojo.Tweet;
 import com.blog.pojo.User;
 import com.blog.service.*;
@@ -102,7 +101,7 @@ public class InputController {
     }
 
     @PostMapping("/") //新增、编辑博客
-    public String addTweet(@RequestParam("files") MultipartFile[] files, @RequestParam("video") MultipartFile video, Tweet tweet, HttpSession session, RedirectAttributes attributes, Model model){
+    public String addTweet(@RequestParam("files") MultipartFile[] files, @RequestParam("video") MultipartFile video, Tweet tweet, HttpSession session, RedirectAttributes attributes){
         boolean isNew = false;
         //设置user属性
         User user = (User) session.getAttribute("user"); //获取session中的user

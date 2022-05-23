@@ -31,23 +31,6 @@
                 </div>
             </div>
         </div>
-
-<!--        <div class="ui attached segment">-->
-<!--            &lt;!&ndash;图片区域&ndash;&gt;-->
-<!--            &lt;!&ndash;1张图&ndash;&gt;-->
-<!--            <img th:if="${tweetfe.imgNum<2}" src="../static/images/bg1.jpeg" th:src="@{${tweetfe.tweet.firstPicture}}" alt="" class="ui fluid rounded image">-->
-<!--            &lt;!&ndash;            2站图&ndash;&gt;-->
-<!--            <div th:if="${tweetfe.imgNum==2}" class="ui two column grid">-->
-<!--                <div class="ui small images" th:each="img : ${tweetfe.imgUnits}">-->
-<!--                    <img src="../static/images/bg1.jpeg" th:src="@{${img}}" alt="" class="ui fluid rounded image">-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            &lt;!&ndash;            3站图&ndash;&gt;-->
-<!--            <div th:if="${tweetfe.imgNum==3}"  class="ui small rounded images">-->
-<!--                <img  th:each="img : ${tweetfe.imgUnits}" src="../static/images/bg1.jpeg" th:src="@{${img}}" alt="" class="ui rounded image">-->
-<!--            </div>-->
-
-<!--        </div>-->
         <div th:if="${tweetfe.tweet.firstPicture!=null}" class="ui attached segment">
             <!--视频区域-->
             <video style="text-align: center" align="center"width="800" height="550" controls>
@@ -66,12 +49,7 @@
             <h2 class="ui center aligned header" th:text="${tweetfe.tweet.title}">关于刻意练习的清单</h2>
             <br>
 
-            <!--中间主要内容部分-->
-<!--            <div class="ui attached padded segment">-->
-<!--            <div id="content" class="content" th:text="${tweetfe.tweet.content}"></div>-->
-<!--            </div>-->
             <div id="content" class="typo  typo-selection js-toc-content m-padded-lr-responsive m-padded-tb-large" th:text="${tweetfe.tweet.content}"></div>
-
 
             <!--标签-->
             <div class="m-padded-lr-responsive">
@@ -217,35 +195,6 @@
 
 <script th:inline="javascript">
 
-
-    //评论表单验证
-    $('.ui.form').form({
-        fields: {
-            title: {
-                identifier: 'content',
-                rules: [{
-                    type: 'empty',
-                    prompt: '请输入评论内容'
-                }
-                ]
-            },
-            content: {
-                identifier: 'nickname',
-                rules: [{
-                    type: 'empty',
-                    prompt: '请输入你的大名'
-                }]
-            },
-            type: {
-                identifier: 'email',
-                rules: [{
-                    type: 'email',
-                    prompt: '请填写正确的邮箱地址'
-                }]
-            }
-        }
-    });
-
     $(function () {
         $("#comment-container").load(/*[[@{/comments/{id}(id=${tweetfe.tweet.id})}]]*/"comments/6");
     });
@@ -263,18 +212,6 @@
 
     });
 
-    //     function postData() {
-    //         $("#comment-container").load(/*[[@{/comments}]]*/"",{
-    //             "parentComment.id" : $("[name='parentComment.id']").val(),
-    //             "blog.id" : $("[name='blog.id']").val(),
-    //             "nickname": $("[name='nickname']").val(),
-    //             "email"   : $("[name='email']").val(),
-    //             "content" : $("[name='content']").val()
-    //         },function (responseTxt, statusTxt, xhr) {
-    // //        $(window).scrollTo($('#comment-container'),500);
-    //             clearContent();
-    //         });
-    //     }
     function postData() {
         $("#comment-container").load(/*[[@{/comments}]]*/"",{
             "parentCommentId" : $("[name='parentCommentId']").val(),

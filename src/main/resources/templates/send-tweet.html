@@ -91,25 +91,12 @@
           <button type="button" id="save-btn" class="ui secondary button">仅自己可见</button>
           <button type="button" id="publish-btn" class="ui teal button">所有人可见</button>
         </div>
-
-<!--          <form method="POST" enctype="multipart/form-data" id="fileUploadForm" action="imgUpload"> /tweet/ -->
-<!--              <div class="form-group">-->
-                  <!--<label class="control-label" for="files">Upload Multiple Files:</label>-->
-<!--                  <input type="file" class="form-control" id="files" placeholder="Upload Multiple Files" name="files" multiple="">-->
-<!--              </div>-->
-<!--              <button type="submit" class="btn btn-default" id="btnSubmit">Upload</button>-->
-<!--          </form>-->
           <div th:if="${message}">
               <strong><span th:text="${message}"></span></strong>
               <hr>
           </div>
       </form>
 
-<!--      <div class="sixteen wide column">-->
-<!--          <div class="ui small images"  style="text-align:center;">-->
-<!--            <img src="" th:each="img : ${legacyImg}" th:src="@{${img}}">-->
-<!--          </div>-->
-<!--      </div>-->
 
     </div>
   </div>
@@ -155,27 +142,6 @@
           rules: [{
             type : 'empty',
             prompt: '标题：请输入博客标题'
-          }]
-        },
-        // content : {
-        //   identifier: 'content',
-        //   rules: [{
-        //     type : 'empty',
-        //     prompt: '标题：请输入博客内容'
-        //   }]
-        // },
-        // typeId : {
-        //   identifier: 'type.id',
-        //   rules: [{
-        //     type : 'empty',
-        //     prompt: '标题：请输入博客分类'
-        //   }]
-        // },
-        firstPicture : {
-          identifier: 'firstPicture',
-          rules: [{
-            type : 'empty',
-            prompt: '标题：请输入推文首图'
           }]
         },
           content : {

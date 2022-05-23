@@ -26,9 +26,9 @@ public interface TweetService {
 
     List<Tweet> getTweetsByUserId(Long userId); //获取某个用户的微博
     //根据userid来更新微博status，用于实现一键屏蔽封禁用户推文的功能
-    public void updateStatusByUserId(Long userId, Integer originStatus, Integer afterStatus);
+    void updateStatusByUserId(Long userId, Integer originStatus, Integer afterStatus);
     //供censorshipService调用，实现屏蔽推文
-    public void censorshipAPI(Censorship censorship);
+    void censorshipAPI(Censorship censorship);
     //移除敏感词的时候调用，此方法会先解除标记为该
-    public void removeCensorship(int id);
+    void removeCensorship(int id);
 }
