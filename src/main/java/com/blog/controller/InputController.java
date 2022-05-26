@@ -120,7 +120,12 @@ public class InputController {
             //updateTrends: 更新趋势
             trendService.updateTrends(converter.convertStringToTagIds(tweet.getTagIds()), tweet.getId());
         } else {
+            //如果是已经存在的tweet
             tweet.setUpdateTime(new Date());
+            //点赞设置为空，不然会重置点赞数
+            tweet.setLikes(null);
+            //观看次数设置为空
+            tweet.setViews(null);
             tweetService.updateTweet(tweet);
             trendService.updateTrends(converter.convertStringToTagIds(tweet.getTagIds()), tweet.getId());
         }
