@@ -26,7 +26,7 @@ public class TweetServiceImpl implements TweetService {
     public Tweet getTweet(Long id) {
         Tweet tweet = tweetDao.queryById(id);
         if(tweet==null){
-            throw new NotFoundException("该推文不存在");
+//            throw new NotFoundException("该推文不存在");
         }
         return tweet;
     }

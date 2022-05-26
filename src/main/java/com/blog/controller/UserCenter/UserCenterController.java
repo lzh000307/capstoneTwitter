@@ -22,7 +22,7 @@ import java.util.List;
 public class UserCenterController {
     @Autowired
     private MinioUtilS minioUtilS;
-    @Value("${minio.endpoint}")
+    @Value("${miniopath}")
     private String address;
     @Value("${minio.bucketName}")
     private String bucketName;

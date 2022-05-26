@@ -14,3 +14,5 @@ minio:             #Minio存储配置
   accessKey: minioadmin             #Minio存储服务器访问密钥
   secretKey: minioadmin             #Minio存储服务器访问密钥
   bucketName: twitter               #Minio存储服务器上的存储桶名称
+#  endpoint: http://144.172.68.90:9000   #Minio存储服务器地址
+miniopath: http://bucket.linzh.live:9000

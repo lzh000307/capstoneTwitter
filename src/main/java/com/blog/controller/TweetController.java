@@ -88,6 +88,9 @@ public class TweetController {
         User user = (User) session.getAttribute("user");
         //判断是否被屏蔽，以及是否仅自己可见
         Tweet tweet = tweetService.getTweet(id);
+        if(tweet==null){
+            return "redirect:/error/404";
+        }
         Integer status = tweet.getStatus();
         if(status > 2000 || tweet.isPublished()==false){
             if(user == null || !user.getId().equals(tweet.getUserId())){

@@ -92,12 +92,12 @@
                         <h3 class="ui dividing header">评论</h3>
                         <div class="comment" th:each="commentfe : ${comments}">
                             <a class="avatar">
-                                <img src="https://unsplash.it/100/100?image=1005" th:src="@{${commentfe.user.avatar}}">
+                                <img src="" th:src="@{${commentfe.user.avatar}}">
                             </a>
                             <div class="content">
                                 <a class="author" >
                                     <span th:text="${commentfe.user.nickname}">Matt</span>
-                                    <div class="ui mini basic teal left pointing label m-padded-mini" th:if="${commentfe.user.status==100}">博主</div>
+                                    <div class="ui mini basic teal left pointing label m-padded-mini" th:if="${commentfe.user.status==1000}">管理员</div>
                                 </a>
                                 <div class="metadata">
                                     <span class="date" th:text="${#dates.format(commentfe.comment.createTime,'yyyy-MM-dd HH:mm')}">Today at 5:42PM</span>
@@ -120,7 +120,7 @@
                                         <span class="author" >
 <!--                                            回复的用户-->
                                             <span th:text="${reply.user.nickname}">小红</span>
-                                            <div class="ui mini basic teal left pointing label m-padded-mini" th:if="${reply.user.status==100}">博主</div>
+                                            <div class="ui mini basic teal left pointing label m-padded-mini" th:if="${reply.user.status==1000}">管理员</div>
                                             &nbsp;<span>回复了</span></span><span th:text="| @ ${reply.replyUsername}|" class="m-teal">@ 小白</span>
                                         </a>
                                         <div class="metadata">
@@ -149,7 +149,7 @@
                 <input type="hidden" name="tweetId" th:value="${tweetfe.tweet.id}">
                 <input type="hidden" name="parentCommentId" value="-1">
                 <div class="field">
-                    <textarea name="content" placeholder="请输入评论信息..."></textarea>
+                    <textarea name="content" placeholder="请输入评论信息..." maxlength="100"></textarea>
                 </div>
                 <div class="fields">
                     <div class="field  m-margin-bottom-small m-mobile-wide">
@@ -162,17 +162,6 @@
 
     </div>
 </div>
-
-<!--右下角浮动的图标-->
-<div id="toolbar" class="m-padded m-fixed m-right-bottom" style="display: none">
-    <div class="ui vertical icon buttons ">
-        <button type="button" class="ui toc pink button" >目录</button>
-        <a href="#comment-container" class="ui pink button" >留言</a>
-        <button class="ui wechat icon button"><i class="weixin icon"></i></button>
-        <div id="toTop-button" class="ui icon button" ><i class="chevron up icon"></i></div>
-    </div>
-</div>
-
 <div class="ui toc-container flowing popup transition hidden" style="width: 250px!important;">
     <ol class="js-toc">
 

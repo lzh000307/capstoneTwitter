@@ -42,7 +42,7 @@ public class InputController {
     private TweetFrontEndConvector tweetFrontEndConvector;
     @Autowired
     private MinioUtilS minioUtilS;
-    @Value("${minio.endpoint}")
+    @Value("${miniopath}")
     private String address;
     @Value("${minio.bucketName}")
     private String bucketName;
